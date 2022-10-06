@@ -2,14 +2,16 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
-public class Persoon implements Comparable<Persoon> {
-
+public class Persoon  {
+	
+	// Variabelen
 	private Integer id;
-
 	private String naam;
 	private String email;  
 	private String tussenvoegsel;
 	private String achternaam;
+	
+	// Getters and Setters
 	public int getId() {
 		return id;
 	}
@@ -41,12 +43,12 @@ public class Persoon implements Comparable<Persoon> {
 		this.achternaam = achternaam;
 	}
 	
-	// pas aan, niet genereren!
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(achternaam, email, id, naam, tussenvoegsel);
+		return Objects.hash(id);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -56,9 +58,7 @@ public class Persoon implements Comparable<Persoon> {
 		if (getClass() != obj.getClass())
 			return false;
 		Persoon other = (Persoon) obj;
-		return Objects.equals(achternaam, other.achternaam) && Objects.equals(email, other.email)
-				&& Objects.equals(id, other.id) && Objects.equals(naam, other.naam)
-				&& Objects.equals(tussenvoegsel, other.tussenvoegsel);
+		return Objects.equals(id, other.id);
 	}
 	@Override
 	public String toString() {
@@ -66,11 +66,6 @@ public class Persoon implements Comparable<Persoon> {
 				+ ", achternaam=" + achternaam + "]";
 	} 
 	
-	@Override
-	public int compareTo(Persoon other) {
-		
-		return id.compareTo(other.id);
-	}
 	
 	
 	
