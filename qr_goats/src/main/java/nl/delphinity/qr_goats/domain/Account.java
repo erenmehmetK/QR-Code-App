@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Account implements Comparable<Account> {
 
-	private int id;
+	private Integer id;
 	private String wachtwoord;
 	
 	
@@ -47,8 +47,8 @@ public class Account implements Comparable<Account> {
 	}
 
 	@Override
-	public int compareTo(Account o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Account other) {
+		return id.compareTo(other.id);
+
 	}
 }

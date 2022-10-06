@@ -2,9 +2,10 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
-public class Persoon {
+public class Persoon implements Comparable<Persoon> {
 
-	private int id;
+	private Integer id;
+
 	private String naam;
 	private String email;  
 	private String tussenvoegsel;
@@ -40,5 +41,38 @@ public class Persoon {
 		this.achternaam = achternaam;
 	}
 	
+	// pas aan, niet genereren!
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(achternaam, email, id, naam, tussenvoegsel);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persoon other = (Persoon) obj;
+		return Objects.equals(achternaam, other.achternaam) && Objects.equals(email, other.email)
+				&& Objects.equals(id, other.id) && Objects.equals(naam, other.naam)
+				&& Objects.equals(tussenvoegsel, other.tussenvoegsel);
+	}
+	@Override
+	public String toString() {
+		return "Persoon [id=" + id + ", naam=" + naam + ", email=" + email + ", tussenvoegsel=" + tussenvoegsel
+				+ ", achternaam=" + achternaam + "]";
+	} 
+	
+	@Override
+	public int compareTo(Persoon other) {
+		
+		return id.compareTo(other.id);
+	}
+	
+	
+	
+
 }
