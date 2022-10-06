@@ -1,3 +1,10 @@
+#ignore file
+src/main/resources/hibernate.properties
+src/main/resources/hibernateLIVE.properties
+src/main/resources/hibernateSTAGING.properties
+bin/
+/target/
+
 #Ignore binaries:
 *.class
 
@@ -22,10 +29,3 @@ Servers/*
 target/*
 log/*
 */target/
-
-bin/
-/target/
-
-#IntelliJ
-.idea/*
-pasimo.iml
