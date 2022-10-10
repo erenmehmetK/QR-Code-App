@@ -1,11 +1,14 @@
 package nl.delphinity.qr_goats.domain;
 
-import java.util.Objects;
-
-import javax.print.attribute.standard.MediaSize.Other;
 
 public class Student extends Persoon {
 	
+	public Student(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
+		super(id, naam, email, tussenvoegsel, achternaam);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	private String studentenNR;
 
 
@@ -18,10 +21,17 @@ public class Student extends Persoon {
 	}	
 	
 	
-	@Override
+	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor treesets sorteren
+
 	public int compareTo(Student other) {
 		
 		return studentenNR.compareTo(other.studentenNR);
 	}
+	
+	
+
+	
+	
+	
 }
 
