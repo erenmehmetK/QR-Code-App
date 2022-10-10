@@ -60,13 +60,13 @@ public class Persoon implements Comparable<Persoon> {
 	
 	
 	
-	//hasht de id zodat het object vergelijkbaar is
+	//hashed de id zodat het object vergelijkbaar is
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
 	
-	//returnt een boolean gebaseerd op als het object gelijk is 
+	//returned een boolean gebaseerd op als het object gelijk is 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -79,7 +79,7 @@ public class Persoon implements Comparable<Persoon> {
 		return Objects.equals(id, other.id);
 	}
 	
-	// returnt waardes van persoon variabelen als een string
+	// returned waardes van persoon variabelen als een string
 	@Override
 	public String toString() {
 		return "Persoon [id=" + id + ", naam=" + naam + ", email=" + email + ", tussenvoegsel=" + tussenvoegsel
