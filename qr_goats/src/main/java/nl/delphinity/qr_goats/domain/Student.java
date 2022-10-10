@@ -27,11 +27,5 @@ public class Student extends Persoon {
 		
 		return studentenNR.compareTo(other.studentenNR);
 	}
-	
-	
-
-	
-	
-	
 }
 

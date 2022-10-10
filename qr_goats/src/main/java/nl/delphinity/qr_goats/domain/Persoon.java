@@ -94,10 +94,4 @@ public class Persoon implements Comparable<Persoon> {
 	public static void main(String[] args) {
 		
 	}
-	
-	
-	
-	
-	
-
 }
