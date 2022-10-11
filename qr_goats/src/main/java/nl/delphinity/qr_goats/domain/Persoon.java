@@ -16,7 +16,6 @@ public class Persoon implements Comparable<Persoon> {
 	private String achternaam;
 	
 	
-	
 	public Persoon(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
 		super();
 		this.id = id;
@@ -89,9 +88,5 @@ public class Persoon implements Comparable<Persoon> {
 	
 	public int compareTo(Persoon other) {
 		return naam.compareTo(other.naam);
-	}
-
-	public static void main(String[] args) {
-		
 	}
 }
