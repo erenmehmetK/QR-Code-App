@@ -146,6 +146,7 @@
             </div>
             
             <button type="submit" class="btn btn-primary">Melden</button>
+            </form>
             </div>
         </div>
         
