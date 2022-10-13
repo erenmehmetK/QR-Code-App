@@ -54,6 +54,5 @@ public class Account implements Comparable<Account> {
 	@Override
 	public int compareTo(Account other) {
 		return id.compareTo(other.id);
-
 	}
 }
