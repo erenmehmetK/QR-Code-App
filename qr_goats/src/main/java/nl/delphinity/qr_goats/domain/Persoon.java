@@ -1,21 +1,39 @@
 package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
+@Entity
+@Table(name="persoon")
 public class Persoon implements Comparable<Persoon> {
 	
 	// Variabelen
 	
 	// unieke identifier voor persoon
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	
-	
+	@Column(name = "voornaam", length = 150, nullable =  false)
 	private String naam;
+	@Column(name = "email", unique = true, nullable = false, length = 100)
 	private String email;  
+	@Column(name = "tussenvoegsel", length = 150, nullable =  true)
 	private String tussenvoegsel;
+	@Column(name = "achternaam", length = 150, nullable =  false)
 	private String achternaam;
 	
 	
+	public Persoon() {
+		
+	}
 	
 	public Persoon(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
 		super();
@@ -88,7 +106,7 @@ public class Persoon implements Comparable<Persoon> {
 	
 	
 	public int compareTo(Persoon other) {
-		return naam.compareTo(other.naam);
+		return email.compareTo(other.email);
 	}
 
 	public static void main(String[] args) {

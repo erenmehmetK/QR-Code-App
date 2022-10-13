@@ -7,6 +7,7 @@ public class Student extends Persoon {
 		super(id, naam, email, tussenvoegsel, achternaam);
 		// TODO Auto-generated constructor stub
 	}
+	
 
 
 	private String studentenNR;
