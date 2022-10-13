@@ -106,10 +106,7 @@ public class Persoon implements Comparable<Persoon> {
 	
 	
 	public int compareTo(Persoon other) {
-		return email.compareTo(other.email);
+		return naam.compareTo(other.naam);
 	}
 
-	public static void main(String[] args) {
-		
-	}
 }
