@@ -57,25 +57,20 @@
                                 // maak ziek melden div zichtbaar
                                 document.getElementById("telaatmelden").style.display = "none";
                                 document.getElementById("ziekmelden").style.display = "block";
-                            // verander de hoogte van de site gebaseerd op de inhoud
-                                document.documentElement.style.setProperty('--height', 'null');
+
                                 
                             }else if(selectie === "Kies een optie...") {
                                 // maak melding menus ontzichtbaar
                                 document.getElementById("telaatmelden").style.display = "none";
                                 document.getElementById("ziekmelden").style.display = "none";
-                                // verander de hoogte van de site gebaseerd op de inhoud, dit is voor het resetten van hoogte.
-                                document.documentElement.style.setProperty('--height', '100vh');
-                                
+
                                 
                             } 
                             else {
                 // maak te laat melden zichtbaar 
                                 document.getElementById("telaatmelden").style.display = "block";
                                 document.getElementById("ziekmelden").style.display = "none";
-                                // verander de hoogte van de site gebaseerd op de inhoud
-                                document.documentElement.style.setProperty('--height', 'null');
-                                
+
                             }
                         }
                         
