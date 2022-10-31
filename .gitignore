@@ -18,3 +18,9 @@ qr_goats/.settings/org.eclipse.wst.validation.prefs
 qr_goats/bin/.gitignore
 qr_goats/bin/pom.xml
 qr_goats/bin/src/main/webapp/index.jsp
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.settings/org.eclipse.m2e.core.prefs
+.classpath
+.project
+.settings/org.eclipse.jdt.core.prefs
+pom.xml
