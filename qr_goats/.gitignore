@@ -13,8 +13,6 @@ RemoteSystemsTempFiles/*
 Server/*
 .recommenders/*
 Servers/*
-
-# Eclipse
 .classpath
 .project
 .settings/
@@ -25,9 +23,4 @@ log/*
 */target/
 
 bin/
-/target/
-
-#Struts-2 / hibernate
-/resources/*
-/webapp/*
-/persistence/*
+/target/    
