@@ -2,7 +2,8 @@
 *.class
 
 #Ignore Jar files:
-*.jar
+*.*-)+j
+ar
 *.war
 *.ear
 
@@ -26,6 +27,5 @@ log/*
 bin/
 /target/
 
-#IntelliJ
-.idea/*
-pasimo.iml
+#Struts-2
+ 
