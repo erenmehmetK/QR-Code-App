@@ -27,5 +27,7 @@ log/*
 bin/
 /target/
 
-#Struts-2
- 
+#Struts-2 / hibernate
+*/resources/
+*/webapp/
+*/persistence/
