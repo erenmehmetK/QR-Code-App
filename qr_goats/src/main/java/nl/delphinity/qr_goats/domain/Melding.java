@@ -10,6 +10,7 @@ public class Melding implements Comparable<Melding>{
 		private String opmerking;
 		private Student student;
 		
+		//to declare in constructor 
 		enum TYPE{
 			LAAT, ZIEK
 	    }
