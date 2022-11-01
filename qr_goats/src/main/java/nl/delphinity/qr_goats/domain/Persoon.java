@@ -9,25 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-@Entity
-@Table(name="persoon")
 public class Persoon implements Comparable<Persoon> {
-	
-	// Variabelen
-	
-	// unieke identifier voor persoon
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+
 	private Integer id;
 	
-	@Column(name = "voornaam", length = 150, nullable =  false)
 	private String naam;
-	@Column(name = "email", unique = true, nullable = false, length = 100)
+
 	private String email;  
-	@Column(name = "tussenvoegsel", length = 150, nullable =  true)
+	
 	private String tussenvoegsel;
-	@Column(name = "achternaam", length = 150, nullable =  false)
+
 	private String achternaam;
 	
 	

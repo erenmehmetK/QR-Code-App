@@ -7,6 +7,7 @@ ar
 *.war
 *.ear
 
+
 # Eclipse
 .metadata/
 RemoteSystemsTempFiles/*
@@ -23,3 +24,5 @@ log/*
 */target/
 bin/
 /target/    
+
+*.xml
