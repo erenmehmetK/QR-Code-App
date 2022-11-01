@@ -82,9 +82,9 @@ public class Persoon implements Comparable<Persoon> {
 	
 	public int compareTo(Persoon other) {
 		
-		int temp = achternaam.compareTo(other.achternaam);
+		int temp = naam.compareTo(other.naam);
 		if(temp == 0) {
-			int temp2 = naam.compareTo(other.naam);
+			int temp2 = achternaam.compareTo(other.achternaam);
 			if(temp2 == 0) {
 					int temp3 = tussenvoegsel.compareTo(other.tussenvoegsel);
 					return temp3;
@@ -93,5 +93,4 @@ public class Persoon implements Comparable<Persoon> {
 		}	
 		return temp;		 
 	}
-	
 }

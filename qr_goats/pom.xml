@@ -10,7 +10,7 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 	<!-- struts 2-->
-     <dependency>
+     <dependency>  
             <groupId>org.apache.struts</groupId>
             <artifactId>struts2-core</artifactId>
             <version>2.1.6</version>
