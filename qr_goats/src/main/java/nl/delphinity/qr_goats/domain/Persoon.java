@@ -1,13 +1,6 @@
 package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 public class Persoon implements Comparable<Persoon> {
 
@@ -97,6 +90,17 @@ public class Persoon implements Comparable<Persoon> {
 	
 	
 	public int compareTo(Persoon other) {
-		return naam.compareTo(other.naam);
+		
+		int temp = achternaam.compareTo(other.achternaam);
+		if(temp == 0) {
+			int temp2 = naam.compareTo(other.naam);
+			if(temp2 == 0) {
+					int temp3 = tussenvoegsel.compareTo(other.tussenvoegsel);
+					return temp3;
+			}
+			return temp2;
+		}	
+		return temp;		 
 	}
+	
 }
