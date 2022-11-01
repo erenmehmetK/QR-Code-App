@@ -24,5 +24,3 @@ log/*
 */target/
 bin/
 /target/    
-
-*.xml
