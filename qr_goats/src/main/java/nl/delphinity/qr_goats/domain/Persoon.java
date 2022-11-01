@@ -3,24 +3,15 @@ package nl.delphinity.qr_goats.domain;
 import java.util.Objects;
 
 public class Persoon implements Comparable<Persoon> {
-
 	private Integer id;
-	
 	private String naam;
-
 	private String email;  
-	
 	private String tussenvoegsel;
-
 	private String achternaam;
 	
 	
-	public Persoon() {
-		
-	}
 	
 	public Persoon(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
-		super();
 		this.id = id;
 		this.naam = naam;
 		this.email = email;
