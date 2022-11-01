@@ -18,6 +18,11 @@ public class Melding implements Comparable<Melding>{
 	
 
 		public Melding(int id, String datum, TYPE type, String opmerking, Student student) {
+			this.id = id;
+			this.datum = datum;
+			this.type = type;
+			this.opmerking = opmerking;
+			this.student = student;
 			
 		}
 		
