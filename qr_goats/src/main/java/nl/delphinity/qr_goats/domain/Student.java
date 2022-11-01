@@ -25,7 +25,11 @@ public class Student extends Persoon {
 	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor treesets sorteren
 
 	
-	
+	public int compareTo(Student other) {
+		
+		return studentenNR.compareTo(other.studentenNR);
+	}
+
 
 	
 	
