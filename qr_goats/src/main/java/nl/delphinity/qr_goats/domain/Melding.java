@@ -16,7 +16,7 @@ public class Melding implements Comparable<Melding>{
 	    }
 	
 	
-
+        //Constructor 
 		public Melding(int id, String datum, TYPE type, String opmerking, Student student) {
 			this.id = id;
 			this.datum = datum;
@@ -26,16 +26,19 @@ public class Melding implements Comparable<Melding>{
 			
 		}
 		
+		//Returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor treesets sorteren
 		@Override
 		public int compareTo(Melding other) {
 			return id - other.id;
 		}
 		
+		//Hasht de id zodat het object vergelijkbaar is	
 		@Override
 		public int hashCode() {
 			return Objects.hash(id);
 		}
 		
+		//Returnt een boolean gebaseerd op als het object gelijk is 
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
