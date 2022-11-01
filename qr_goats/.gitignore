@@ -21,6 +21,5 @@ Servers/*
 target/*
 log/*
 */target/
-
 bin/
 /target/    
