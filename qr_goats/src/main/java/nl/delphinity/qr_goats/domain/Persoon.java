@@ -3,21 +3,15 @@ package nl.delphinity.qr_goats.domain;
 import java.util.Objects;
 
 public class Persoon implements Comparable<Persoon> {
-	
-	// Variabelen
-	
-	// unieke identifier voor persoon
 	private Integer id;
-	
-	
 	private String naam;
 	private String email;  
 	private String tussenvoegsel;
 	private String achternaam;
 	
 	
+	
 	public Persoon(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
-		super();
 		this.id = id;
 		this.naam = naam;
 		this.email = email;
@@ -87,6 +81,16 @@ public class Persoon implements Comparable<Persoon> {
 	
 	
 	public int compareTo(Persoon other) {
-		return email.compareTo(other.email);
+		
+		int temp = naam.compareTo(other.naam);
+		if(temp == 0) {
+			int temp2 = achternaam.compareTo(other.achternaam);
+			if(temp2 == 0) {
+					int temp3 = tussenvoegsel.compareTo(other.tussenvoegsel);
+					return temp3;
+			}
+			return temp2;
+		}	
+		return temp;		 
 	}
 }
