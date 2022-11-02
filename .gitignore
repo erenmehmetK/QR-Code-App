@@ -26,3 +26,4 @@ qr_goats/bin/src/main/webapp/index.jsp
 pom.xml
 target/classes/META-INF/maven/qr-goats/qr-goats/pom.properties
 target/classes/META-INF/MANIFEST.MF
+qr_goats/src/main/webapp/index.jsp
