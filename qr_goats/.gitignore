@@ -1,0 +1,32 @@
+#Ignore binaries:
+*.class
+
+#Ignore Jar files:
+*.*-)+j
+ar
+*.war
+*.ear
+
+
+# Eclipse
+.metadata/
+RemoteSystemsTempFiles/*
+Server/*
+.recommenders/*
+Servers/*
+.classpath
+.project
+.settings/
+
+# Maven
+target/*
+log/*
+*/target/
+bin/
+/target/
+
+
+/.gitignore04562
+]10
+0142\
+]":?0 
