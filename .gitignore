@@ -24,3 +24,6 @@ qr_goats/bin/src/main/webapp/index.jsp
 .project
 .settings/org.eclipse.jdt.core.prefs
 pom.xml
+target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/maven/qr-goats/qr-goats/pom.properties
+gitignore
