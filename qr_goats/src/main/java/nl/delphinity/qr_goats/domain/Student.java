@@ -5,7 +5,9 @@ public class Student extends Persoon {
 	
 	public Student(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
 		super(id, naam, email, tussenvoegsel, achternaam);
-		// TODO Auto-generated constructor stub
+	}
+	public Student() {
+		
 	}
 	
 	private String studentenNR;

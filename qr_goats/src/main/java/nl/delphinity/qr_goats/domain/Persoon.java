@@ -18,6 +18,11 @@ public class Persoon implements Comparable<Persoon> {
 		this.tussenvoegsel = tussenvoegsel;
 		this.achternaam = achternaam;
 	}
+	
+	public Persoon() {
+		
+	}
+	
 	// Getters and Setters
 	public int getId() {
 		return id;
