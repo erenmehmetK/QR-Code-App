@@ -8,28 +8,12 @@
 	
 	<package name="default" extends="struts-default" namespace="/">
 	
-<<<<<<< Updated upstream
-	<action name="hello" class="nl.delphinity.qr_goats.HelloAction" method="execute">
-            <result name="SUCCESS">/profielPagina.jsp</result>
-        </action>
-	
-	<action name ="index" method="execute">
-	 	<result name="SUCCESS">/index.jsp</result>
-	 	<result name="ERROR">/content/mm.jsp</result>
-	</action>
-	
-    <action name="getData" class="nl.delphinity.qr_goats.HelloAction" method="test">
-        <result>/content/profielPagina.jsp</result>
-    </action>
-=======
 		<action name ="QRScanner" class="nl.delphinity.qr_goats.HelloAction">
-			<result name="SUCCESS">/HelloAction.jsp</result>
+			<result name="SUCCESS">/index.jsp</result>
 		</action>
 	
 		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="getData">
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
->>>>>>> Stashed changes
-	
 	</package>
 </struts>	
