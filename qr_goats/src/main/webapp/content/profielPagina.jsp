@@ -1,14 +1,17 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<<<<<<< Updated upstream
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+=======
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+>>>>>>> Stashed changes
 <html>
 <head>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="content/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-
- 
 </head>
 <body>
 <script>
@@ -41,7 +44,11 @@
         <s:form method="post" action="getData">
         
           <tr> 
+<<<<<<< Updated upstream
               <td><s:textfield class="inputText" type="text" id="naam" name="naam" label="naam" placeholder="naam" tabindex="-1" readonly="true"/></td>
+=======
+              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="${HelloAction.per.getNaam()}" tabindex="-1" readonly="true"/></td>
+>>>>>>> Stashed changes
               <td></td>
           </tr>
           <tr>
