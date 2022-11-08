@@ -23,6 +23,7 @@ public class Persoon implements Comparable<Persoon> {
 		
 	}
 	
+	
 	// Getters and Setters
 	public int getId() {
 		return id;
@@ -80,7 +81,7 @@ public class Persoon implements Comparable<Persoon> {
 	// returned waardes van persoon variabelen als een string
 	@Override
 	public String toString() {
-		return "Persoon [id=" + id + ", naam=" + naam + ", email=" + email + ", tussenvoegsel=" + tussenvoegsel
+		return "[id=" + id + ", naam=" + naam + ", email=" + email + ", tussenvoegsel=" + tussenvoegsel
 				+ ", achternaam=" + achternaam + "]";
 	} 
 	

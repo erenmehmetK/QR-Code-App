@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <link rel="stylesheet" href="css/main.css">
@@ -37,10 +38,10 @@
         <img id="pfp" class="profielFoto" src="https://png.pngtree.com/png-clipart/20210310/original/pngtree-default-male-avatar-png-image_5939655.jpg" alt="Profiel foto">
         <div class="aangepasteDif">
         <table style="margin-left: auto; margin-right: auto;">
-        <s:form method="post" action="">
+        <s:form method="post" action="getData">
         
           <tr> 
-              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="Naam" tabindex="-1" readonly="true"/></td>
+              <td><s:textfield class="inputText" type="text" id="naam" name="naam" label="naam" placeholder="naam" tabindex="-1" readonly="true"/></td>
               <td></td>
           </tr>
           <tr>

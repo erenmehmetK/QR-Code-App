@@ -8,10 +8,18 @@
 	
 	<package name="default" extends="struts-default" namespace="/">
 	
-	<action name ="index">
-	 <result>/HelloAction.jsp</result>
+	<action name="hello" class="nl.delphinity.qr_goats.HelloAction" method="execute">
+            <result name="SUCCESS">/profielPagina.jsp</result>
+        </action>
+	
+	<action name ="index" method="execute">
+	 	<result name="SUCCESS">/index.jsp</result>
+	 	<result name="ERROR">/content/mm.jsp</result>
 	</action>
 	
+    <action name="getData" class="nl.delphinity.qr_goats.HelloAction" method="test">
+        <result>/content/profielPagina.jsp</result>
+    </action>
 	
 	</package>
 </struts>	
