@@ -1,0 +1,118 @@
+@import url('http://fonts.cdnfonts.com/css/centrale-sans-regular');
+
+
+:root{
+    --ok: rgb(0, 88, 111);
+    --background-color: linear-gradient(#00586f, #508c9f, #8db4c1);
+   --CentraleSansLight: "Centrale Sans Light", sans-serif;
+    --CentraleSansRegular: "Centrale Sans Regular", sans-serif
+    --CentraleSansItalic: "Centrale Sans Italic", sans-serif;
+    --CentraleSansMedium: "Centrale Sans Medium", sans-serif;
+    --CentraleSansBold: "Centrale Sans Bold", sans-serif;
+    --secondaryColor:#006E96;
+}
+
+
+/* -Profiel- */
+.terugButton{
+    text-decoration: none !important;
+    font-family: var(--CentraleSansRegular);
+    color: white !important;
+}
+
+
+.titel{
+    font-family: var(--CentraleSansLight);
+    text-align: center;
+    color: white;
+}
+
+.profielFoto{
+	border-radius: 120px;
+    display: block;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.inputText{
+    border: none;
+    padding: 4px;
+    border-width: 2px;
+    width: fit-content;
+    color: black;
+    font-family: var(--CentraleSansBold);
+}
+
+#pencilButton {
+    border-color: transparent;
+    padding:3.2px;
+    display: inline;
+    float: left;
+}
+
+button:active {
+    transform: scale(1.05);
+}
+.pencil{
+    font-size: 100%;
+    width: 19%;
+}
+
+.aangepasteDif {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 15%;
+}
+
+.gegevens{
+    text-align: center !important;
+    padding: .2vh;
+}
+
+#wachtwoordGegeven{
+	text-align: center !important;
+}
+
+.gegevensWW {
+	width:90%;
+}
+.editButton {
+	width:10%;
+}
+
+.editButton{
+    display: none;
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+    width: 50%;
+    height: 40px;
+    padding: 1vw 1vw;
+
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-family: var(--CentraleSansBold);
+    font-size: large;
+}
+
+#annuleerButton{
+    margin-top: 5px;
+    background-color: #8db4c1;
+}
+
+#opslaanButton{    
+    margin-top: 10%;
+    background-color: #8db4c1;
+}
+
+body {
+    background: var(--background-color) !important;  
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
