@@ -20,25 +20,13 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() {
 
-		per = new Persoon();
-		per.setNaam("Hans");
-		per.setTussenvoegsel("De");
-		per.setAchternaam("Gans");
-		per.setEmail("Hans@Scalda.com");
-
-		sessionMap.put("Persoon", per);
-
-		acc = new Account();
-		sessionMap.put("Account", acc);
-		
-		System.out.println("Executed");
+		sessionMap.putIfAbsent("Persoon", per);
+		sessionMap.putIfAbsent("Account", acc);
+	
 		return "SUCCESS";
 	}
 
 	public String getData() {
-		per = (Persoon) sessionMap.get("Persoon");
-		System.out.println("persoonNaam: " + per.getNaam());
-		System.out.println("Pakt data");
 		
 		return "SUCCESS";
 	}
