@@ -11,7 +11,7 @@ public class Student extends Persoon {
 	}
 	
 	private String studentenNR;
-
+	private Account account;
 
 	public String getStudentenNR() {
 		return studentenNR;
@@ -21,7 +21,12 @@ public class Student extends Persoon {
 		this.studentenNR = studentenNR;
 	}	
 	
-	
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor treesets sorteren
 	public int compareTo(Student other) {
 		return studentenNR.compareTo(other.studentenNR);

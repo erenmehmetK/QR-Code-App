@@ -56,9 +56,6 @@ public class Persoon implements Comparable<Persoon> {
 		this.achternaam = achternaam;
 	}
 	
-	
-	
-	
 	//hashed de id zodat het object vergelijkbaar is
 	@Override
 	public int hashCode() {

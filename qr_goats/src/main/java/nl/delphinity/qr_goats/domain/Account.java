@@ -6,7 +6,7 @@ public class Account implements Comparable<Account> {
 
 	private Integer id;
 	private String wachtwoord;
-	
+	private Student student;
 	
 	public int getId() {
 		return id;
@@ -24,7 +24,6 @@ public class Account implements Comparable<Account> {
 		this.wachtwoord = wachtwoord;
 	}
 
-	
 	//hasht de id zodat het object vergelijkbaar is
 	@Override
 	public int hashCode() {

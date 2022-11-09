@@ -40,7 +40,7 @@
         <s:form method="post" action="getData">
         
           <tr> 
-              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="${HelloAction.per.getNaam()}" tabindex="-1" readonly="true"/></td>
+              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="${Persoon.getNaam()}" tabindex="-1" readonly="true"/></td>
               <td></td>
           </tr>
           <tr>
