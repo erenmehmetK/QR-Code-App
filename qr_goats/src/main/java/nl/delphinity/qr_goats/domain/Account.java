@@ -6,7 +6,7 @@ public class Account implements Comparable<Account> {
 
 	private Integer id;
 	private String wachtwoord;
-	private Student student;
+	private Persoon persoon;
 	
 	public int getId() {
 		return id;

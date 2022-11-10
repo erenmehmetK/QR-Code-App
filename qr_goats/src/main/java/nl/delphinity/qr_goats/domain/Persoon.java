@@ -9,6 +9,10 @@ public class Persoon implements Comparable<Persoon> {
 	private String tussenvoegsel;
 	private String achternaam;
 	
+//	maybe?
+//	private String studentNR;
+//	private String docentAfkorting;
+	
 	
 	
 	public Persoon(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
