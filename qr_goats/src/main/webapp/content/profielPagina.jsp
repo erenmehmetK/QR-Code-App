@@ -33,7 +33,7 @@
     
     <div class="container">
         <a class="terugButton"><s:form class="terug" action="QRScanner" method="POST">
-            <input style="background: transparent; border: 0px; color: white; font-size: x-large;" type="submit" value="<"/>
+            <input class="back" type="submit" value="<"/>
         </s:form></a>
         <h1 class="titel">Profiel</h1>
         <img id="pfp" class="profielFoto" src="https://png.pngtree.com/png-clipart/20210310/original/pngtree-default-male-avatar-png-image_5939655.jpg" alt="Profiel foto">
