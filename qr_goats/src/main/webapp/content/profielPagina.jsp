@@ -32,7 +32,9 @@
 
     
     <div class="container">
-        <a class="terugButton"><p class="terug"><h3><</h3></p></a>
+        <a class="terugButton"><s:form class="terug" action="QRScanner" method="POST">
+            <input style="background: transparent; border: 0px; color: white; font-size: x-large;" type="submit" value="<"/>
+        </s:form></a>
         <h1 class="titel">Profiel</h1>
         <img id="pfp" class="profielFoto" src="https://png.pngtree.com/png-clipart/20210310/original/pngtree-default-male-avatar-png-image_5939655.jpg" alt="Profiel foto">
         <div class="aangepasteDif">
@@ -40,7 +42,7 @@
         <s:form method="post" action="getData">
         
           <tr> 
-              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="${Persoon.getNaam()}" tabindex="-1" readonly="true"/></td>
+              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="Naam" tabindex="-1" readonly="true"/></td>
               <td></td>
           </tr>
           <tr>
@@ -77,5 +79,8 @@
     </div>
     </div>
 
+<br>
+<br>
+<br>
 </body>
 </html>
