@@ -2,6 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
+    	<script src="Javascript/printscreen.js"></script>
     </head>
     <body>
         <h1>Dit is HelloAction.jsp</h1>

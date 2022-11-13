@@ -36,7 +36,7 @@
         <h1 class="titel">Profiel</h1>
         <img id="pfp" class="profielFoto" src="https://png.pngtree.com/png-clipart/20210310/original/pngtree-default-male-avatar-png-image_5939655.jpg" alt="Profiel foto">
         <div class="aangepasteDif">
-        <table style="margin-left: auto; margin-right: auto;">
+        <table class="table_groote">
         <s:form method="post" action="getData">
         
           <tr> 
