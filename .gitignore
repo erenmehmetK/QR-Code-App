@@ -1,0 +1,12 @@
+qr_goats/.classpath
+qr_goats/.gitignore
+qr_goats/.project
+qr_goats/.settings/org.eclipse.jdt.core.prefs
+qr_goats/.settings/org.eclipse.wst.common.component
+qr_goats/.settings/org.eclipse.wst.common.project.facet.core.xml
+qr_goats/.settings/org.eclipse.wst.validation.prefs
+qr_goats/bin/.gitignore
+qr_goats/bin/pom.xml
+qr_goats/bin/src/main/java/pom.xml
+qr_goats/bin/src/main/webapp/index.jsp
+qr_goats/bin/src/main/webapp/WEB-INF/web.xml
