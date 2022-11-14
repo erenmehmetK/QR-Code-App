@@ -8,25 +8,6 @@ public class Account implements Comparable<Account> {
 	private String wachtwoord;
 	private String email;
 	
-	
-	
-	
-
-	public static void main(String[] args) {
-		
-		Account a = new Account();
-		a.setEmail("testmail@gmail.com");
-		a.setWachtwoord("testwachtwoord");
-		
-		Account other = new Account();
-		other.setEmail("testmail@gmail.com");
-		other.setWachtwoord("testwachtwoord");
-		
-		loginCheck(a , other);
-	}
-	
-	
-	
 	public static boolean loginCheck(Account other, Account a) {
 		// find account by email en returnt other
 
