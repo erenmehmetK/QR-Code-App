@@ -6,7 +6,7 @@ public class Account implements Comparable<Account> {
 
 	private Integer id;
 	private String wachtwoord;
-	private String email;
+	private String email; 		 
 	
 	public static boolean loginCheck(Account other, Account a) {
 		// find account by email en returnt other
@@ -22,7 +22,6 @@ public class Account implements Comparable<Account> {
 			return false;
 		}
 	}
-	
 	
 	
 	public int getId() {
