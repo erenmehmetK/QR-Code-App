@@ -8,13 +8,15 @@ public class Account implements Comparable<Account> {
 	private String wachtwoord;
 	private String email; 		 
 	
-	public static boolean loginCheck(Account other, Account a) {
+	public boolean loginCheck() {
 		// find account by email en returnt other
-
+		
+		Account other = new Account();
+		
 		if(other == null) {
 			System.out.println("geen account gevonden jammer zeg");
 			return false;
-		} else if(a.wachtwoord.equals(other.wachtwoord) == true) {
+		} else if(this.wachtwoord.equals(other.wachtwoord)) {
 			System.out.println("is goed");
 			return true;
 		}else {
