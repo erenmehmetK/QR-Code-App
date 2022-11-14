@@ -20,7 +20,7 @@ public class Account implements Comparable<Account> {
 		return wachtwoord;
 	}
 
-	public void setWachtwoord(String wachtwoord) {
+	public void setWachtwoord(String	 wachtwoord) {
 		this.wachtwoord = wachtwoord;
 	}
 

@@ -1,18 +1,37 @@
 package nl.delphinity.qr_goats.domain;
 import java.util.Objects;
 public class QRCode implements Comparable<QRCode>{
-	private String qrcode;
+	private String uniekeqrcode;
 	private Student studentenNR;
-	public String getQrcode() {
-		return qrcode;
+
+	
+	public String getUniekeqrcode() {
+		return uniekeqrcode;
 	}
-	public void setQrcode(String qrcode) {
-		this.qrcode = qrcode;
+
+
+	public void setUniekeqrcode(String uniekeqrcode) {
+		this.uniekeqrcode = uniekeqrcode;
 	}
+
+
+	public Student getStudentenNR() {
+		return studentenNR;
+	}
+
+
+	public void setStudentenNR(Student studentenNR) {
+		this.studentenNR = studentenNR;
+	}
+
+	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(qrcode);
+		return Objects.hash(studentenNR, uniekeqrcode);
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -22,13 +41,17 @@ public class QRCode implements Comparable<QRCode>{
 		if (getClass() != obj.getClass())
 			return false;
 		QRCode other = (QRCode) obj;
-		return Objects.equals(qrcode, other.qrcode);
-	}
-	@Override
-	public String toString() {
-		return qrcode;
+		return Objects.equals(studentenNR, other.studentenNR) && Objects.equals(uniekeqrcode, other.uniekeqrcode);
 	}
 	
+
+
+	@Override
+	public String toString() {
+		return uniekeqrcode + studentenNR;
+	}
+
+
 	@Override
 	public int compareTo(QRCode other) {
 		return studentenNR.compareTo(studentenNR);
