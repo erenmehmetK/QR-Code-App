@@ -16,6 +16,14 @@ public class Student extends Persoon {
 		return studentenNR;
 	}
 
+	public ArrayList<QRCode> getIncheckcode() {
+		return incheckcode;
+	}
+
+	public void setIncheckcode(ArrayList<QRCode> incheckcode) {
+		this.incheckcode = incheckcode;
+	}
+
 	public void setStudentenNR(String studentenNR) {
 		this.studentenNR = studentenNR;
 	}	
