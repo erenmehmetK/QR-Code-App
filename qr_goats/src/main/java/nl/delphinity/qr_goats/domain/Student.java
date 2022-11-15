@@ -1,6 +1,9 @@
 package nl.delphinity.qr_goats.domain;
 
 import java.util.ArrayList;
+import java.util.Set;
+
+
 
 public class Student extends Persoon {
 	
@@ -10,19 +13,13 @@ public class Student extends Persoon {
 	}
 	
 	private String studentenNR;
-	private ArrayList<QRCode> incheckcode = new ArrayList<QRCode>(); 
+	private Set<QRCode> incheckcode; 
 
 	public String getStudentenNR() {
 		return studentenNR;
 	}
 
-	public ArrayList<QRCode> getIncheckcode() {
-		return incheckcode;
-	}
-
-	public void setIncheckcode(ArrayList<QRCode> incheckcode) {
-		this.incheckcode = incheckcode;
-	}
+	
 
 	public void setStudentenNR(String studentenNR) {
 		this.studentenNR = studentenNR;
