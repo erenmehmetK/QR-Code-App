@@ -1,7 +1,5 @@
 package nl.delphinity.qr_goats.persistence.factories;
 
-import nl.delphinity.qr_goats.persistence.interfaces.IAccountDAO;
-
 public abstract class DAOFactory {
 	
 	private static DAOFactory theFactory;
@@ -21,7 +19,4 @@ public abstract class DAOFactory {
 		}
 	}
 	
-	
-
-
 }
