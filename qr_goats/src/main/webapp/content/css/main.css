@@ -112,9 +112,6 @@ button:active {
 }
 .editButton {
 	width:10%;
-}
-
-.editButton{
     display: none;
     margin-right: auto;
     margin-left: auto;
@@ -129,6 +126,7 @@ button:active {
     font-weight: bold;
     font-family: var(--CentraleSansBold);
     font-size: large;
+    text-align: center;
 }
 
 #annuleerButton{
