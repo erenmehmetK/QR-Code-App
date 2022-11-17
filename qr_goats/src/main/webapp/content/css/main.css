@@ -20,6 +20,10 @@
     color: white !important;
 }
 
+#NieuwWachtwoord{
+	display: none;
+}
+
 .terug {
     background-color: #00000057;
     opacity: 0.70;
