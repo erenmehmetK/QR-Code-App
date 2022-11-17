@@ -29,4 +29,4 @@ target/classes/META-INF/MANIFEST.MF
 qr_goats/src/main/webapp/index.jsp
 qr_goats/target/
 qr_goats/src/main/java/main/
-
+qr_goats/src/main/resources/hibernate.properties
