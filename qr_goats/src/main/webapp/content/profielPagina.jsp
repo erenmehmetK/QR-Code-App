@@ -16,6 +16,7 @@
             for (let i = 0; i < elements.length; i++) {
                 elements[i].style.display = "block";
             }
+            document.getElementById('NieuwWachtwoord').style.display = "block";
         }
 
         function removeBody() {
@@ -26,6 +27,8 @@
             for (let i = 0; i < elements.length; i++) {
                 elements[i].style.display = "none";
             }
+            document.getElementById('NieuwWachtwoord').style.display = "none";
+            
         }
     </script>
     
@@ -56,6 +59,10 @@
           <tr>
               <td>
                     <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true"/>
+                      <td></td>
+              </td>
+              <td>
+                    <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw Wachtwoord" tabindex="-1" readonly="true"/>
                       <td></td>
               </td>
               <td>
