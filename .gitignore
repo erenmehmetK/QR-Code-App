@@ -30,4 +30,4 @@ qr_goats/src/main/java/main/
 qr_goats/src/main/resources/hibernate.properties
 .gitignore\
 
-*/.class
+*.class
