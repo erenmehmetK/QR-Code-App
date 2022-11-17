@@ -119,14 +119,13 @@ button:active {
     text-align: center;
     width: 50%;
     height: 40px;
-    padding: 1vw 1vw;
-
     border: none;
     color: white;
     font-weight: bold;
     font-family: var(--CentraleSansBold);
     font-size: large;
-    text-align: center;
+    padding-bottom: 0px;
+    
 }
 
 #annuleerButton{
