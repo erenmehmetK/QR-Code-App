@@ -1,4 +1,3 @@
-qr_goats/target/classes/.gitignore
 qr_goats/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 qr_goats/target/m2e-wtp/web-resources/META-INF/maven/nl.delphinity/qr_goats/pom.properties
 qr_goats/target/m2e-wtp/web-resources/META-INF/maven/nl.delphinity/qr_goats/pom.xml
@@ -28,6 +27,6 @@ qr_goats/src/main/webapp/index.jsp
 qr_goats/target/
 qr_goats/src/main/java/main/
 qr_goats/src/main/resources/hibernate.properties
-.gitignore\
 
+*.gitignore
 *.class
