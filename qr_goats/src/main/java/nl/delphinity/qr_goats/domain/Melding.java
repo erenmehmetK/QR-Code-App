@@ -1,30 +1,37 @@
 package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
+import java.time.LocalDateTime;  
+import java.time.format.DateTimeFormatter;  
+import java.util.Date;
 
 public class Melding implements Comparable<Melding>{
-
+	
 		private int id;
-		private String datum;
+		private LocalDateTime datum;
 		private TYPE type;
 		private String opmerking;
 		private Student student;
 		
 		//to declare in constructor 
-		enum TYPE{
+		public enum TYPE{
 			LAAT, ZIEK
 	    }
-	
-	
-        //Constructor 
-		public Melding(int id, String datum, TYPE type, String opmerking, Student student) {
+		
+		public Melding() {
+			
+		}
+		
+        //Constructor  
+		public Melding(int id, TYPE type, String opmerking, Student student) {
 			this.id = id;
-			this.datum = datum;
+			this.datum = java.time.LocalDateTime.now();
 			this.type = type;
 			this.opmerking = opmerking;
 			this.student = student;
 			
 		}
+		
 		
 		//Returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor treesets sorteren
 		@Override
@@ -52,45 +59,50 @@ public class Melding implements Comparable<Melding>{
 		}
 		
 		
-
+		
+		@Override
+		public String toString() {
+			return "Melding [id=" + id + ", datum=" + datum + ", type=" + type + ", opmerking=" + opmerking
+					+ ", student=" + student + "]";
+		}
+		
+	
+       
 		public int getId() {
 			return id;
 		}
-
 		public void setId(int id) {
 			this.id = id;
 		}
-
-		public String getDatum() {
+		
+        
+		public LocalDateTime getDatum() {
 			return datum;
 		}
-
-		public void setDatum(String datum) {
+        
+		public void setDatum(LocalDateTime datum) {
 			this.datum = datum;
 		}
-
+		
 		public TYPE getType() {
 			return type;
 		}
-
 		public void setType(TYPE type) {
 			this.type = type;
 		}
-
+		
 		public String getOpmerking() {
 			return opmerking;
 		}
-
 		public void setOpmerking(String opmerking) {
 			this.opmerking = opmerking;
 		}
-
+		
+		
 		public Student getStudent() {
 			return student;
 		}
-
 		public void setStudent(Student student) {
 			this.student = student;
 		}
-
 }
