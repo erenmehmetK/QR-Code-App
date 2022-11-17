@@ -4,7 +4,7 @@ package nl.delphinity.qr_goats.domain;
 public class Student extends Persoon {
 	
 	public Student(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
-		super(id, naam, email, tussenvoegsel, achternaam);
+		super(id, naam, tussenvoegsel, achternaam);
 		// TODO Auto-generated constructor stub
 	}
 	
