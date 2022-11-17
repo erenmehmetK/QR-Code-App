@@ -14,6 +14,12 @@ public class HibernateDAOfactory extends DAOFactory {
 		return HibernateSessionManager.getSessionFactory().openSession();
 	}
 
+	@Override
+	public IAccountDAO getAccountDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 	
