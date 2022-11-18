@@ -17,6 +17,15 @@
                 elements[i].style.display = "block";
             }
             document.getElementById('NieuwWachtwoord').style.display = "block";
+            document.getElementById('wachtwoord').placeholder = "Oud wachtwoord";
+            
+            let inputs = document.querySelectorAll(".inputText")
+            for (let i = 0; i < inputs.length; i++) {
+            	inputs[i].style.display = "none";
+            }
+            document.getElementById("wachtwoord").style.display = "block";
+            document.getElementById("NieuwWachtwoord").style.display = "block";
+            document.getElementById("pencilButton").style.display = "none";
         }
 
         function removeBody() {
@@ -28,7 +37,14 @@
                 elements[i].style.display = "none";
             }
             document.getElementById('NieuwWachtwoord').style.display = "none";
+            document.getElementById('wachtwoord').placeholder = "Wachtwoord";
             
+            let inputs = document.querySelectorAll(".inputText")
+            for (let i = 0; i < inputs.length; i++) {
+            	inputs[i].style.display = "block";
+            }
+            document.getElementById("NieuwWachtwoord").style.display = "none";
+            document.getElementById("pencilButton").style.display = "block";
         }
         
         function clearNieuwWachtwoord() {
@@ -62,7 +78,7 @@
           </tr>
           <tr>
               <td>
-                    <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true"/>
+                    <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true" required/>
                       </td><td>
               </td>
               <td>
@@ -75,7 +91,7 @@
           </tr>
           <tr>
             <td>
-                <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw Wachtwoord" tabindex="-1" readonly="true"/>
+                <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required/>
                   </td><td>
           </td> 
           </tr>
