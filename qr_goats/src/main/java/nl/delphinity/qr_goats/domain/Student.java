@@ -11,10 +11,16 @@ public class Student extends Persoon {
 	public Student() {
 		
 	}
-	public Student(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
-		super(id, naam, email, tussenvoegsel, achternaam);
+	public Student(Integer id, String naam, String tussenvoegsel, String achternaam) {
+		super(id, naam, tussenvoegsel, achternaam);
 		// TODO Auto-generated constructor stub
 	}
+	
+	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor treesets sorteren
+		public int compareTo(Student other) {
+			return studentenNR.compareTo(other.studentenNR);
+			
+		}
 	
 	private String studentenNR;
 	
@@ -75,8 +81,13 @@ public class Student extends Persoon {
 			public void setMeldingen(ArrayList<Melding> meldingen) {
 				this.meldingen = meldingen;
 			}
+			
+			
 	public String getStudentenNR() {
 		return studentenNR;
 		
+	}
+	public void setStudentenNR(String studentenNR) {
+		this.studentenNR = studentenNR;
 	}
 }
