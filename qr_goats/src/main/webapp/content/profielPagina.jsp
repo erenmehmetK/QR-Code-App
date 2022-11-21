@@ -78,7 +78,11 @@
           </tr>
           <tr>
               <td>
+<<<<<<< HEAD
                     <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true" required="true"/>
+=======
+                    <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true"/>
+>>>>>>> 036afbde2778897f986a1d348fb9c850a7d5d29f
                       </td><td>
               </td>
               <td>
@@ -91,7 +95,11 @@
           </tr>
           <tr>
             <td>
+<<<<<<< HEAD
                 <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
+=======
+                <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true"/>
+>>>>>>> 036afbde2778897f986a1d348fb9c850a7d5d29f
                   </td><td>
           </td> 
           </tr>
