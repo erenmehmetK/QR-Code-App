@@ -5,7 +5,7 @@
     	<script src="Javascript/printscreen.js"></script>
     </head>
     <body>
-        <h1>Dit is HelloAction.jsp</h1>
+        <h1>Dit is de start pagina</h1>
         <s:form action="ProfielPagina" method="POST">
             <input type="submit" value="ProfielPagina"/>
         </s:form>

@@ -78,7 +78,7 @@
           </tr>
           <tr>
               <td>
-                    <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true" required/>
+                    <s:textfield class="inputText" type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true" required="true"/>
                       </td><td>
               </td>
               <td>
@@ -91,7 +91,7 @@
           </tr>
           <tr>
             <td>
-                <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required/>
+                <s:textfield class="inputText" type="text" id="NieuwWachtwoord" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
                   </td><td>
           </td> 
           </tr>
