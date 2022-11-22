@@ -2,8 +2,7 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 import java.time.LocalDateTime;  
-import java.time.format.DateTimeFormatter;  
-import java.util.Date;
+
 
 public class Melding implements Comparable<Melding>{
 	
