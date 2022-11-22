@@ -5,7 +5,8 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+
+import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 import nl.delphinity.qr_goats.domain.Melding;
 import nl.delphinity.qr_goats.domain.Student;
@@ -15,7 +16,7 @@ import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 public class StudentTest {
 	
-	@BeforeEach
+	@Before
 	public void createDatabase() {
 		
 	   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
