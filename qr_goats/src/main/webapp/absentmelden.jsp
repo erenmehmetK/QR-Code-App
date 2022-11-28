@@ -14,6 +14,11 @@
         @import url('http://fonts.cdnfonts.com/css/centrale-sans-regular');
         </style>
     
+    <script>
+    function confirmRequest() {
+    	confirm("Ben je zeker dat je een melding wilt versturen?");
+    }
+    </script>
  
   
     <title>Document</title>
@@ -101,7 +106,7 @@
                                 </div>
         
                                 </div>
-                                <button type="submit" class="btn btn-primary">Melden</button>
+                                <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
         
                                 </div>
                             </div>
@@ -140,7 +145,7 @@
             </div>
             </div>
             
-            <button type="submit" class="btn btn-primary">Melden</button>
+            <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
             </form>
             </div>
         </div>
