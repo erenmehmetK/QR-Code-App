@@ -24,7 +24,7 @@ public class Student extends Persoon {
 	
 	private String studentenNR;
 	
-	public ArrayList<Melding> meldingen;
+	public ArrayList<Melding> meldingen = new ArrayList<Melding>();
 	
 	          public void addMelding(Melding m) {
 	        	  meldingen.add(m);
