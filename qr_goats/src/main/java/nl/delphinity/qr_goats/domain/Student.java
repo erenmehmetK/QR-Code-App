@@ -8,12 +8,21 @@ import java.util.Set;
 public class Student extends Persoon {
 	
 	public Student(Integer id, String naam, String email, String tussenvoegsel, String achternaam) {
-		super(id, naam, email, tussenvoegsel, achternaam);
+//		super(id, naam, email, tussenvoegsel, achternaam);
 		// TODO Auto-generated constructor stub
 	}
 	
 	private String studentenNR;
-	private Set<QRCode> incheckcode; 
+	private QRCode qrCode;
+	
+	public QRCode getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(QRCode qrCode) {
+		this.qrCode = qrCode;
+	}
+
 
 	public String getStudentenNR() {
 		return studentenNR;
