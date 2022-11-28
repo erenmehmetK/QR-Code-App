@@ -44,9 +44,7 @@ public class StudentTest {
 	    // Check if melding has correct student
 	    assertEquals(m1.getStudent(), student);
 	    
-	    
-	   System.out.println(m1.getClass().getSimpleName());
-	}
+	    	}
 
 	     @Test
 	     public void ziekMeldenTest() {
@@ -64,8 +62,6 @@ public class StudentTest {
 	     // Check if melding has correct student
 	     assertEquals(m1.getStudent(), student);
 	     
-		   System.out.println(m1.getClass().getSimpleName());
-
 	 }
 	
 	
