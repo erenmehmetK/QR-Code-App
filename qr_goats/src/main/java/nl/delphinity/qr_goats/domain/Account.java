@@ -1,5 +1,7 @@
 package nl.delphinity.qr_goats.domain;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
@@ -36,6 +38,42 @@ public class Account implements Comparable<Account> {
 			return false;
 		}
 	}
+	
+	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
+		oudWachtwoord = hashPassword(oudWachtwoord); // Hasht om te vergelijken met het wachtwoord
+		nieuwWachtwoord = hashPassword(nieuwWachtwoord); // Hasht voor vergelijking en vervangen van wachtwoord
+		if(wachtwoord.equals(oudWachtwoord) && !wachtwoord.equals(nieuwWachtwoord)) {
+			wachtwoord = nieuwWachtwoord;
+			return true;
+		}
+		return false;
+	}
+	
+	public String hashPassword(String pasW)  {
+	        try 
+	        {
+	          // Create MessageDigest instance for MD5
+	          MessageDigest md = MessageDigest.getInstance("MD5");
+
+	          // Add password bytes to digest
+	          md.update(pasW.getBytes());
+
+	          // Get the hash's bytes
+	          byte[] bytes = md.digest();
+
+	          // This bytes[] has bytes in decimal format. Convert it to hexadecimal format
+	          StringBuilder sb = new StringBuilder();
+	          for (int i = 0; i < bytes.length; i++) {
+	            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+	          }
+
+	          // Get complete hashed password in hex format
+	          pasW = sb.toString();
+	        } catch (NoSuchAlgorithmException e) {
+	          e.printStackTrace();
+	        }
+	        return pasW;
+	      }
 
 	public int getId() {
 		return id;
