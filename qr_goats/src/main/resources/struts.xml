@@ -15,5 +15,10 @@
 		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="getData">
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
+		
+		<action name ="absent" class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/absentmelden.jsp</result>
+		</action>
+		
 	</package>
 </struts>	

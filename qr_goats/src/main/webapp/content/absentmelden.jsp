@@ -1,3 +1,6 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +12,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="http://fonts.cdnfonts.com/css/centrale-sans-regular" rel="stylesheet">
-    <link rel="stylesheet" href="css/telaatmelden.css">
+    <link rel="stylesheet" href="content/css/telaatmelden.css">
     <style>
         @import url('http://fonts.cdnfonts.com/css/centrale-sans-regular');
         </style>
     
+    <script>
+    function confirmRequest() {
+    	confirm("Ben je zeker dat je een melding wilt versturen?");
+    }
+    </script>
  
   
     <title>Document</title>
 </head>
 <body>
-    <a class="terugButton">
-        <p class="terug"><</p>
-</a>
-<img src="embed/zandklok.png" alt="gino.png (zandklok)" >
+    <s:form class="terugbutton" action="QRScanner" method="POST">
+		    <input class="terug" type="submit" value="<"/>
+		</s:form>
+<img src="content/embed/zandklok.png" alt="gino.png (zandklok)" >
 <container>
     <div class="container">
         <div class="row">
@@ -101,7 +109,7 @@
                                 </div>
         
                                 </div>
-                                <button type="submit" class="btn btn-primary">Melden</button>
+                                <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
         
                                 </div>
                             </div>
@@ -140,7 +148,7 @@
             </div>
             </div>
             
-            <button type="submit" class="btn btn-primary">Melden</button>
+            <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
             </form>
             </div>
         </div>

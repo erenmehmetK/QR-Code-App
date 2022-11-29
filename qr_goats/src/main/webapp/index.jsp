@@ -10,5 +10,8 @@
         <s:form action="ProfielPagina" method="POST">
             <input type="submit" value="ProfielPagina"/>
         </s:form>
+        <s:form action="absent" method="POST">
+            <input type="submit" value="absent"/>
+        </s:form>
     </body>
 </html>
