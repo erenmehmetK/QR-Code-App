@@ -1,5 +1,6 @@
 package nl.delphinity.qr_goats.domain;
 import java.io.BufferedReader;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,20 +9,35 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
 public class QRCode {
-	private int activeSince; // unix timestamp (sec)
-	public int getActiveSince() {
-		return activeSince;
+	
+
+	private int genereertijd; // unix timestamp (sec)
+	
+	
+	private String qrafbeelding;
+	
+	public int getGenereertijd() {
+		return genereertijd;
 	}
-	public void setActiveSince(int activeSince) {
-		this.activeSince = activeSince;
+	public void setGenereertijd(int genereertijd) {
+		this.genereertijd = genereertijd;
 	}
+	public String getQrafbeelding() {
+		return qrafbeelding;
+	}
+	public void setQrafbeelding(String qrafbeelding) {
+		this.qrafbeelding = qrafbeelding;
+	}
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(activeSince);
+		return Objects.hash(genereertijd, qrafbeelding);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -32,12 +48,14 @@ public class QRCode {
 		if (getClass() != obj.getClass())
 			return false;
 		QRCode other = (QRCode) obj;
-		return activeSince == other.activeSince;
+		return genereertijd == other.genereertijd && Objects.equals(qrafbeelding, other.qrafbeelding);
 	}
+	
 	@Override
 	public String toString() {
-		return "QRCode [activeSince=" + activeSince + "]";
+		return "QRCode [genereertijd=" + genereertijd + ", qrafbeelding=" + qrafbeelding + "]";
 	}
+	
 	public static String getParamsString(Map<String, String> params) throws UnsupportedEncodingException {
 		StringBuilder result = new StringBuilder();
 		for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -49,8 +67,8 @@ public class QRCode {
 		String resultString = result.toString();
 		return resultString.length() > 0 ? resultString.substring(0, resultString.length() - 1) : resultString;
 	}
-	public String generateQR(Student student) {
-		if (activeSince < activeSince + 60) { // werkt voor 1 minuut
+	public String generateQR(Student student) {		
+		if (genereertijd < genereertijd + 60) { // werkt voor 1 minuut
 			URL url;
 			try {
 				url = new URL("https://api.qrserver.com/v1/create-qr-code/");
