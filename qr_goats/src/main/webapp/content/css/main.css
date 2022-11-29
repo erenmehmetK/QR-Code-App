@@ -14,15 +14,6 @@
 
 
 /* -Profiel- */
-.terugButton{
-    text-decoration: none !important;
-    font-family: var(--CentraleSansRegular);
-    color: white !important;
-}
-
-#NieuwWachtwoord{
-	display: none;
-}
 
 .terug {
     background-color: #00000057;
@@ -64,7 +55,6 @@
 }
 
 .inputText{
-	
     border: none;
     padding: 4px;
     border-width: 2px;
@@ -76,6 +66,9 @@
     margin-bottom: 2px;
 }
 
+#NieuwWachtwoord1, #NieuwWachtwoord2{
+	display: none;
+}
 
 #pencilButton {
     border-color: transparent;
@@ -145,11 +138,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .table_groote {
 	width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
+
 
 
 
