@@ -5,84 +5,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="content/css/main.css">
+	<script src="content/Javascript/profilePage.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-
-<script>
-	// Zorgt dat de onclick functies later inladen om errors te voorkomen
-	window.onload = function(){
-		// Je wachtwoord veranderen
-		document.getElementById("pencilButton").onclick = function() {
-			document.getElementById('wachtwoord').readOnly = false;
-			document.getElementById('wachtwoord').focus(); addBody();
-			document.getElementById('NieuwWachtwoord1').readOnly = false;
-			document.getElementById('NieuwWachtwoord1').focus();
-			addBody();document.getElementById('NieuwWachtwoord2').readOnly = false;
-			document.getElementById('NieuwWachtwoord2').focus(); addBody();
-		};
-		// Wachtwoord veranderen annuleren
-		document.getElementById("annuleerButton").onclick = function() {
-			const delayRemove = setTimeout(removeBody, 100);
-			document.getElementById('NieuwWachtwoord1').value = '';
-			document.getElementById('NieuwWachtwoord2').value = '';
-		};
-	}
-
-	// Voegt de inputs toe om wachtwoord te kunnen wijzigen
-    function addBody() {
-        let elements = document.querySelectorAll(".editButton")
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].style.display = "block";
-        }
-        document.getElementById('NieuwWachtwoord1').style.display = "block";
-        document.getElementById('NieuwWachtwoord2').style.display = "block";
-        
-        document.getElementById('wachtwoord').placeholder = "Oud wachtwoord";
-        
-        let inputs = document.querySelectorAll(".inputText")
-        for (let i = 0; i < inputs.length; i++) {
-        	inputs[i].style.display = "none";
-        }
-        document.getElementById("wachtwoord").style.display = "block";
-        
-        document.getElementById("NieuwWachtwoord1").style.display = "block";
-        document.getElementById("NieuwWachtwoord2").style.display = "block";
-        document.getElementById("pencilButton").style.display = "none";
-    }
-
-	// Verwijderd de inputs toe om wachtwoord te kunnen wijzigen
-    function removeBody() {
-        document.getElementById('wachtwoord').readOnly = true;
-        document.getElementById('wachtwoord').value = null;
-
-        let elements = document.querySelectorAll(".editButton")
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].style.display = "none";
-        }
-        document.getElementById('NieuwWachtwoord1').style.display = "none";
-        document.getElementById('NieuwWachtwoord2').style.display = "none";
-        
-        document.getElementById('wachtwoord').placeholder = "Wachtwoord";
-        
-        let inputs = document.querySelectorAll(".inputText")
-        for (let i = 0; i < inputs.length; i++) {
-        	inputs[i].style.display = "block";
-        }
-        document.getElementById("NieuwWachtwoord1").style.display = "none";
-        document.getElementById("NieuwWachtwoord2").style.display = "none";
-        document.getElementById("pencilButton").style.display = "block";
-    }
-    
-	// Leegt de inputs
-    function clearNieuwWachtwoord() {
-    	var element = document.getElementById('NieuwWachtwoord1').element.reset();
-    	var element = document.getElementById('NieuwWachtwoord2').element.reset();
-    }
-    </script>
     
     <div class="container">
 		<s:form class="terug" action="QRScanner" method="POST">
