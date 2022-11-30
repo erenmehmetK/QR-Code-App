@@ -68,17 +68,7 @@
                     </div>
                 </td>
             </tr>
-            
-            <tr>
-                <td>
-                    <div class="divfaq">
-                        <table class="divfaq">
-
-                            <tr>
-                                <th class="thfaq">
-                                    <button type="button" class="collapseButtonFAQ btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo2"> Waarom bestaat deze pagina? </button>
-                                </th>
-                            </tr>
+       
                
         </table> 
     </center>
