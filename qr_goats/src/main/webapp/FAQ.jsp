@@ -59,7 +59,7 @@
                             <tr>  
                                 <td>
                                     <div id="demo1" class="collapse">
-                                        Er staat een scanner in het lokaal waar u aanwezig moet zijn hier moet je u uw qr-code tegenaan houden.
+                                        Er staat een scanner in het lokaal waar u aanwezig moet zijn hier moet u uw qr-code tegenaan houden.
                                       </div>
                                 </td>
                             </tr>
