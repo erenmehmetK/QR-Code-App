@@ -5,6 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="content/css/main.css">
+    <link rel="stylesheet" href="content/css/profielPagina.css">
 	<script src="content/Javascript/profilePage.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,8 +38,8 @@
 	          <tr>
 	              <td>
 	                  <s:textfield class="inputText" type="password" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true" required="true"/>
-	                  </td><td>
-	              </td>
+	                  </td>
+	                  <td></td>
 	              <td>
 	                  <button type="button" id="pencilButton">
 	                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -55,7 +56,7 @@
 	          <tr>
 	          <tr>
 				<td>
-	                <s:textfield class="inputText" type="password" id="NieuwWachtwoord2" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
+	                <s:textfield class="inputText" type="password" id="NieuwWachtwoord2" name="wachtwoord" placeholder="Herhaal nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
 	                </td><td>
 	          	</td> 
 	          </tr>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
-
+    	<link rel="stylesheet" href="content/css/main.css">
     </head>
     
     <body>

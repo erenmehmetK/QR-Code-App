@@ -5,9 +5,8 @@
 			document.getElementById('wachtwoord').readOnly = false;
 			document.getElementById('wachtwoord').focus(); addBody();
 			document.getElementById('NieuwWachtwoord1').readOnly = false;
-			document.getElementById('NieuwWachtwoord1').focus();
-			addBody();document.getElementById('NieuwWachtwoord2').readOnly = false;
-			document.getElementById('NieuwWachtwoord2').focus(); addBody();
+			document.getElementById('NieuwWachtwoord2').readOnly = false;
+			addBody();
 		};
 		// Wachtwoord veranderen annuleren
 		document.getElementById("annuleerButton").onclick = function() {
