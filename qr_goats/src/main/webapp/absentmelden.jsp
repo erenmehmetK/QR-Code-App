@@ -48,9 +48,62 @@
                                     
                         
                         </div>
+                        </form>
                         </div>
                     </div>
                     </div>
+
+                       <!-- Te laat melden -->
+                       <div id="telaatmelden">
+                        <div class="card text-white bg-white mb-3">
+                            <h1> Te laat melden</h1>
+                            <div class="card-body">
+                                <form action="laatMelding">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Reden</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <!-- Te laat reden selecteren -->
+                                            <option>Verslapen</option>
+                                            <option>OV vertraging</option>
+                                            <option>Overige</option>
+                                        </select>
+                                        
+                                        <div id="opmerking">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Opmerking</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          
+                                    
+                                </div>
+        
+                                </div>
+                                <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
+                            </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                    <!-- Ziek melden -->
+<div id="ziekmelden">
+    <div class="card text-white bg-white mb-3" >
+        <h1> Ziek melden</h1>
+        <div class="card-body">
+            <form action="ziekMelding" method="post">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Meld hier jezelf ziek.</label>
+                
+            </div>
+            </div>
+            
+            <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
+            </form>
+            </div>
+        </div>
+        
+    </div>
+    </div>
                     <script>
                         // event listener toevoegen aan de knop
                         document.getElementById("exampleFormControlSelect2").onchange = voegMelding;
@@ -82,36 +135,7 @@
                         
                             </script> 
                     <hr>
-                    <!-- Te laat melden -->
-                    <div id="telaatmelden">
-                        <div class="card text-white bg-white mb-3">
-                            <h1> Te laat melden</h1>
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Reden</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <!-- Te laat reden selecteren -->
-                                            <option>Verslapen</option>
-                                            <option>OV vertraging</option>
-                                            <option>Overige</option>
-                                        </select>
-                                        
-                                        <div id="opmerking">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Opmerking</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-          
-                                    
-                                </div>
-        
-                                </div>
-                                <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
-        
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                 
                         <script>
                             // event listener toevoegen aan de knop
                             document.getElementById("exampleFormControlSelect1").onchange = voegCommentaar;
@@ -133,25 +157,7 @@
                             
                             
                                 </script> 
-<!-- Ziek melden -->
-<div id="ziekmelden">
-    <div class="card text-white bg-white mb-3" >
-        <h1> Ziek melden</h1>
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Meld hier jezelf ziek.</label>
-                
-            </div>
-            </div>
-            
-            <button type="submit" onclick="confirmRequest()" class="btn btn-primary">Melden</button>
-            </form>
-            </div>
-        </div>
-        
-    </div>
-    </div>
+
 </container>
 </body>
 </html>
