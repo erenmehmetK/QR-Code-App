@@ -1,5 +1,6 @@
 package nl.delphinity.qr_goats.domain;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
@@ -38,42 +39,47 @@ public class Account implements Comparable<Account> {
 			return false;
 		}
 	}
-	
+
 	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
 		oudWachtwoord = hashPassword(oudWachtwoord); // Hasht om te vergelijken met het wachtwoord
 		nieuwWachtwoord = hashPassword(nieuwWachtwoord); // Hasht voor vergelijking en vervangen van wachtwoord
-		if(wachtwoord.equals(oudWachtwoord) && !wachtwoord.equals(nieuwWachtwoord)) {
+		if (wachtwoord.equals(oudWachtwoord) && !wachtwoord.equals(nieuwWachtwoord)) {
 			wachtwoord = nieuwWachtwoord;
 			return true;
 		}
 		return false;
 	}
-	
-	public String hashPassword(String pasW)  {
-	        try 
-	        {
-	          // Create MessageDigest instance for MD5
-	          MessageDigest md = MessageDigest.getInstance("MD5");
 
-	          // Add password bytes to digest
-	          md.update(pasW.getBytes());
+	public static String hashPassword(String input) {
+		try {
+			// getInstance() method is called with algorithm SHA-1
+			MessageDigest md = MessageDigest.getInstance("SHA-1");
 
-	          // Get the hash's bytes
-	          byte[] bytes = md.digest();
+			// digest() method is called
+			// to calculate message digest of the input string
+			// returned as array of byte
+			byte[] messageDigest = md.digest(input.getBytes());
 
-	          // This bytes[] has bytes in decimal format. Convert it to hexadecimal format
-	          StringBuilder sb = new StringBuilder();
-	          for (int i = 0; i < bytes.length; i++) {
-	            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-	          }
+			// Convert byte array into signum representation
+			BigInteger no = new BigInteger(1, messageDigest);
 
-	          // Get complete hashed password in hex format
-	          pasW = sb.toString();
-	        } catch (NoSuchAlgorithmException e) {
-	          e.printStackTrace();
-	        }
-	        return pasW;
-	      }
+			// Convert message digest into hex value
+			String hashtext = no.toString(16);
+
+			// Add preceding 0s to make it 32 bit
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
+
+			// return the HashText
+			return hashtext;
+		}
+
+		// For specifying wrong message digest algorithms
+		catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	public int getId() {
 		return id;
