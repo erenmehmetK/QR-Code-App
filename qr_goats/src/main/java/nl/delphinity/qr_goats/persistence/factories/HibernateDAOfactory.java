@@ -20,6 +20,12 @@ public class HibernateDAOfactory extends DAOFactory {
 		return null;
 	}
 
+	@Override
+	public IQRCodeDAO getQRCodeDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 	

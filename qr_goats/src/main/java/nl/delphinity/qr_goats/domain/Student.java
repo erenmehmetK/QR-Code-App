@@ -21,6 +21,16 @@ public class Student extends Persoon {
 	}
 
 	private String studentenNR;
+	private QRCode qrCode;
+	
+	public QRCode getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(QRCode qrCode) {
+		this.qrCode = qrCode;
+	}
+	
 
 	public TreeSet<Melding> meldingen;
 
