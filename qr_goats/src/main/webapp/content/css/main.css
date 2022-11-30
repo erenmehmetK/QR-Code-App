@@ -24,6 +24,11 @@ body {
 
 /* terug knop voor alle pages */
 
+.terugButton{
+    text-decoration: none !important;
+    font-family: var(--CentraleSansRegular);
+    color: white !important;
+}
 .terug {
     background-color: #00000057;
     opacity: 0.70;
@@ -38,13 +43,4 @@ body {
     text-align: center;
     width: 10%;
     height: 5%;
-}
-
-.back {
-	background: transparent; 
-	border: 0px; 
-	color: white; 
-	font-size: x-large; 
-	width: 100%;
-	height: 100%;
 }

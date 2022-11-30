@@ -15,8 +15,8 @@
 <body>
     
     <div class="container">
-		<s:form class="terug" action="QRScanner" method="POST">
-		    <input class="back" type="submit" value="<"/>
+		<s:form class="terugbutton" action="QRScanner" method="POST">
+		    <input class="terug" type="submit" value="<"/>
 		</s:form>
         <h1 class="titel">Profiel</h1>
         <img id="pfp" class="profielFoto" src="https://png.pngtree.com/png-clipart/20210310/original/pngtree-default-male-avatar-png-image_5939655.jpg" alt="Profiel foto">
