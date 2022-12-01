@@ -15,7 +15,7 @@
 <body>
     
     <div class="container">
-		<s:form class="terugbutton" action="QRScanner" method="POST">
+		<s:form class="terugbutton" action="Home" method="POST">
 		    <input class="terug" type="submit" value="<"/>
 		</s:form>
         <h1 class="titel">Profiel</h1>

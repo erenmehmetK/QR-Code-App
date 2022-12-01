@@ -27,7 +27,7 @@
     <title>Document</title>
 </head>
 <body>
-    <s:form class="terugbutton" action="QRScanner" method="POST">
+    <s:form class="terugbutton" action="Home" method="POST">
 		    <input class="terug" type="submit" value="<"/>
 		</s:form>
 <img src="content/embed/zandklok.png" alt="gino.png (zandklok)" >

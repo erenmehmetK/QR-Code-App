@@ -8,11 +8,11 @@
 	
 	<package name="default" extends="struts-default" namespace="/">
 	
-		<action name ="QRScanner" class="nl.delphinity.qr_goats.HelloAction">
+		<action name ="Home" class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
 	
-		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="getData">
+		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="">
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
 		

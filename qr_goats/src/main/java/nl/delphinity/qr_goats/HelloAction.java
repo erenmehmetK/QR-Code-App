@@ -26,11 +26,6 @@ public class HelloAction extends ActionSupport implements SessionAware {
 		return "SUCCESS";
 	}
 
-	public String getData() {
-		
-		return "SUCCESS";
-	}
-
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;
