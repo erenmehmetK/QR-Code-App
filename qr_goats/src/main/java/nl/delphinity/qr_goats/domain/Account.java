@@ -5,6 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
+import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
+import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 public class Account implements Comparable<Account> {
@@ -41,45 +43,54 @@ public class Account implements Comparable<Account> {
 	}
 
 	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
-		oudWachtwoord = hashPassword(oudWachtwoord); // Hasht om te vergelijken met het wachtwoord
-		nieuwWachtwoord = hashPassword(nieuwWachtwoord); // Hasht voor vergelijking en vervangen van wachtwoord
-		if (wachtwoord.equals(oudWachtwoord) && !wachtwoord.equals(nieuwWachtwoord)) {
-			wachtwoord = nieuwWachtwoord;
-			return true;
+		try {
+			if(PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
+				wachtwoord = nieuwWachtwoord;
+				return true;
+			}
+		} catch (CannotPerformOperationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvalidHashException e2) {
+			e2.printStackTrace();
 		}
 		return false;
 	}
 
-	public static String hashPassword(String input) {
-		try {
-			// getInstance() method is called with algorithm SHA-1
-			MessageDigest md = MessageDigest.getInstance("SHA-1");
+//		oudWachtwoord = hashPassword(oudWachtwoord); // Hasht om te vergelijken met het wachtwoord
+//		nieuwWachtwoord = hashPassword(nieuwWachtwoord); // Hasht voor vergelijking en vervangen van wachtwoord
+//		if (wachtwoord.equals(oudWachtwoord) && !wachtwoord.equals(nieuwWachtwoord)) {
+//			wachtwoord = nieuwWachtwoord;
+//			return true;
+//		}
+//		return false;
 
-			// digest() method is called
-			// to calculate message digest of the input string
-			// returned as array of byte
-			byte[] messageDigest = md.digest(input.getBytes());
+//	public static String hashPassword(String input) {
+//		try {
+//			// getInstance() method is called with algorithm SHA-1
+//			MessageDigest md = MessageDigest.getInstance("SHA-1");
+//
+//			// digest() method is called
+//			// to calculate message digest of the input string
+//			// returned as array of byte
+//			byte[] messageDigest = md.digest(input.getBytes());
+//
+//			// Convert byte array into signum representation
+//			BigInteger no = new BigInteger(1, messageDigest);
+//
+//			// Convert message digest into hex value
+//			String hashtext = no.toString(16);
+//
+//			// Add preceding 0s to make it 32 bit
+//			while (hashtext.length() < 32) {
+//				hashtext = "0" + hashtext;
+//			}
+//
+//			// return the HashText
+//			return hashtext;
+//		}
 
-			// Convert byte array into signum representation
-			BigInteger no = new BigInteger(1, messageDigest);
-
-			// Convert message digest into hex value
-			String hashtext = no.toString(16);
-
-			// Add preceding 0s to make it 32 bit
-			while (hashtext.length() < 32) {
-				hashtext = "0" + hashtext;
-			}
-
-			// return the HashText
-			return hashtext;
-		}
-
-		// For specifying wrong message digest algorithms
-		catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
-	}
+	// For specifying wrong message digest algorithms
 
 	public int getId() {
 		return id;
