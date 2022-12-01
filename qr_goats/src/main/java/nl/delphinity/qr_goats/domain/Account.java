@@ -46,7 +46,6 @@ public class Account implements Comparable<Account> {
 		try {
 			if(PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
 				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
-				System.out.println(wachtwoord);
 				return true;
 			}
 		} catch (CannotPerformOperationException e1) {
