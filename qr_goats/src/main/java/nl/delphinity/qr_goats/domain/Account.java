@@ -49,11 +49,12 @@ public class Account implements Comparable<Account> {
 		return wachtwoord;
 	}
 
-	public void setWachtwoord(String wachtwoord) {
+	public void setWachtwoord(String	 wachtwoord) {
 		this.wachtwoord = wachtwoord;
 	}
 
-	// hasht de id zodat het object vergelijkbaar is
+	
+	//hasht de id zodat het object vergelijkbaar is
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
