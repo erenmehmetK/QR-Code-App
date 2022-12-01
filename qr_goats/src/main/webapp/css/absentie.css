@@ -45,8 +45,7 @@ height: 100vh;
 body {
     background: var(--background-color);
     font-family: var(--CentraleSansRegular);
-    max-width: max-content;
-
+    
     color: white;
 
 
