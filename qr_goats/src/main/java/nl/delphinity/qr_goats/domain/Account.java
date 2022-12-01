@@ -45,7 +45,8 @@ public class Account implements Comparable<Account> {
 	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
 		try {
 			if(PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
-				wachtwoord = nieuwWachtwoord;
+				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
+				System.out.println(wachtwoord);
 				return true;
 			}
 		} catch (CannotPerformOperationException e1) {
@@ -56,41 +57,6 @@ public class Account implements Comparable<Account> {
 		}
 		return false;
 	}
-
-//		oudWachtwoord = hashPassword(oudWachtwoord); // Hasht om te vergelijken met het wachtwoord
-//		nieuwWachtwoord = hashPassword(nieuwWachtwoord); // Hasht voor vergelijking en vervangen van wachtwoord
-//		if (wachtwoord.equals(oudWachtwoord) && !wachtwoord.equals(nieuwWachtwoord)) {
-//			wachtwoord = nieuwWachtwoord;
-//			return true;
-//		}
-//		return false;
-
-//	public static String hashPassword(String input) {
-//		try {
-//			// getInstance() method is called with algorithm SHA-1
-//			MessageDigest md = MessageDigest.getInstance("SHA-1");
-//
-//			// digest() method is called
-//			// to calculate message digest of the input string
-//			// returned as array of byte
-//			byte[] messageDigest = md.digest(input.getBytes());
-//
-//			// Convert byte array into signum representation
-//			BigInteger no = new BigInteger(1, messageDigest);
-//
-//			// Convert message digest into hex value
-//			String hashtext = no.toString(16);
-//
-//			// Add preceding 0s to make it 32 bit
-//			while (hashtext.length() < 32) {
-//				hashtext = "0" + hashtext;
-//			}
-//
-//			// return the HashText
-//			return hashtext;
-//		}
-
-	// For specifying wrong message digest algorithms
 
 	public int getId() {
 		return id;
