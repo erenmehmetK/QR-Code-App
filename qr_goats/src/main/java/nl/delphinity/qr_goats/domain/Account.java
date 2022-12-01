@@ -1,8 +1,5 @@
 package nl.delphinity.qr_goats.domain;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;

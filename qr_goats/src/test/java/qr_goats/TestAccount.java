@@ -8,11 +8,8 @@ import org.junit.Test;
 
 import nl.delphinity.qr_goats.domain.Account;
 import nl.delphinity.qr_goats.domain.PasswordHashing;
-import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
-import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
-import nl.delphinity.qr_goats.persistence.test.dao.TestDAOAccount;
 
 public class TestAccount {
 
