@@ -2,12 +2,32 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
+@Entity
+@Table(name = "account", uniqueConstraints = {@UniqueConstraint(columnNames = "email")}, indexes = {@Index (columnList = "Email")})
 public class Account implements Comparable<Account> {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", length = 10)
 	private Integer id;
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "wachtwoord", nullable = false, length = 255)
 	private String wachtwoord;
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 
 	public Account(String wachtwoord, String email) {

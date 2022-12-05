@@ -16,7 +16,7 @@ public class QRTest {
 	@Before
 	public void createDatabase() {
 		
-	   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+//	   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 	}
 	
 	@Test

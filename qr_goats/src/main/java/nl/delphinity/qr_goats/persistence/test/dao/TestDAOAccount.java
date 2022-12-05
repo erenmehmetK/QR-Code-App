@@ -43,12 +43,6 @@ public class TestDAOAccount implements IAccountDAO {
 	}
 
 	@Override
-	public Account findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Set<Account> findAll() {
 		// TODO Auto-generated method stub
 		return null;
@@ -61,6 +55,12 @@ public class TestDAOAccount implements IAccountDAO {
 				return s;
 			}
 		}
+		return null;
+	}
+
+	@Override
+	public Account findById(String id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

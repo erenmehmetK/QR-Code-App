@@ -2,7 +2,33 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.TreeSet;
 
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "Student", uniqueConstraints = {@UniqueConstraint(columnNames = "studentNR")}, indexes = {@Index (columnList = "studentenNR")})
 public class Student extends Persoon {
+
+	private String studentenNR;
+	@Transient
+	private QRCode qrCode;
+
+	@Transient
+	public TreeSet<Melding> meldingen;
+
+	public QRCode getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(QRCode qrCode) {
+		this.qrCode = qrCode;
+	}
 
 	public Student() {
 
@@ -19,20 +45,6 @@ public class Student extends Persoon {
 		return studentenNR.compareTo(other.studentenNR);
 
 	}
-
-	private String studentenNR;
-	private QRCode qrCode;
-	
-	public QRCode getQrCode() {
-		return qrCode;
-	}
-
-	public void setQrCode(QRCode qrCode) {
-		this.qrCode = qrCode;
-	}
-	
-
-	public TreeSet<Melding> meldingen;
 
 	public void addMelding(Melding m) {
 		meldingen.add(m);
@@ -52,7 +64,7 @@ public class Student extends Persoon {
 			meldingen = new TreeSet<Melding>();
 
 		}
-		
+
 		Melding m1 = new LaatMelding();
 		m1.setDatum(java.time.LocalDateTime.now());
 		((LaatMelding) m1).setOpmerking(opmerking);
@@ -64,7 +76,7 @@ public class Student extends Persoon {
 
 	// Student meldt zichzelf ziek
 	public Melding ziekMelden() {
-		
+
 		if (meldingen == null) {
 
 			meldingen = new TreeSet<Melding>();

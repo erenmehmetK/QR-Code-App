@@ -13,37 +13,37 @@ import nl.delphinity.qr_goats.persistence.test.dao.TestDAOAccount;
 
 public class TestAccount {
 	
-	private Account a;
-	private Account a2;
-	private Account a3;
-	
-	@Before
-	public void setUp() throws Exception {
-		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
-		a = new Account();
-		a.setEmail("nummer1@student.scalda.nl");
-		a.setWachtwoord("milan1");
-		
-		a2 = new Account();
-		a2.setEmail("nummer1@student.scalda.nl");
-		a2.setWachtwoord("kaaskat");
-		
-		a3 = new Account();
-		a3.setEmail(null);
-		a3.setWachtwoord(null);
-		
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-	
-
-	@Test
-	public void testLoginCheck() {
-		assertTrue(a.loginCheck());
-		assertFalse(a2.loginCheck());
-		assertFalse(a3.loginCheck());
-	}
+//	private Account a;
+//	private Account a2;
+//	private Account a3;
+//	
+//	@Before
+//	public void setUp() throws Exception {
+//		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+//		a = new Account();
+//		a.setEmail("nummer1@student.scalda.nl");
+//		a.setWachtwoord("milan1");
+//		
+//		a2 = new Account();
+//		a2.setEmail("nummer1@student.scalda.nl");
+//		a2.setWachtwoord("kaaskat");
+//		
+//		a3 = new Account();
+//		a3.setEmail(null);
+//		a3.setWachtwoord(null);
+//		
+//	}
+//
+//	@After
+//	public void tearDown() throws Exception {
+//	}
+//	
+//
+//	@Test
+//	public void testLoginCheck() {
+//		assertTrue(a.loginCheck());
+//		assertFalse(a2.loginCheck());
+//		assertFalse(a3.loginCheck());
+//	}
 
 }
