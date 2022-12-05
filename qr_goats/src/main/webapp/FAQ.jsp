@@ -59,7 +59,7 @@
                             <tr>  
                                 <td>
                                     <div id="demo1" class="collapse">
-                                        Er staat een scanner in het lokaal waar u aanwezig moet zijn, hier moet u uw qr-code tegenaan houden.
+                                      <button type="button" class="collapseButtonFAQ btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo1"> Er staat een scanner in het lokaal waar u aanwezig moet zijn, hier moet u uw qr-code tegenaan houden. </button>  
                                       </div>
                                 </td>
                             </tr>
