@@ -11,7 +11,7 @@ import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 public class DatabaseTestRuns {
 	public static void main(String[] args) {
-
+		 DatabaseTestRuns dtr = new DatabaseTestRuns();
 		/**
 		 * If all was correct imported, implemented and configurated, running this app
 		 * will create an empty databases with the name specified in your
@@ -37,6 +37,13 @@ public class DatabaseTestRuns {
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 				
+		dtr.createAll();
+
+		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
+		HibernateSessionManager.shutdown();
+	}
+	
+	public void createAll() {
 		Student s = new Student();
 		s.setNaam("Bram");
 		s.setTussenvoegsel("van");
@@ -46,15 +53,8 @@ public class DatabaseTestRuns {
 		Account a = new Account();
 		a.setEmail("bvanhuele@scalda.nl");
 		a.setWachtwoord("abc");
-		/**
-		 * Using the datalayer, DAOFactory and DAO's related to HibernateDAO's. Instead
-		 * of session.save(emp)
-		 */
 
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
-
-		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-		HibernateSessionManager.shutdown();
 	}
 }

@@ -22,11 +22,9 @@ public class Account implements Comparable<Account> {
 	@Column(name = "id", length = 10)
 	private Integer id;
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "wachtwoord", nullable = false, length = 255)
 	private String wachtwoord;
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 

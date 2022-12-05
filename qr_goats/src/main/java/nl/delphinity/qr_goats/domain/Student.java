@@ -2,6 +2,7 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.TreeSet;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Inheritance;
@@ -12,9 +13,10 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Student", uniqueConstraints = {@UniqueConstraint(columnNames = "studentNR")}, indexes = {@Index (columnList = "studentenNR")})
+@Table(name = "Student", uniqueConstraints = {@UniqueConstraint(columnNames = "studentenNR")}, indexes = {@Index (columnList = "studentenNR")})
 public class Student extends Persoon {
 
+	@Column(name = "studentenNR", nullable = true, length = 6)
 	private String studentenNR;
 	@Transient
 	private QRCode qrCode;
