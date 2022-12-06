@@ -2,17 +2,24 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.Polymorphism;
+import org.hibernate.annotations.PolymorphismType;
 
 @Entity
-@Table(name = "Persoon", uniqueConstraints = {@UniqueConstraint(columnNames = "id")}, indexes = {@Index (columnList = "id")})
+@Polymorphism(type = PolymorphismType.IMPLICIT)
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "persoon", indexes = {@Index (columnList = "id")})
 public class Persoon implements Comparable<Persoon> {
 
 	@Id

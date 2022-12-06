@@ -4,23 +4,26 @@ import java.util.TreeSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Index;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Student", uniqueConstraints = {@UniqueConstraint(columnNames = "studentenNR")}, indexes = {@Index (columnList = "studentenNR")})
+@PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
 public class Student extends Persoon {
-
-	@Column(name = "studentenNR", nullable = true, length = 6)
+	// dit is primary key
+	@Column(name = "studentenNR", nullable = false, length = 6)
 	private String studentenNR;
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "persoon_id", referencedColumnName = "id")
+//	private Persoon persoon;
+	
 	@Transient
 	private QRCode qrCode;
-
 	@Transient
 	public TreeSet<Melding> meldingen;
 
@@ -111,4 +114,5 @@ public class Student extends Persoon {
 	public void setStudentenNR(String studentenNR) {
 		this.studentenNR = studentenNR;
 	}
+
 }

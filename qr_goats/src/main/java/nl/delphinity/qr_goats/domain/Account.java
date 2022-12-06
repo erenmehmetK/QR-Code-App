@@ -2,34 +2,39 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
 
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 @Entity
-@Table(name = "account", uniqueConstraints = {@UniqueConstraint(columnNames = "email")}, indexes = {@Index (columnList = "Email")})
+@Table(name = "account", uniqueConstraints = {@UniqueConstraint(columnNames = "email")}, indexes = {@Index (columnList = "email")})
 public class Account implements Comparable<Account> {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", length = 10)
 	private Integer id;
 	
 	@Column(name = "wachtwoord", nullable = false, length = 255)
 	private String wachtwoord;
 	
+	@Id
 	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "studentenNR", referencedColumnName = "studentenNR")
+//	private Student studentNR;
 	public Account(String wachtwoord, String email) {
-		super();
 		this.wachtwoord = wachtwoord;
 		this.email = email;
 	}
@@ -122,5 +127,6 @@ public class Account implements Comparable<Account> {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 }
