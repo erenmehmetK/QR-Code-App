@@ -20,7 +20,8 @@ import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 @Entity
 @Table(name = "account", uniqueConstraints = {@UniqueConstraint(columnNames = "email")}, indexes = {@Index (columnList = "email")})
 public class Account implements Comparable<Account> {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", length = 10)
 	private Integer id;
 	
@@ -31,9 +32,8 @@ public class Account implements Comparable<Account> {
 	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 
-//	@OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "studentenNR", referencedColumnName = "studentenNR")
-//	private Student studentNR;
+	@OneToOne(mappedBy = "address")
+	private Student student;
 	public Account(String wachtwoord, String email) {
 		this.wachtwoord = wachtwoord;
 		this.email = email;

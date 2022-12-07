@@ -2,14 +2,14 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
-import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
@@ -17,11 +17,11 @@ public class Student extends Persoon {
 	// dit is primary key
 	@Column(name = "studentenNR", nullable = false, length = 6)
 	private String studentenNR;
-	
-//	@OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "persoon_id", referencedColumnName = "id")
-//	private Persoon persoon;
-	
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "account_email", referencedColumnName = "email")
+	private Account account;
+
 	@Transient
 	private QRCode qrCode;
 	@Transient

@@ -36,10 +36,9 @@ public class DatabaseTestRuns {
 
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-				
+		dtr.createAccount();		
 		dtr.createStudent();
-		dtr.createAccount();
-//		dtr.createPerson2();
+		
 		
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 		HibernateSessionManager.shutdown();
