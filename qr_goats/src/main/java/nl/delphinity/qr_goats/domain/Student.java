@@ -1,5 +1,6 @@
 package nl.delphinity.qr_goats.domain;
 
+import java.nio.MappedByteBuffer;
 import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
@@ -7,9 +8,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
+
 
 @Entity
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
@@ -17,9 +20,9 @@ public class Student extends Persoon {
 	// dit is primary key
 	@Column(name = "studentenNR", nullable = false, length = 6)
 	private String studentenNR;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_email", referencedColumnName = "email")
+	
+	@OneToOne(targetEntity=Account.class)
+	@JoinColumn(name = "account_id")
 	private Account account;
 
 	@Transient
@@ -113,6 +116,14 @@ public class Student extends Persoon {
 
 	public void setStudentenNR(String studentenNR) {
 		this.studentenNR = studentenNR;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 }

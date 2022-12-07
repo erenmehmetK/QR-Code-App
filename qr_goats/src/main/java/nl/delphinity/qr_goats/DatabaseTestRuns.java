@@ -11,7 +11,7 @@ import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 public class DatabaseTestRuns {
 	public static void main(String[] args) {
-		 DatabaseTestRuns dtr = new DatabaseTestRuns();
+		DatabaseTestRuns dtr = new DatabaseTestRuns();
 		/**
 		 * If all was correct imported, implemented and configurated, running this app
 		 * will create an empty databases with the name specified in your
@@ -36,34 +36,31 @@ public class DatabaseTestRuns {
 
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		dtr.createAccount();		
+
+		dtr.createAccount();
 		dtr.createStudent();
-		
-		
+
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 		HibernateSessionManager.shutdown();
 	}
-	
+
 	public void createStudent() {
 		Student s = new Student();
 		s.setNaam("Bram");
 		s.setTussenvoegsel("van");
 		s.setAchternaam("heule");
 		s.setStudentenNR("235227");
-		
 
-		
-		
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 	}
+
 	public void createAccount() {
 		Account a = new Account();
 		a.setEmail("bvanhuele@scalda.nl");
 		a.setWachtwoord("abc");
-		
-		
+
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
-	
+
 	}
 
 	public void createPerson2() {
@@ -71,21 +68,22 @@ public class DatabaseTestRuns {
 		s2.setNaam("miguel");
 		s2.setAchternaam("brugge");
 		s2.setStudentenNR("123123");
-		
+
 		Account a2 = new Account();
 		a2.setEmail("mbrugge@student.scalda.nl");
 		a2.setWachtwoord("jarno");
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a2);
 	}
+
 	public void assignStudentToAccount(String studentNR, String account) {
 		Student st = DAOFactory.getTheFactory().getStudentDAO().findById(studentNR);
 		Account ac = DAOFactory.getTheFactory().getAccountDAO().findById(studentNR);
-		if(st == null || ac == null) {
+		if (st == null || ac == null) {
 			return;
 		}
 //		ac.setStudent(st);
-		
+
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(ac);
 	}
 }
