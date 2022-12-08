@@ -19,6 +19,7 @@ public class TestAccount {
 	
 	@Before
 	public void setUp() throws Exception {
+		System.out.println("test setup");
 		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 		a = new Account();
 		a.setEmail("nummer1@student.scalda.nl");

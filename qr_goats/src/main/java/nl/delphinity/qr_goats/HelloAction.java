@@ -15,15 +15,38 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
 	private Map<String, Object> sessionMap;
 	private Persoon per;
+		
 	private Account acc;
+	private String email;
+	private String wachtwoord;
+	
 
+	
+	
 	@Override
 	public String execute() {
 
 		sessionMap.putIfAbsent("Persoon", per);
+		
 		sessionMap.putIfAbsent("Account", acc);
 	
 		return "SUCCESS";
+	}
+	
+	public String login() {
+		acc = new Account();
+		
+		acc.setEmail(email);
+		acc.setWachtwoord(wachtwoord);
+
+		if(acc.loginCheck()) {
+			System.out.println("true");
+			return "SUCCESS";
+		}else {
+			
+			System.out.println("false");
+			return null;
+		}
 	}
 
 	@Override
@@ -47,4 +70,22 @@ public class HelloAction extends ActionSupport implements SessionAware {
 		this.acc = acc;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getWachtwoord() {
+		return wachtwoord;
+	}
+
+	public void setWachtwoord(String wachtwoord) {
+		this.wachtwoord = wachtwoord;
+	}
+
+	
+	
 }

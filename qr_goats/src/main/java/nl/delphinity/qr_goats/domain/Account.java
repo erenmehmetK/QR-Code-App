@@ -20,19 +20,22 @@ public class Account implements Comparable<Account> {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Login
 	public boolean loginCheck() {
 		// find account by email en returnt other
 
+		
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
-
+		System.out.println("test");
+		
 		if (other == null) {
-			System.out.println("geen account gevonden jammer zeg");
+			System.out.println("Email not found");
 			return false;
 		} else if (this.wachtwoord.equals(other.wachtwoord)) {
-			System.out.println("wachtwoord is goed");
+			System.out.println("Password and email correct");
 			return true;
 		} else {
-			System.out.println("wachtwoord is fout");
+			System.out.println("Password incorrect");
 			return false;
 		}
 	}
