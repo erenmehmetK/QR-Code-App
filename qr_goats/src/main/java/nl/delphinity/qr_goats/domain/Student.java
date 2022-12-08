@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 @Entity
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
 public class Student extends Persoon {
-	// dit is primary key
+	// dit is primary key, hierbij kan geen @Id ivm dit is een subclass	
 	@Column(name = "studentenNR", nullable = false, length = 6, unique = true)
 	private String studentenNR;
 	

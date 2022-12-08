@@ -21,11 +21,11 @@
 		</property>
 
 		<property name="hibernate.connection.username">
-			root
+			<!-- username bijv root -->
 		</property>
 
 		<property name="hibernate.connection.password">
-			root
+			<!-- wachtwoord bijv 1234 of root -->
 		</property>
 
 		<property name="hibernate.current_session_context_class">thread</property>
