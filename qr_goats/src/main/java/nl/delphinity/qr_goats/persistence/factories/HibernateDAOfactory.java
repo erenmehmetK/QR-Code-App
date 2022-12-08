@@ -26,6 +26,12 @@ public class HibernateDAOfactory extends DAOFactory {
 		return null;
 	}
 
+	@Override
+	public ITestStudentDAO getStudentDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 	

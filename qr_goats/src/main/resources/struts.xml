@@ -20,5 +20,17 @@
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
 		
+				<action name ="absentieoverzicht" class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
+		</action>
+		
+         <action name ="ziekMelding" class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
+			<result name="SUCCESS">/index.jsp</result>
+		</action>
+		
+		<action name ="laatMelding" class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
+			<result name="SUCCESS">/index.jsp</result>
+		</action>
+		
 	</package>
 </struts>	

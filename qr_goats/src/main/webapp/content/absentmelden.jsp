@@ -64,7 +64,7 @@
                                 <form action="laatMelding">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Reden</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="reden">
                                             <!-- Te laat reden selecteren -->
                                             <option>Verslapen</option>
                                             <option>OV vertraging</option>
@@ -74,7 +74,7 @@
                                         <div id="opmerking">
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Opmerking</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="opmerking" rows="1"></textarea>
           
                                     
                                 </div>

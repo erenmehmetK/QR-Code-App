@@ -45,7 +45,7 @@ public class Student extends Persoon {
 	}
 
 	// Student meldt zichzelf laat
-	public Melding laatMelden(String opmerking) {
+	public Melding laatMelden(String opmerking, String reden) {
 
 		if (meldingen == null) {
 
@@ -56,6 +56,8 @@ public class Student extends Persoon {
 		Melding m1 = new LaatMelding();
 		m1.setDatum(java.time.LocalDateTime.now());
 		((LaatMelding) m1).setOpmerking(opmerking);
+		((LaatMelding) m1).setReden(reden);
+
 
 		addMelding(m1);
 
