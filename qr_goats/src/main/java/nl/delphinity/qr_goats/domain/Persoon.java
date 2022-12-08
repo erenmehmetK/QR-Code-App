@@ -23,7 +23,7 @@ import org.hibernate.annotations.PolymorphismType;
 public class Persoon implements Comparable<Persoon> {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name = "naam", nullable = false, length = 60)
 	private String naam;

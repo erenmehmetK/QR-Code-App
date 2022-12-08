@@ -38,42 +38,41 @@ public class DatabaseTestRuns {
 		session.beginTransaction();
 
 		dtr.createAccount();
-		dtr.createStudent();
-
+		dtr.createPerson2();
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 		HibernateSessionManager.shutdown();
 	}
 
-	public void createStudent() {
-		Student s = new Student();
-		s.setNaam("Bram");
-		s.setTussenvoegsel("van");
-		s.setAchternaam("heule");
-		s.setStudentenNR("235227");
-
-		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
-	}
 
 	public void createAccount() {
 		Account a = new Account();
 		a.setEmail("bvanhuele@scalda.nl");
 		a.setWachtwoord("abc");
 
+		Student s = new Student();
+		s.setNaam("Bram");
+		s.setTussenvoegsel("van");
+		s.setAchternaam("heule");
+		s.setStudentenNR("235227");
+		s.setAccount(a);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
+		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 
 	}
 
 	public void createPerson2() {
-		Student s2 = new Student();
-		s2.setNaam("miguel");
-		s2.setAchternaam("brugge");
-		s2.setStudentenNR("123123");
-
 		Account a2 = new Account();
 		a2.setEmail("mbrugge@student.scalda.nl");
-		a2.setWachtwoord("jarno");
-		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
+		a2.setWachtwoord("ja ja");
+		
+		Student s2 = new Student();
+		s2.setAccount(a2);
+		s2.setNaam("miguel");
+//		s2.setTussenvoegsel("");
+		s2.setAchternaam("heule");
+		s2.setStudentenNR("235227");
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a2);
+		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
 	}
 
 	public void assignStudentToAccount(String studentNR, String account) {

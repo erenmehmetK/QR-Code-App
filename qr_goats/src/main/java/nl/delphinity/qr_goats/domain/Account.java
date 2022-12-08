@@ -9,24 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 @Entity
-@Table(name = "account", uniqueConstraints = { @UniqueConstraint(columnNames = "email") }, indexes = {@Index(columnList = "email") })
+@Table(name = "account", indexes = { @Index(columnList = "email") })
 public class Account implements Comparable<Account> {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", length = 10)
-	private Integer id;
 
 	@Column(name = "wachtwoord", nullable = false, length = 255)
 	private String wachtwoord;
-
+	@Id
 	@Column(name = "email", nullable = false, length = 255)
 	private String email;
-	
+
 	public Account(String wachtwoord, String email) {
 		this.wachtwoord = wachtwoord;
 		this.email = email;
@@ -53,14 +48,6 @@ public class Account implements Comparable<Account> {
 		}
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getWachtwoord() {
 		return wachtwoord;
 	}
@@ -72,7 +59,7 @@ public class Account implements Comparable<Account> {
 	// hasht de id zodat het object vergelijkbaar is
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(email);
 	}
 
 	// returnt een boolean gebaseerd op als het object gelijk is
@@ -85,13 +72,13 @@ public class Account implements Comparable<Account> {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		return id == other.id;
+		return email.equals(other.email);
 	}
 
 	// returnt waardes van account variabelen als een string
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", wachtwoord=" + wachtwoord + "]";
+		return email + " " + wachtwoord;
 	}
 
 	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor
@@ -99,15 +86,10 @@ public class Account implements Comparable<Account> {
 	@Override
 
 	public int compareTo(Account other) {
-
-		int temp = id.compareTo(other.id);
+		int temp = email.compareTo(other.email);
 		if (temp == 0) {
-
-			int temp2 = wachtwoord.compareTo(wachtwoord);
-			if (temp2 == 0) {
-
-				return temp2;
-			}
+			int temp2 = wachtwoord.compareTo(other.wachtwoord);
+			return temp2;
 		}
 		return temp;
 	}
