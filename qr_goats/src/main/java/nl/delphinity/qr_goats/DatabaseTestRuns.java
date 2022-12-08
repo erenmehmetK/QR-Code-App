@@ -70,7 +70,7 @@ public class DatabaseTestRuns {
 		s2.setNaam("miguel");
 //		s2.setTussenvoegsel("");
 		s2.setAchternaam("heule");
-		s2.setStudentenNR("235227");
+		s2.setStudentenNR("234393");
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a2);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
 	}

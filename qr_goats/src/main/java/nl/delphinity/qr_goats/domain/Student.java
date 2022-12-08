@@ -5,6 +5,7 @@ import java.util.TreeSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -15,7 +16,7 @@ import javax.persistence.Transient;
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
 public class Student extends Persoon {
 	// dit is primary key
-	@Column(name = "studentenNR", nullable = false, length = 6)
+	@Column(name = "studentenNR", nullable = false, length = 6, unique = true)
 	private String studentenNR;
 	
 	@OneToOne
