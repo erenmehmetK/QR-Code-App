@@ -22,6 +22,7 @@ public class Student extends Persoon {
 
 	private String studentenNR;
 	private QRCode qrCode;
+	private Opleiding opleiding;
 	
 	public QRCode getQrCode() {
 		return qrCode;
@@ -98,5 +99,13 @@ public class Student extends Persoon {
 
 	public void setStudentenNR(String studentenNR) {
 		this.studentenNR = studentenNR;
+	}
+
+	public Opleiding getOpleiding() {
+		return opleiding;
+	}
+
+	public void setOpleiding(Opleiding opleiding) {
+		this.opleiding = opleiding;
 	}
 }

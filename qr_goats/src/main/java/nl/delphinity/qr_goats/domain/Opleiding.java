@@ -9,6 +9,8 @@ public class Opleiding {
     private static Opleiding instance;
     
 	TreeSet<Student> studenten;
+	
+	private int id;
 
 	
 
@@ -68,6 +70,14 @@ public class Opleiding {
 	     studenten = TestOpleidingDAO.getInstance().generateStudents();
 		// pas test aan na datalayer
 		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
     
     
