@@ -13,7 +13,7 @@ public class TestStudentDAO extends GenericTestDAO<Student, Integer> implements 
 	private TreeSet<Student> studenten;
 	
 
-	public TestStudentDAO() {
+	private TestStudentDAO() {
 			studenten = new TreeSet<Student>();
 
 			for (int i = 1; i < 101; i++) {
