@@ -7,8 +7,10 @@ public class AccountDAO extends GenericHibernateDAO<Account, String> implements 
 
 	@Override
 	public Account findbyemail(Account a) {
-		// TODO Auto-generated method stub
-		return null;
+		getSession().beginTransaction();
+		Account entity = getSession().find(getPersistentClass(), a.getEmail());
+		getSession().getTransaction().commit();
+		return entity;
 	}
 
 }
