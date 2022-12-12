@@ -29,13 +29,10 @@ public class Account implements Comparable<Account> {
 		System.out.println("test");
 		
 		if (other == null) {
-			System.out.println("Email not found");
 			return false;
 		} else if (this.wachtwoord.equals(other.wachtwoord)) {
-			System.out.println("Password and email correct");
 			return true;
 		} else {
-			System.out.println("Password incorrect");
 			return false;
 		}
 	}

@@ -20,8 +20,6 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	private String email;
 	private String wachtwoord;
 	
-
-	
 	
 	@Override
 	public String execute() {
@@ -40,11 +38,8 @@ public class HelloAction extends ActionSupport implements SessionAware {
 		acc.setWachtwoord(wachtwoord);
 
 		if(acc.loginCheck()) {
-			System.out.println("true");
 			return "SUCCESS";
 		}else {
-			
-			System.out.println("false");
 			return null;
 		}
 	}
