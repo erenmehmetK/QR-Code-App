@@ -52,6 +52,31 @@ public class Student extends Persoon {
 
 	}
 
+<<<<<<< HEAD
+=======
+	private String studentenNR;
+	private boolean isIngecheckt;
+	private QRCode qrCode;
+	
+	public QRCode getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(QRCode qrCode) {
+		this.qrCode = qrCode;
+	}
+	
+	public boolean isIngecheckt() {
+		return isIngecheckt;
+	}
+
+	public void setIngecheckt(boolean isIngecheckt) {
+		this.isIngecheckt = isIngecheckt;
+	}
+
+	public TreeSet<Melding> meldingen;
+
+>>>>>>> develop
 	public void addMelding(Melding m) {
 		meldingen.add(m);
 		m.setStudent(this);
