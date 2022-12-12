@@ -6,9 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
-import java.util.Map;
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
+
 
 public class HelloAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;

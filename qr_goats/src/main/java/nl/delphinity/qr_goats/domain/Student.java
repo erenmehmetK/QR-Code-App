@@ -5,7 +5,6 @@ import java.util.TreeSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -27,14 +26,8 @@ public class Student extends Persoon {
 	private QRCode qrCode;
 	@Transient
 	public TreeSet<Melding> meldingen;
-
-	public QRCode getQrCode() {
-		return qrCode;
-	}
-
-	public void setQrCode(QRCode qrCode) {
-		this.qrCode = qrCode;
-	}
+	@Transient
+	private boolean isIngecheckt;
 
 	public Student() {
 
@@ -51,12 +44,6 @@ public class Student extends Persoon {
 		return studentenNR.compareTo(other.studentenNR);
 
 	}
-
-<<<<<<< HEAD
-=======
-	private String studentenNR;
-	private boolean isIngecheckt;
-	private QRCode qrCode;
 	
 	public QRCode getQrCode() {
 		return qrCode;
@@ -74,9 +61,6 @@ public class Student extends Persoon {
 		this.isIngecheckt = isIngecheckt;
 	}
 
-	public TreeSet<Melding> meldingen;
-
->>>>>>> develop
 	public void addMelding(Melding m) {
 		meldingen.add(m);
 		m.setStudent(this);
