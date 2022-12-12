@@ -8,6 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+
+import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
+import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 @Entity
@@ -44,6 +52,29 @@ public class Account implements Comparable<Account> {
 			System.out.println("wachtwoord is fout");
 			return false;
 		}
+	}
+
+	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
+		try {
+			if(PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
+				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
+				return true;
+			}
+		} catch (CannotPerformOperationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvalidHashException e2) {
+			e2.printStackTrace();
+		}
+		return false;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getWachtwoord() {

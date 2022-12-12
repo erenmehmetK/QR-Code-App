@@ -7,9 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import nl.delphinity.qr_goats.domain.Account;
+import nl.delphinity.qr_goats.domain.PasswordHashing;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
-import nl.delphinity.qr_goats.persistence.test.dao.TestDAOAccount;
 
 public class TestAccount {
 	
@@ -45,5 +45,29 @@ public class TestAccount {
 //		assertFalse(a2.loginCheck());
 //		assertFalse(a3.loginCheck());
 //	}
+
+}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testLoginCheck() {
+		assertTrue(a.loginCheck());
+		assertFalse(a2.loginCheck());
+		assertFalse(a3.loginCheck());
+	}
+
+	@Test
+	public void changePassword() {
+		String oudWachtwoord = "P1zzaMetAnnanas"; // Je WW dat je opnieuw moest typen voor je het kunt veranderen
+		String nieuwWachtwoord = "N3wWachtWo0rd";
+		String foutOudWachtwoord = "D1tIsFout";
+
+		assertFalse(a4.changePassword(oudWachtwoord, oudWachtwoord)); // Is gelijk, dus fout
+		assertFalse(a4.changePassword(foutOudWachtwoord, nieuwWachtwoord)); // Is fout, want vult fout oud wachtwoord in
+		assertTrue(a4.changePassword(oudWachtwoord, nieuwWachtwoord)); // Is goed
+	}
 
 }
