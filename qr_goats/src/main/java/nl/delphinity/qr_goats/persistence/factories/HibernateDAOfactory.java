@@ -15,18 +15,48 @@ public class HibernateDAOfactory extends DAOFactory {
 	}
 
 	@Override
-	public IAccountDAO getAccountDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	public IPersoonDAO getPersoonDAO() {
+		GenericHibernateDAO<Persoon, String> dao = null;
+		try {
+			dao = PersoonDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (IPersoonDAO) dao;
 	}
 
+	@Override
+	public IAccountDAO getAccountDAO() {
+		GenericHibernateDAO<Account, String> dao = null;
+		try {
+			dao = AccountDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (IAccountDAO) dao;
+	}
+
+	@Override
+	public IStudentDAO getStudentDAO() {
+		GenericHibernateDAO<Student, String> dao = null;
+		try {
+			dao = StudentDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (IStudentDAO) dao;
+	}
+// toegevoegd ivm "add unimplemented methods"
 	@Override
 	public IQRCodeDAO getQRCodeDAO() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-	
-	
 }

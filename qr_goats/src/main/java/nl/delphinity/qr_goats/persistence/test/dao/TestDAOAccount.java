@@ -17,7 +17,6 @@ public class TestDAOAccount implements IAccountDAO {
 		for (int i = 1; i <= 5; i++) {
 			Account a = new Account();
 			a.setEmail("nummer"+i+"@student.scalda.nl");
-			a.setId(i);
 			a.setWachtwoord("milan"+i);
 			accounts.add(a);
 		}
@@ -43,12 +42,6 @@ public class TestDAOAccount implements IAccountDAO {
 	}
 
 	@Override
-	public Account findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Set<Account> findAll() {
 		// TODO Auto-generated method stub
 		return null;
@@ -61,6 +54,12 @@ public class TestDAOAccount implements IAccountDAO {
 				return s;
 			}
 		}
+		return null;
+	}
+
+	@Override
+	public Account findById(String id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
