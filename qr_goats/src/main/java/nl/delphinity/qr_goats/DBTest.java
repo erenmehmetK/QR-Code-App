@@ -40,9 +40,32 @@ public class DBTest {
 
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-
-		db.createAccount();
+		
+		
+//		db.createAccount();
+		db.getaccountByAccount();
+		
 		HibernateSessionManager.shutdown();
+	}
+
+	public void getaccountByAccount() {
+		Account a = new Account();
+		a.setEmail("mbrugge@student.scalda.nl");
+		try {
+			a.setWachtwoord(PasswordHashing.createHash("ja ja"));
+		} catch (CannotPerformOperationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Student s = new Student();
+		s.setAccount(a);
+		s.setNaam("miguel");
+		s.setAchternaam("heule");
+		s.setStudentenNR("234393");
+		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
+		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
+		System.out.println(fromdb.getNaam());
 	}
 
 	public void createAccount() {
