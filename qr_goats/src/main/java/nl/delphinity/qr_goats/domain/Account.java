@@ -2,6 +2,8 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
+import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
+import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 public class Account implements Comparable<Account> {
@@ -35,6 +37,21 @@ public class Account implements Comparable<Account> {
 			System.out.println("wachtwoord is fout");
 			return false;
 		}
+	}
+
+	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
+		try {
+			if(PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
+				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
+				return true;
+			}
+		} catch (CannotPerformOperationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvalidHashException e2) {
+			e2.printStackTrace();
+		}
+		return false;
 	}
 
 	public int getId() {
