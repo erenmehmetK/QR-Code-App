@@ -36,13 +36,15 @@
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
 		
-		<action name ="loginpage" class="nl.delphinity.qr_goats.HelloAction">
+		<action name ="login" class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/content/login.jsp</result>
 		</action>
 		
 		<action name ="logincheck" class="nl.delphinity.qr_goats.HelloAction" method="login">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-			<result name="SUCCESS">index.jsp</result>
+			<result name="SUCCESS">/content/profielPagina.jsp</result>
+			<result name="ERROR">/content/login.jsp</result>
+			
 		</action>
 		
 	</package>

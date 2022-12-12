@@ -37,11 +37,11 @@
 				    <s:form class="form-container" action="logincheck" method="get">
 				      <h1>Log in</h1>
 				      <label> Email</label>
-				      <s:textfield  name="email" label="Email" type="Email" class="form-control" placeholder="Email-adres"/>
+				      <s:textfield  name="acc.email" label="Email" type="Email" class="form-control" placeholder="Email-adres"/>
 				      <small id="emailHelp" class="form-text text-muted">Dit moet je studenten e-mailadres zijn</small>
 				      <br>
 				      <label> Wachtwoord </label>
-				      <s:textfield name="wachtwoord" label="wachtwoord" type="password" class="form-control" placeholder="Wachtwoord" />
+				      <s:textfield name="acc.wachtwoord" label="wachtwoord" type="password" class="form-control" placeholder="Wachtwoord" />
 		
 				      <s:submit class="btn btn-primary btn-block"/>
 				    </s:form>	

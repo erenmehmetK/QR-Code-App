@@ -1,7 +1,5 @@
 package nl.delphinity.qr_goats.domain;
 
-import java.util.Objects;
-
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 public class Account implements Comparable<Account> {
@@ -26,10 +24,8 @@ public class Account implements Comparable<Account> {
 
 		
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
-		System.out.println("test");
-		
 		if (other == null) {
-			System.out.println("no password found");
+			System.out.println("no account found");
 			return false;
 		} else if (this.wachtwoord.equals(other.wachtwoord)) {
 			System.out.println("logged in");
@@ -41,7 +37,7 @@ public class Account implements Comparable<Account> {
 	}
 
 
-
+	
 	public String getWachtwoord() {
 		return wachtwoord;
 	}
@@ -65,6 +61,12 @@ public class Account implements Comparable<Account> {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public int compareTo(Account o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

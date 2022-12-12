@@ -17,9 +17,6 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	private Persoon per;
 		
 	private Account acc;
-	private String email;
-	private String wachtwoord;
-	
 	
 	@Override
 	public String execute() {
@@ -32,15 +29,10 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	}
 	
 	public String login() {
-		acc = new Account();
-		
-		acc.setEmail(email);
-		acc.setWachtwoord(wachtwoord);
-
 		if(acc.loginCheck()) {
 			return "SUCCESS";
 		}else {
-			return null;
+			return "ERROR";
 		}
 	}
 
@@ -64,23 +56,4 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	public void setAcc(Account acc) {
 		this.acc = acc;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getWachtwoord() {
-		return wachtwoord;
-	}
-
-	public void setWachtwoord(String wachtwoord) {
-		this.wachtwoord = wachtwoord;
-	}
-
-	
-	
 }
