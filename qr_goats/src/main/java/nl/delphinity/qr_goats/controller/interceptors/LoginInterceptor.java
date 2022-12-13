@@ -15,7 +15,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 	
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
+		 
 		super.init();
 		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 		a = new Account();
@@ -29,7 +29,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 		a = new Account();
 		a2 = new Account();
 		a3 = new Account();
-		// TODO Auto-generated method stub
+		 
 		super.destroy();
 		
 	}
