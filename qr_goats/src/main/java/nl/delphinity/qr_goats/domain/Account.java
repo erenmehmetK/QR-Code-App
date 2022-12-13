@@ -31,19 +31,20 @@ public class Account implements Comparable<Account> {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Login
 	public boolean loginCheck() {
 		// find account by email en returnt other
 
+		
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
-
 		if (other == null) {
-			System.out.println("geen account gevonden jammer zeg");
+		
 			return false;
 		} else if (this.wachtwoord.equals(other.wachtwoord)) {
-			System.out.println("wachtwoord is goed");
+
 			return true;
 		} else {
-			System.out.println("wachtwoord is fout");
+
 			return false;
 		}
 	}
@@ -119,5 +120,4 @@ public class Account implements Comparable<Account> {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }
