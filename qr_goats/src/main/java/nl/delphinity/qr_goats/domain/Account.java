@@ -27,13 +27,13 @@ public class Account implements Comparable<Account> {
 		
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
 		if (other == null) {
-			System.out.println("no account found");
+		
 			return false;
 		} else if (this.wachtwoord.equals(other.wachtwoord)) {
-			System.out.println("logged in");
+
 			return true;
 		} else {
-			System.out.println("password wrong");
+
 			return false;
 		}
 	}
