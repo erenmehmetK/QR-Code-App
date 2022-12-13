@@ -13,14 +13,15 @@
         <s:form action="absent" method="POST">
             <input type="submit" value="absent"/>
         </s:form>
-<<<<<<< HEAD
+
         
           <s:form action="FAQ" method="POST">
             <input type="submit" value="FAQ"/>
-=======
-                <s:form action="login" method="POST">
+		  </s:form>
+		
+         <s:form action="login" method="POST">
             <input type="submit" value="loginpage"/>
->>>>>>> remotes/origin/develop
-        </s:form>
+		</s:form>
+
     </body>
 </html>
