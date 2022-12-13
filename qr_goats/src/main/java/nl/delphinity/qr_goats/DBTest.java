@@ -42,13 +42,13 @@ public class DBTest {
 		session.beginTransaction();
 		
 		
-//		db.createAccount();
-		db.getaccountByAccount();
+		db.createAccount();
+//		db.getStudentByAccount();
 		
 		HibernateSessionManager.shutdown();
 	}
 
-	public void getaccountByAccount() {
+	public void getStudentByAccount() {
 		Account a = new Account();
 		a.setEmail("mbrugge@student.scalda.nl");
 		try {
@@ -64,8 +64,7 @@ public class DBTest {
 		s.setAchternaam("heule");
 		s.setStudentenNR("234393");
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
-		System.out.println(fromdb.getNaam());
+
 	}
 
 	public void createAccount() {
@@ -86,10 +85,9 @@ public class DBTest {
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-
+		
 		a.changePassword("ja ja", "ABC");
 		Account aWWTest = DAOFactory.getTheFactory().getAccountDAO().findbyemail(a);
-//		System.out.println(aWWTest.getWachtwoord());
 		try {
 			System.out.println(PasswordHashing.verifyPassword("ABC", aWWTest.getWachtwoord()));
 		} catch (CannotPerformOperationException e) {
@@ -99,6 +97,12 @@ public class DBTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		getfromDB(a);
+	}
+	
+	public void getfromDB(Account a) {
+		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
+		System.out.println(fromdb.getStudentenNR() + " " +fromdb.getNaam());
 	}
 
 }
