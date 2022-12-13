@@ -17,7 +17,6 @@ public class TestDAOAccount implements IAccountDAO {
 		for (int i = 1; i <= 5; i++) {
 			Account a = new Account();
 			a.setEmail("nummer"+i+"@student.scalda.nl");
-			a.setId(i);
 			a.setWachtwoord("milan"+i);
 			accounts.add(a);
 		}

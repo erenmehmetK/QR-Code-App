@@ -8,11 +8,27 @@
 	
 	<package name="default" extends="struts-default" namespace="/">
 	
+		<interceptors>
+		
+            <interceptor name="LoginInterceptor"
+                class="nl.delphinity.qr_goats.controller.interceptors.LoginInterceptor">
+      		</interceptor>
+      		
+            <interceptor-stack name="QRGoatsStack">
+                <interceptor-ref name="LoginInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+            
+        </interceptors>
+	
+	
 		<action name ="Home" class="nl.delphinity.qr_goats.HelloAction">
-			<result name="SUCCESS">/index.jsp</result>
+		
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref><result name="SUCCESS">/index.jsp</result>
 		</action>
 	
 		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="">
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
 		
@@ -22,6 +38,17 @@
 		
 		<action name ="FAQ" class="nl.delphinity.qr_goats.HelloAction" method="">
 			<result name="SUCCESS">/content/FAQ.jsp</result>
+		</action>
+		
+		<action name ="login" class="nl.delphinity.qr_goats.HelloAction">
+			<result name="SUCCESS">/content/login.jsp</result>
+		</action>
+		
+		<action name ="logincheck" class="nl.delphinity.qr_goats.HelloAction" method="login">
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
+			<result name="SUCCESS">/content/profielPagina.jsp</result>
+			<result name="ERROR">/content/login.jsp</result>
+			
 		</action>
 		
 	</package>
