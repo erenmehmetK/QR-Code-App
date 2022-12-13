@@ -56,4 +56,7 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	public void setAcc(Account acc) {
 		this.acc = acc;
 	}
+
+	
+	
 }
