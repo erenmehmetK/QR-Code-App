@@ -13,5 +13,8 @@
         <s:form action="absent" method="POST">
             <input type="submit" value="absent"/>
         </s:form>
+                <s:form action="login" method="POST">
+            <input type="submit" value="loginpage"/>
+        </s:form>
     </body>
 </html>

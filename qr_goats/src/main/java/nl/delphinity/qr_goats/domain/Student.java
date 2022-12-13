@@ -21,6 +21,7 @@ public class Student extends Persoon {
 	}
 
 	private String studentenNR;
+	private boolean isIngecheckt;
 	private QRCode qrCode;
 	private Opleiding opleiding;
 	
@@ -32,6 +33,13 @@ public class Student extends Persoon {
 		this.qrCode = qrCode;
 	}
 	
+	public boolean isIngecheckt() {
+		return isIngecheckt;
+	}
+
+	public void setIngecheckt(boolean isIngecheckt) {
+		this.isIngecheckt = isIngecheckt;
+	}
 
 	public TreeSet<Melding> meldingen;
 
