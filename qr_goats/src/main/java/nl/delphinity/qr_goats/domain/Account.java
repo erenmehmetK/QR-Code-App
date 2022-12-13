@@ -118,10 +118,5 @@ public class Account implements Comparable<Account> {
 		this.email = email;
 	}
 
-	@Override
-	public int compareTo(Account o) {
-		
-		return 0;
-	}
 
 }

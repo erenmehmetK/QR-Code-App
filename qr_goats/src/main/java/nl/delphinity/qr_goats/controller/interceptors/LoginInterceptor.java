@@ -17,7 +17,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 	public void init() {
 		 
 		super.init();
-		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
 		a = new Account();
 		a.setEmail("nummer1@student.scalda.nl");
 		a.setWachtwoord("milan1");
@@ -25,7 +25,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 
 	@Override
 	public void destroy() {
-		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
 		a = new Account();
 		a2 = new Account();
 		a3 = new Account();
