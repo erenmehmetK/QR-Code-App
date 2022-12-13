@@ -28,9 +28,7 @@ public class Opleiding {
 	public void studentZiekMelden(int id) {
 		for (Student s : studenten) {
 			if (s.getId() == id) {
-				System.out.println(s);
 				s.ziekMelden();
-				System.out.println(s.getMeldingen());
 			}
 		}
 
@@ -41,9 +39,7 @@ public class Opleiding {
 //	    DAOFactory.getTheFactory().get
 		for (Student s : studenten) {
 			if (s.getId() == id) {
-				System.out.println(s);
 				s.laatMelden(opmerking, reden);
-				System.out.println(s.getMeldingen());
 			}
 		}
 	}
