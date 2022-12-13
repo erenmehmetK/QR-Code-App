@@ -20,5 +20,9 @@
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
 		
+		<action name ="FAQ" class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/FAQ.jsp</result>
+		</action>
+		
 	</package>
 </struts>	

@@ -13,5 +13,9 @@
         <s:form action="absent" method="POST">
             <input type="submit" value="absent"/>
         </s:form>
+        
+          <s:form action="FAQ" method="POST">
+            <input type="submit" value="FAQ"/>
+        </s:form>
     </body>
 </html>
