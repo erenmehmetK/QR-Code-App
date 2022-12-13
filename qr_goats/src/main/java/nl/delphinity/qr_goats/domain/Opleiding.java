@@ -6,30 +6,13 @@ import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 public class Opleiding {
-	private static Opleiding instance;
 
-	static TreeSet<Student> studenten;
+	private TreeSet<Student> studenten;
 
 	private int id;
-
-	public TreeSet<Student> getStudenten() {
-		return studenten;
-	}
-
-	public void setStudenten(TreeSet<Student> studenten) {
-		this.studenten = studenten;
-	}
-
-	private Opleiding() {
-	}
 	
+	public Opleiding() {
 
-	public static Opleiding getInstance() {
-		if (instance == null) {
-			instance = new Opleiding();
-			load();
-		}
-		return instance;
 	}
 
 	public Student findStudent(int id) {
@@ -54,23 +37,31 @@ public class Opleiding {
 	}
 
 	public void studentLaatMelden(int id, String opmerking, String reden) {
+		
 //	    DAOFactory.getTheFactory().get
 		for (Student s : studenten) {
 			if (s.getId() == id) {
-				System.out.println(s); 	
+				System.out.println(s);
 				s.laatMelden(opmerking, reden);
 				System.out.println(s.getMeldingen());
 			}
 		}
 	}
 
-	private static void load() {
+	// TODO remove after testing
+	public void loadTestData() {
 		// Call naar DAO van Opleiding en die returned een hoof studenten voor je
 		// treeset
-		   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 		studenten = (TreeSet<Student>) DAOFactory.getTheFactory().getStudentDAO().findAll();
-		return;
 
+	}
+
+	public TreeSet<Student> getStudenten() {
+		return studenten;
+	}
+
+	public void setStudenten(TreeSet<Student> studenten) {
+		this.studenten = studenten;
 	}
 
 	public int getId() {

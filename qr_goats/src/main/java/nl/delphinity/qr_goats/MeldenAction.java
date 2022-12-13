@@ -25,13 +25,13 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 
 	
 	public String studentMeldZiek() {
-	 Opleiding.getInstance().studentZiekMelden(1);
+	 OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(1);
 		return "SUCCESS";
 		
 	}
 
 	public String studentMeldLaat() {
-		 Opleiding.getInstance().studentLaatMelden(1, opmerking, reden);
+		 OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(1, opmerking, reden);
 		return "SUCCESS";
 		
 	}

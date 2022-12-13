@@ -12,7 +12,6 @@ public class Melding implements Comparable<Melding>{
 		
 		
 		public Melding() {
-			
 		}
 		
         //Constructor  

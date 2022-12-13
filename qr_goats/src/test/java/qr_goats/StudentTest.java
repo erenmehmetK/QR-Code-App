@@ -3,9 +3,9 @@ package qr_goats;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 import nl.delphinity.qr_goats.domain.LaatMelding;
 import nl.delphinity.qr_goats.domain.Melding;

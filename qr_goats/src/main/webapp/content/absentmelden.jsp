@@ -39,14 +39,14 @@
                         <div id="melden">
                         <h1> Absent melden</h1>
                         <div class="card-body">
-                            <form>
+                            <form method="POST">
                                 <!-- Vorm van melding selecteren -->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Kies uw melding</label>
                                     <select class="form-control" id="exampleFormControlSelect2">
                                         <option>Kies een optie...</option>
                                         <option>Ziek melden</option>
-                                        <option>Te laat melden</option>
+                                        <option>Laat melden</option>
                                     </select>
                                     
                         
@@ -59,9 +59,9 @@
                        <!-- Te laat melden -->
                        <div id="telaatmelden">
                         <div class="card text-white bg-white mb-3">
-                            <h1> Te laat melden</h1>
+                            <h1> Laat melden</h1>
                             <div class="card-body">
-                                <form action="laatMelding">
+                                <form action="laatMelding" method="POST">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Reden</label>
                                         <select class="form-control" id="exampleFormControlSelect1" name="reden">
@@ -93,7 +93,7 @@
     <div class="card text-white bg-white mb-3" >
         <h1> Ziek melden</h1>
         <div class="card-body">
-            <form action="ziekMelding" method="post">
+            <form action="ziekMelding" method="POST">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Meld hier jezelf ziek.</label>
                 

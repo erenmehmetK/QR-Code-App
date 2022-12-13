@@ -3,6 +3,7 @@ package nl.delphinity.qr_goats.persistence.test.dao;
 import java.util.TreeSet;
 
 import nl.delphinity.qr_goats.domain.Opleiding;
+import nl.delphinity.qr_goats.domain.OpleidingFacade;
 import nl.delphinity.qr_goats.domain.Student;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
@@ -22,7 +23,7 @@ public class TestStudentDAO extends GenericTestDAO<Student, Integer> implements 
 				stud.setAchternaam("test" + i);
 				stud.setTussenvoegsel("test" + i);
 				stud.setId(i);
-				stud.setOpleiding(Opleiding.getInstance());
+				stud.setOpleiding(OpleidingFacade.getInstance().getOpleiding());
 				studenten.add(stud);
 			}	
 	}

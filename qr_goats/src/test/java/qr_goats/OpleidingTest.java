@@ -2,33 +2,30 @@ package qr_goats;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 import nl.delphinity.qr_goats.domain.Opleiding;
+import nl.delphinity.qr_goats.domain.OpleidingFacade;
 import nl.delphinity.qr_goats.domain.Student;
-import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
-import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+
 
 public class OpleidingTest {
 	
 	
-	Opleiding opleiding = Opleiding.getInstance();
+	private Opleiding opleiding;
 
 	@Before
-	public void createDatabase() {
-		
-	   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
-	   
+	public void setUp() {
+		opleiding = OpleidingFacade.getInstance().getOpleiding();
+		opleiding.loadTestData();
 	}
 	
 	@Test
 	public void OpleidingNullTest() {
-		
 		//Checkt of de opleiding niet null is
 		assertNotNull(opleiding);
-		
 	}
 	
 	@Test
@@ -42,7 +39,7 @@ public class OpleidingTest {
 	@Test
 	public void OpleidingStudentMeldingTest() {
 		
-		opleiding.studentLaatMelden(1, "Okay this is crazy", "Overige");
+		opleiding.studentLaatMelden(1, "Mijn kat moest naar de ziekenhuis", "Overige");
         opleiding.studentZiekMelden(2);
 		
         
