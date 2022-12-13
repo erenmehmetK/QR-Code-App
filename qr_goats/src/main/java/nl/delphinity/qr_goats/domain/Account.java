@@ -1,7 +1,5 @@
 package nl.delphinity.qr_goats.domain;
 
-import java.util.Objects;
-
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
 import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
@@ -54,15 +52,6 @@ public class Account implements Comparable<Account> {
 		}
 		return false;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	
 	public String getWachtwoord() {
 		return wachtwoord;
