@@ -55,10 +55,15 @@ public class Opleiding {
 	public TreeSet<Student> getStudenten() {
 		return studenten;
 	}
+	
+	public String toString() {
+		return id + " " + studenten;
+	}
 
 	public void setStudenten(TreeSet<Student> studenten) {
 		this.studenten = studenten;
 	}
+	
 
 	public int getId() {
 		return id;

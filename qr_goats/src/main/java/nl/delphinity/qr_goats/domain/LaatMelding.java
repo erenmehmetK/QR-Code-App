@@ -23,8 +23,7 @@ public class LaatMelding extends Melding {
 
 	@Override
 	public String toString() {
-		return "LaatMelding [id=" + getId() + ", datum=" + getDatum()
-		+ ", student=" + getStudent() + "opmerking=" + opmerking + ", reden=" + reden + "]";
+		return getId() + " " + getDatum() + " " + getStudent() + " " + opmerking + " " + reden;
 	}
 	
 	
