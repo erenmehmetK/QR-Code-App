@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
+import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 
 public class HelloAction extends ActionSupport implements SessionAware {
@@ -13,8 +14,8 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
 	private Map<String, Object> sessionMap;
 	private Persoon per;
-		
 	private Account acc;
+	private Student st;
 	
 	@Override
 	public String execute() {
@@ -28,6 +29,8 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	
 	public String login() {
 		if(acc.loginCheck()) {
+//			st = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+//			sessionMap.putIfAbsent("Student", st);
 			return "SUCCESS";
 		}else {
 			return "ERROR";
@@ -55,6 +58,12 @@ public class HelloAction extends ActionSupport implements SessionAware {
 		this.acc = acc;
 	}
 
-	
+	public Student getSt() {
+		return st;
+	}
+
+	public void setSt(Student st) {
+		this.st = st;
+	}
 	
 }

@@ -24,20 +24,20 @@
 	        <table class="table_groote">
 	        <s:form method="post" action="ProfielPagina">
 	          <tr> 
-	              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="Naam" tabindex="-1" readonly="true"/></td>
+	              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="${Persoon.naam}" tabindex="-1" readonly="true"/></td>
 	              <td></td>
 	          </tr>
 	          <tr>
-	              <td><s:textfield class="inputText" type="number" name="studentenNummer" placeholder="Studentennummer" tabindex="-1" readonly="true"/></td>
+	              <td><s:textfield class="inputText" type="number" name="studentenNummer" placeholder="${Student.studentenNR}" tabindex="-1" readonly="true"/></td>
 	              <td></td>
 	          </tr>
 	          <tr>
-	              <td><s:textfield class="inputText" type="email" name="schoolMail" placeholder="Schoolmail" tabindex="-1" readonly="true"/></td>
+	              <td><s:textfield class="inputText" type="email" name="schoolMail" placeholder="${Account.email}" tabindex="-1" readonly="true"/></td>
 	              <td></td>
 	          </tr>
 	          <tr>
 	              <td>
-	                  <s:textfield class="inputText" type="password" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" tabindex="-1" readonly="true" required="true"/>
+	                  <s:textfield class="inputText" type="password" id="wachtwoord" name="wachtwoord" placeholder="${Account.wachtwoord}" tabindex="-1" readonly="true" required="true"/>
 	                  </td>
 	                  <td></td>
 	              <td>
