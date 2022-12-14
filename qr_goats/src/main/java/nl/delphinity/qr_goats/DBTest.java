@@ -6,7 +6,6 @@ import nl.delphinity.qr_goats.domain.Account;
 import nl.delphinity.qr_goats.domain.PasswordHashing;
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
 import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
-import nl.delphinity.qr_goats.domain.Persoon;
 import nl.delphinity.qr_goats.domain.Student;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
@@ -60,7 +59,7 @@ public class DBTest {
 		Student s = new Student();
 		s.setAccount(a);
 		s.setNaam("miguel");
-		s.setAchternaam("heule");
+		s.setAchternaam("heulle");
 		s.setStudentenNR("234393");
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 
@@ -100,7 +99,7 @@ public class DBTest {
 		a.changePassword("jaja", "ABC");
 		Account aWWTest = DAOFactory.getTheFactory().getAccountDAO().findbyemail(a);
 		try {
-			System.out.println(PasswordHashing.verifyPassword("ABC", aWWTest.getWachtwoord()));
+			PasswordHashing.verifyPassword("ABC", aWWTest.getWachtwoord());
 		} catch (CannotPerformOperationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -113,7 +112,6 @@ public class DBTest {
 	
 	public void getfromDB(Account a) {
 		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
-		System.out.println(fromdb.getStudentenNR() + " " +fromdb.getNaam());
 	}
 
 }

@@ -3,28 +3,33 @@ package nl.delphinity.qr_goats.controller.interceptors;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
-import nl.delphinity.qr_goats.domain.Account;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 public class LoginInterceptor extends AbstractInterceptor {
 
-	private Account a;
-	private Account a2;
-	private Account a3;
-	
 	@Override
 	public void init() {
 		 
 		super.init();
 		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+<<<<<<< HEAD
 
+=======
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+>>>>>>> develop
 	}
 
 	@Override
 	public void destroy() {
+<<<<<<< HEAD
 		DAOFactory.setTheFactory(null);
+=======
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		 
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+>>>>>>> develop
 		super.destroy();
 		
 	}
