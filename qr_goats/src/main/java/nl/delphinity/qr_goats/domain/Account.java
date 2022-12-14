@@ -34,7 +34,7 @@ public class Account implements Comparable<Account> {
 	//Login
 	public boolean loginCheck() {
 		// find account by email en returnt other
-		System.out.println(this.email);
+
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
 		if (other == null) {
 		
@@ -43,7 +43,7 @@ public class Account implements Comparable<Account> {
 			try {
 				if (PasswordHashing.verifyPassword(this.wachtwoord, other.wachtwoord)) {
 					// If password is correct
-					System.out.println("goed");
+
 					return true;
 				} else {
 

@@ -70,7 +70,7 @@ public class DBTest {
 		Account a = new Account();
 		a.setEmail("mbrugge@student.scalda.nl");
 		try {
-			a.setWachtwoord(PasswordHashing.createHash("ja ja"));
+			a.setWachtwoord(PasswordHashing.createHash("jaja"));
 		} catch (CannotPerformOperationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,11 +81,23 @@ public class DBTest {
 		s.setNaam("miguel");
 		s.setAchternaam("heule");
 		s.setStudentenNR("234393");
+		
+		Account j = new Account();
+
+		j.setEmail("jarno@student.scalda.nl");
+		try {
+			j.setWachtwoord(PasswordHashing.createHash("jarno"));
+		} catch (CannotPerformOperationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
+		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(j);
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 		
-		a.changePassword("ja ja", "ABC");
+		a.changePassword("jaja", "ABC");
 		Account aWWTest = DAOFactory.getTheFactory().getAccountDAO().findbyemail(a);
 		try {
 			System.out.println(PasswordHashing.verifyPassword("ABC", aWWTest.getWachtwoord()));
