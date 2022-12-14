@@ -1,7 +1,7 @@
 package nl.delphinity.qr_goats.persistence.factories;
 
 import nl.delphinity.qr_goats.persistence.interfaces.IAccountDAO;
-import nl.delphinity.qr_goats.persistence.interfaces.IOpleidingDAO;
+import nl.delphinity.qr_goats.persistence.interfaces.IPersoonDAO;
 import nl.delphinity.qr_goats.persistence.interfaces.IQRCodeDAO;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 
@@ -28,9 +28,10 @@ public abstract class DAOFactory {
 			
 		
 			
-	}	public abstract IAccountDAO getAccountDAO();
-		public abstract IQRCodeDAO getQRCodeDAO();
-		public abstract IStudentDAO getStudentDAO();
-		public abstract IOpleidingDAO getOpleidingDAO();
+	}	
+	public abstract IAccountDAO getAccountDAO();
+	public abstract IQRCodeDAO getQRCodeDAO();
+	public abstract IPersoonDAO getPersoonDAO();
+	public abstract IStudentDAO getStudentDAO();
 	
 }

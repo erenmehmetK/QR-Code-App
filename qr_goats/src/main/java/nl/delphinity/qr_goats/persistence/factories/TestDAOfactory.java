@@ -1,12 +1,10 @@
 package nl.delphinity.qr_goats.persistence.factories;
 
 import nl.delphinity.qr_goats.persistence.interfaces.IAccountDAO;
-import nl.delphinity.qr_goats.persistence.interfaces.IOpleidingDAO;
+import nl.delphinity.qr_goats.persistence.interfaces.IPersoonDAO;
 import nl.delphinity.qr_goats.persistence.interfaces.IQRCodeDAO;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 import nl.delphinity.qr_goats.persistence.test.dao.TestDAOAccount;
-import nl.delphinity.qr_goats.persistence.test.dao.TestOpleidingDAO;
-import nl.delphinity.qr_goats.persistence.test.dao.TestStudentDAO;
 
 public class TestDAOfactory extends DAOFactory {
 
@@ -22,15 +20,15 @@ public class TestDAOfactory extends DAOFactory {
 	}
 
 	@Override
-	public IStudentDAO getStudentDAO() {
+	public IPersoonDAO getPersoonDAO() {
 		// TODO Auto-generated method stub
-		return TestStudentDAO.getInstance();
+		return null;
 	}
 
 	@Override
-	public IOpleidingDAO getOpleidingDAO() {
+	public IStudentDAO getStudentDAO() {
 		// TODO Auto-generated method stub
-		return TestOpleidingDAO.getInstance();
+		return null;
 	}
 	
 
