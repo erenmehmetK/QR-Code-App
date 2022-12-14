@@ -20,7 +20,7 @@ public class StudentTest {
 	@Before
 	public void createDatabase() {
 		
-	   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+//	   DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 	   
 	   
 	}
