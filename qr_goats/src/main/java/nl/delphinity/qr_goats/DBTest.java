@@ -6,7 +6,6 @@ import nl.delphinity.qr_goats.domain.Account;
 import nl.delphinity.qr_goats.domain.PasswordHashing;
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
 import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
-import nl.delphinity.qr_goats.domain.Persoon;
 import nl.delphinity.qr_goats.domain.Student;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
@@ -61,7 +60,7 @@ public class DBTest {
 		Student s = new Student();
 		s.setAccount(a);
 		s.setNaam("miguel");
-		s.setAchternaam("heule");
+		s.setAchternaam("heulle");
 		s.setStudentenNR("234393");
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 
