@@ -2,10 +2,8 @@ package nl.delphinity.qr_goats.persistence.test.dao;
 
 import java.util.TreeSet;
 
-import nl.delphinity.qr_goats.domain.Opleiding;
 import nl.delphinity.qr_goats.domain.OpleidingFacade;
 import nl.delphinity.qr_goats.domain.Student;
-import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 
 public class TestStudentDAO extends GenericTestDAO<Student, Integer> implements IStudentDAO{
@@ -58,6 +56,8 @@ public class TestStudentDAO extends GenericTestDAO<Student, Integer> implements 
    		}
    		return null;
    	}
+   	
+   	
 
    	@Override
    	public TreeSet<Student> findAll() {

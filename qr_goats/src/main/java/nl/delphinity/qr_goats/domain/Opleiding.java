@@ -29,6 +29,7 @@ public class Opleiding {
 		for (Student s : studenten) {
 			if (s.getId() == id) {
 				s.ziekMelden();
+				
 			}
 		}
 
@@ -40,6 +41,7 @@ public class Opleiding {
 		for (Student s : studenten) {
 			if (s.getId() == id) {
 				s.laatMelden(opmerking, reden);
+				
 			}
 		}
 	}

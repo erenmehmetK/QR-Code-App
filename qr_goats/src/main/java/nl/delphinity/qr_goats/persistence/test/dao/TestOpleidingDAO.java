@@ -1,11 +1,10 @@
 package nl.delphinity.qr_goats.persistence.test.dao;
 
-import java.io.Serializable;
+
 import java.util.Set;
-import java.util.TreeSet;
+
 
 import nl.delphinity.qr_goats.domain.Opleiding;
-import nl.delphinity.qr_goats.domain.Student;
 import nl.delphinity.qr_goats.persistence.interfaces.IOpleidingDAO;
 
 public class TestOpleidingDAO extends GenericTestDAO<Opleiding, Integer> implements IOpleidingDAO {
