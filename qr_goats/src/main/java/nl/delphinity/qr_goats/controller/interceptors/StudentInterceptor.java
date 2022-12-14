@@ -30,7 +30,6 @@ public class StudentInterceptor extends AbstractInterceptor {
 
 	@Override
     public void init() {
-        // TODO Auto-generated method stub
         super.init();
         DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
         OpleidingFacade.getInstance().getOpleiding().loadTestData();        
@@ -42,7 +41,6 @@ public class StudentInterceptor extends AbstractInterceptor {
     @Override
     public void destroy() {
         DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
-        // TODO Auto-generated method stub
         super.destroy();
 
     }
