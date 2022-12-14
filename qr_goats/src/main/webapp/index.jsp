@@ -22,6 +22,10 @@
          <s:form action="login" method="POST">
             <input type="submit" value="loginpage"/>
 		</s:form>
+		
+         <s:form action="privacy" method="POST">
+            <input type="submit" value="privacy"/>
+		</s:form>
 
     </body>
 </html>
