@@ -6,31 +6,6 @@
 <hibernate-configuration>
 	<session-factory>
 
-		<property name="hibernate.dialect">
-			org.hibernate.dialect.MySQLDialect
-		</property>
-
-		<property name="hibernate.connection.driver_class">
-			com.mysql.cj.jdbc.Driver
-		</property>
-
-		<!-- Assume test is the database name -->
-
-		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/QR_GOATS_TEST?createDatabaseIfNotExist=true
-		</property>
-
-		<property name="hibernate.connection.username">
-			<!-- username bijv root -->
-		</property>
-
-		<property name="hibernate.connection.password">
-			<!-- wachtwoord bijv 1234 of root -->
-		</property>
-
-		<property name="hibernate.current_session_context_class">thread</property>
-		<property name="hbm2ddl.auto">create</property>
-		<property name="show_sql">true</property>
 
 
 		<!-- This file is used to map all entities to the database. All annotated 
