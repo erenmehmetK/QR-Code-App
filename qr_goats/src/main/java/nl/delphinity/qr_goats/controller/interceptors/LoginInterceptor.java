@@ -13,10 +13,13 @@ public class LoginInterceptor extends AbstractInterceptor {
 		 
 		super.init();
 		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
 	}
 
 	@Override
 	public void destroy() {
+		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		 
 		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
 		super.destroy();
 		

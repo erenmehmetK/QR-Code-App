@@ -5,7 +5,6 @@ import java.util.TreeSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -30,15 +29,6 @@ public class Student extends Persoon {
 	@Transient
 	private boolean isIngecheckt;
 
-
-	public QRCode getQrCode() {
-		return qrCode;
-	}
-
-	public void setQrCode(QRCode qrCode) {
-		this.qrCode = qrCode;
-	}
-
 	public Student() {
 
 	}
@@ -53,8 +43,15 @@ public class Student extends Persoon {
 	public int compareTo(Student other) {
 		return studentenNR.compareTo(other.studentenNR);
 
-	}	
+	}
 	
+	public QRCode getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(QRCode qrCode) {
+		this.qrCode = qrCode;
+	}
 	
 	public boolean isIngecheckt() {
 		return isIngecheckt;

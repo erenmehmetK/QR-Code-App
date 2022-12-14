@@ -98,8 +98,7 @@ public class Persoon implements Comparable<Persoon> {
 	// returned waardes van persoon variabelen als een string
 	@Override
 	public String toString() {
-		return "Persoon [id=" + id + ", naam=" + naam + ", tussenvoegsel=" + tussenvoegsel + ", achternaam="
-				+ achternaam + "]";
+		return id + " " + naam + " " + tussenvoegsel + " " + achternaam;
 	}
 
 	public int compareTo(Persoon other) {

@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
-
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
 import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 @Entity
 @Table(name = "account", indexes = { @Index(columnList = "email") })
@@ -51,8 +51,11 @@ public class Account implements Comparable<Account> {
 
 	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
 		try {
-			if(PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
+			if (PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord)
+					&& !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
 				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
+				DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(this);
+
 				return true;
 			}
 		} catch (CannotPerformOperationException e1) {
@@ -63,6 +66,7 @@ public class Account implements Comparable<Account> {
 		}
 		return false;
 	}
+
 
 	public String getWachtwoord() {
 		return wachtwoord;
@@ -117,6 +121,4 @@ public class Account implements Comparable<Account> {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 }
