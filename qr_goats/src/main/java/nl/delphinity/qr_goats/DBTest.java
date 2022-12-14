@@ -1,4 +1,4 @@
-package qr_goats.TestHibernate;
+package nl.delphinity.qr_goats;
 
 import org.hibernate.Session;
 
