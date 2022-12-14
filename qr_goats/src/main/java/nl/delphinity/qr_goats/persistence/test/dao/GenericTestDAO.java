@@ -10,7 +10,6 @@ public abstract class GenericTestDAO<T, ID extends Serializable> implements IGen
 
 	@Override
 	public T saveOrUpdate(T entity) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
