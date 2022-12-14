@@ -36,6 +36,10 @@
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
 		
+		<action name ="FAQ" class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/FAQ.jsp</result>
+		</action>
+		
 		<action name ="login" class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/content/login.jsp</result>
 		</action>

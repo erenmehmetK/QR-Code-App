@@ -67,6 +67,7 @@ public class Account implements Comparable<Account> {
 		return false;
 	}
 
+
 	public String getWachtwoord() {
 		return wachtwoord;
 	}
