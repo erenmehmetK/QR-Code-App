@@ -34,6 +34,7 @@ public class Account implements Comparable<Account> {
 	//Login
 	public boolean loginCheck() {
 		// find account by email en returnt other
+		System.out.println(this.email);
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
 		if (other == null) {
 		

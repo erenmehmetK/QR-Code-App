@@ -30,7 +30,6 @@ public class DBTest {
 		 * hibernate.hbm2ddl.auto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		 */
 
-		System.out.println("Hello Hibernate World!");
 
 		/**
 		 * Setting the DAOFActory for use with HibernateDAOFactory and it's DAO's.
