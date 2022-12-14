@@ -58,29 +58,30 @@
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 			<result name="ERROR">/content/login.jsp</result>
-
-			<action name="absentieoverzicht"
-				class="nl.delphinity.qr_goats.HelloAction" method="">
-				<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
-			</action>
-
-
-
-			<action name="ziekMelding"
-				class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
-				<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-				<result name="SUCCESS">/index.jsp</result>
-			</action>
-
-
-
-			<action name="laatMelding"
-				class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
-				<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-				<result name="SUCCESS">/index.jsp</result>
-			</action>
-
 		</action>
+
+		<action name="absentieoverzicht"
+			class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
+		</action>
+
+
+
+		<action name="ziekMelding"
+			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
+			<result name="SUCCESS">/index.jsp</result>
+		</action>
+
+
+
+		<action name="laatMelding"
+			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
+			<result name="SUCCESS">/index.jsp</result>
+		</action>
+
+	
 
 	</package>
 </struts>	
