@@ -5,75 +5,51 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.ui.theme" value="simple" />
-
+	
 	<package name="default" extends="struts-default" namespace="/">
-
+	
 		<interceptors>
-
-			<interceptor name="LoginInterceptor"
-				class="nl.delphinity.qr_goats.controller.interceptors.LoginInterceptor">
-			</interceptor>
-			<interceptor name="StudentInterceptor"
-				class="nl.delphinity.qr_goats.controller.interceptors.StudentInterceptor">
-			</interceptor>
-
-
-
-			<interceptor-stack name="QRGoatsStack">
-				<interceptor-ref name="LoginInterceptor"></interceptor-ref>
-				<interceptor-ref name="StudentInterceptor"></interceptor-ref>
-
-				<interceptor-ref name="defaultStack"></interceptor-ref>
-			</interceptor-stack>
-
-		</interceptors>
-
-
-		<action name="Home" class="nl.delphinity.qr_goats.HelloAction">
-
-			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-			<result name="SUCCESS">/index.jsp</result>
+		
+            <interceptor name="LoginInterceptor"
+                class="nl.delphinity.qr_goats.controller.interceptors.LoginInterceptor">
+      		</interceptor>
+      		
+            <interceptor-stack name="QRGoatsStack">
+                <interceptor-ref name="LoginInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+            
+        </interceptors>
+	
+	
+		<action name ="Home" class="nl.delphinity.qr_goats.HelloAction">
+		
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref><result name="SUCCESS">/index.jsp</result>
 		</action>
-
-		<action name="ProfielPagina"
-			class="nl.delphinity.qr_goats.HelloAction" method="">
+	
+		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
-
-		<action name="absent"
-			class="nl.delphinity.qr_goats.HelloAction" method="">
+		
+		<action name ="absent" class="nl.delphinity.qr_goats.HelloAction" method="">
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
-
-		<action name="absentieoverzicht"
-			class="nl.delphinity.qr_goats.HelloAction" method="">
-			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
+		
+		<action name ="FAQ" class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/FAQ.jsp</result>
 		</action>
-
-		<action name="ziekMelding"
-			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
-			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-			<result name="SUCCESS">/index.jsp</result>
-		</action>
-
-		<action name="laatMelding"
-			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
-			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-			<result name="SUCCESS">/index.jsp</result>
-		</action>
-
-		<action name="login" class="nl.delphinity.qr_goats.HelloAction">
+		
+		<action name ="login" class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/content/login.jsp</result>
 		</action>
-
-		<action name="logincheck"
-			class="nl.delphinity.qr_goats.HelloAction" method="login">
+		
+		<action name ="logincheck" class="nl.delphinity.qr_goats.HelloAction" method="login">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 			<result name="ERROR">/content/login.jsp</result>
-
+			
 		</action>
-
+		
 	</package>
 </struts>	
