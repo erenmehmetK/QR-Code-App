@@ -89,7 +89,7 @@ public class DBTest {
 		a.changePassword("ja ja", "ABC");
 		Account aWWTest = DAOFactory.getTheFactory().getAccountDAO().findbyemail(a);
 		try {
-			System.out.println(PasswordHashing.verifyPassword("ABC", aWWTest.getWachtwoord()));
+			PasswordHashing.verifyPassword("ABC", aWWTest.getWachtwoord());
 		} catch (CannotPerformOperationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,7 +102,6 @@ public class DBTest {
 	
 	public void getfromDB(Account a) {
 		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
-		System.out.println(fromdb.getStudentenNR() + " " +fromdb.getNaam());
 	}
 
 }
