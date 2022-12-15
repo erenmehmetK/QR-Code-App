@@ -27,7 +27,7 @@
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref><result name="SUCCESS">/index.jsp</result>
 		</action>
 	
-		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="">
+		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="profiel">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>

@@ -24,20 +24,20 @@
 	        <table class="table_groote">
 	        <s:form method="post" action="ProfielPagina">
 	          <tr> 
-	              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="${Persoon.naam}" tabindex="-1" readonly="true"/></td>
+	              <td><s:textfield class="inputText" type="text" id="naam" name="naam" placeholder="naam" tabindex="-1" readonly="true"/></td>
 	              <td></td>
 	          </tr>
 	          <tr>
-	              <td><s:textfield class="inputText" type="number" name="studentenNummer" placeholder="${Student.studentenNR}" tabindex="-1" readonly="true"/></td>
+	              <td><s:textfield class="inputText" type="number" name="studentenNummer" placeholder="studentenNR" tabindex="-1" readonly="true"/></td>
 	              <td></td>
 	          </tr>
 	          <tr>
-	              <td><s:textfield class="inputText" type="email" name="schoolMail" placeholder="${Account.email}" tabindex="-1" readonly="true"/></td>
+	              <td><s:textfield class="inputText" type="email" name="schoolMail" placeholder="mail" tabindex="-1" readonly="true"/></td>
 	              <td></td>
 	          </tr>
 	          <tr>
 	              <td>
-	                  <s:textfield class="inputText" type="password" id="wachtwoord" name="wachtwoord" placeholder="${Account.wachtwoord}" tabindex="-1" readonly="true" required="true"/>
+	                  <s:textfield class="inputText" type="password" id="wachtwoord" name="oudww" placeholder="wachtwoord" tabindex="-1" readonly="true" required="true"/>
 	                  </td>
 	                  <td></td>
 	              <td>
@@ -50,13 +50,13 @@
 	          </tr>
 	          <tr>
 	            <td>
-	                <s:textfield class="inputText" type="password" id="NieuwWachtwoord1" name="wachtwoord" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
+	                <s:textfield class="inputText" type="password" id="NieuwWachtwoord1" name="nieuwww1" placeholder="Nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
 	                </td><td>
 	          	</td> 
 	          <tr>
 	          <tr>
 				<td>
-	                <s:textfield class="inputText" type="password" id="NieuwWachtwoord2" name="wachtwoord" placeholder="Herhaal nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
+	                <s:textfield class="inputText" type="password" id="NieuwWachtwoord2" name="nieuwww2verify" placeholder="Herhaal nieuw wachtwoord" tabindex="-1" readonly="true" required="true"/>
 	                </td><td>
 	          	</td> 
 	          </tr>
