@@ -28,7 +28,11 @@
 		</action>
 	
 		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="profiel">
-			<!-- <interceptor-ref name="QRGoatsStack"></interceptor-ref> -->
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
+			<result name="SUCCESS">/content/profielPagina.jsp</result>
+		</action>
+		
+		<action name ="WijzigWachtwoordCheck" class="nl.delphinity.qr_goats.HelloAction" method="wijzigWachtwoord">
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
 		
@@ -51,7 +55,7 @@
 		<action name ="logincheck" class="nl.delphinity.qr_goats.HelloAction" method="login">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
-			<result name="ERROR">/content/login.jsp</result>
+			<result name="ERROR">/login.jsp</result>
 		</action>
 		
 	</package>

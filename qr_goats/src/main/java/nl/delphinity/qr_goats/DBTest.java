@@ -112,7 +112,6 @@ public class DBTest {
 	
 	public void getfromDB(Account a) {
 		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
-		System.out.println(fromdb.getNaam());
 	}
 
 }

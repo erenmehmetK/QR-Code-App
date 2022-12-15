@@ -1,6 +1,6 @@
 // Zorgt dat de onclick functies later inladen om errors te voorkomen
 	window.onload = function(){
-		// Je wachtwoord veranderen
+		// Je wachtwoord veranderen	        
 		document.getElementById("pencilButton").onclick = function() {
 			document.getElementById('wachtwoord').readOnly = false;
 			document.getElementById('wachtwoord').focus(); addBody();
@@ -11,6 +11,14 @@
 		// Wachtwoord veranderen annuleren
 		document.getElementById("annuleerButton").onclick = function() {
 			const delayRemove = setTimeout(removeBody, 100);
+			document.getElementById('wachtwoord').value = '';
+			document.getElementById('NieuwWachtwoord1').value = '';
+			document.getElementById('NieuwWachtwoord2').value = '';
+		};
+		
+		document.getElementById("opslaanButton").onclick = function() {
+			const delayRemove = setTimeout(removeBody, 100);
+			document.getElementById('wachtwoord').value = '';
 			document.getElementById('NieuwWachtwoord1').value = '';
 			document.getElementById('NieuwWachtwoord2').value = '';
 		};

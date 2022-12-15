@@ -30,9 +30,13 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
 	public String login() {
 		if (acc.loginCheck()) {
-//			sessionMap.putIfAbsent("Account", acc);
-//			per = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
-//			sessionMap.putIfAbsent("Persoon", per);
+
+			stud = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+			sessionMap.putIfAbsent("Student", stud);
+
+			acc = DAOFactory.getTheFactory().getAccountDAO().findbyemail(acc);
+			sessionMap.putIfAbsent("Account", acc);
+						
 			return "SUCCESS";
 		} else {
 			return "ERROR";
@@ -40,39 +44,20 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	}
 
 	public String profiel() {
-		
-		acc = new Account();
-		acc.setEmail("mbrugge@student.scalda.nl");
-		try {
-			acc.setWachtwoord(PasswordHashing.createHash("jaja"));
-		} catch (CannotPerformOperationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		sessionMap.putIfAbsent("Account", acc);
-
-		stud = new Student();
-//		stud.setStudentenNR("234393");
-//		stud.setAccount(acc);
-		System.out.println(DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc));
-		
-		stud = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
-		sessionMap.putIfAbsent("Student", stud);
-
-		System.out.println(stud.getNaam());
 
 		acc = (Account) sessionMap.get("Account");
-		per = (Student) sessionMap.get("Student");
+
 		return "SUCCESS";
 	}
 
-	public String changepsw() {
+	public String wijzigWachtwoord() {
 		if (nieuwww1.equals(nieuwww2verify)) {
+			acc = (Account) sessionMap.get("Account");
 			acc.changePassword(oudww, nieuwww1);
-			return SUCCESS;
-
+			sessionMap.put("Account", acc);
 		}
-		return ERROR;
+		System.out.println("Ja");
+		return "SUCCESS";
 	}
 
 	@Override
