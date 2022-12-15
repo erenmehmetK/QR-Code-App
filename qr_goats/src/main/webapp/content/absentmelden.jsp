@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="http://fonts.cdnfonts.com/css/centrale-sans-regular" rel="stylesheet">
-    <link rel="stylesheet" href="content/css/telaatmelden.css">
+    <link rel="stylesheet" href="css/telaatmelden.css">
     <style>
         @import url('http://fonts.cdnfonts.com/css/centrale-sans-regular');
         </style>
@@ -30,7 +30,7 @@
     <s:form class="terugbutton" action="Home" method="POST">
 		    <input class="terug" type="submit" value="<"/>
 		</s:form>
-<img src="content/embed/zandklok.png" alt="gino.png (zandklok)" >
+<img src="embed/zandklok.png" alt="gino.png (zandklok)" >
 <container>
     <div class="container">
         <div class="row">
