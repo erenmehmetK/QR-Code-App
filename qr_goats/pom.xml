@@ -66,8 +66,6 @@
 			<version>3.5.6-Final</version>
 		</dependency> -->
 
-=======
->>>>>>> develop
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
