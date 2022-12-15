@@ -2,7 +2,32 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.TreeSet;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
+
+
+@Entity
+@PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
 public class Student extends Persoon {
+	// dit is primary key, hierbij kan geen @Id ivm dit is een subclass	
+	@Column(name = "studentenNR", nullable = false, length = 6, unique = true)
+	private String studentenNR;
+	
+	@OneToOne
+	@JoinColumn(name = "account_email")
+	private Account account;
+
+	@Transient
+	private QRCode qrCode;
+	@Transient
+	public TreeSet<Melding> meldingen;
+	@Transient
+	private boolean isIngecheckt;
 
 	public Student() {
 
@@ -19,10 +44,6 @@ public class Student extends Persoon {
 		return studentenNR.compareTo(other.studentenNR);
 
 	}
-
-	private String studentenNR;
-	private boolean isIngecheckt;
-	private QRCode qrCode;
 	
 	public QRCode getQrCode() {
 		return qrCode;
@@ -39,8 +60,6 @@ public class Student extends Persoon {
 	public void setIngecheckt(boolean isIngecheckt) {
 		this.isIngecheckt = isIngecheckt;
 	}
-
-	public TreeSet<Melding> meldingen;
 
 	public void addMelding(Melding m) {
 		meldingen.add(m);
@@ -60,7 +79,7 @@ public class Student extends Persoon {
 			meldingen = new TreeSet<Melding>();
 
 		}
-		
+
 		Melding m1 = new LaatMelding();
 		m1.setDatum(java.time.LocalDateTime.now());
 		((LaatMelding) m1).setOpmerking(opmerking);
@@ -72,7 +91,7 @@ public class Student extends Persoon {
 
 	// Student meldt zichzelf ziek
 	public Melding ziekMelden() {
-		
+
 		if (meldingen == null) {
 
 			meldingen = new TreeSet<Melding>();
@@ -105,4 +124,13 @@ public class Student extends Persoon {
 	public void setStudentenNR(String studentenNR) {
 		this.studentenNR = studentenNR;
 	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
 }
