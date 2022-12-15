@@ -19,20 +19,25 @@ public class TestStudentDAO extends GenericTestDAO<Student, String> implements I
 		studenten = new TreeSet<Student>();
 
 		for (int i = 1; i < 101; i++) {
+			
+			int NR = 100000 + i;
+			
+			
 			Student stud = new Student();
 			stud.setNaam("Eren" + i);
 			stud.setAchternaam("test" + i);
 			stud.setTussenvoegsel("test" + i);
-			stud.setId(i);
+			stud.setId(i);	
+			stud.setStudentenNR(Integer.toString(NR));
 			stud.setOpleiding(OpleidingFacade.getInstance().getOpleiding());
 			studenten.add(stud);
 		}
 	}
 
 	@Override
-	public Student findById(String StudentenNR) {
+	public Student findById(String studentenNR) {
 		for (Student s : studenten) {
-			if (s.getStudentenNR().equals(StudentenNR)) {
+			if (s.getStudentenNR().equals(studentenNR)) {
 
 				return s;
 			}
