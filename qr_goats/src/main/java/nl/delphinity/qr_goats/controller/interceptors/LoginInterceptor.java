@@ -14,24 +14,12 @@ public class LoginInterceptor extends AbstractInterceptor {
 		 
 		super.init();
 		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
-<<<<<<< HEAD
-
-=======
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
->>>>>>> develop
 	}
 
 	@Override
 	public void destroy() {
-<<<<<<< HEAD
 		DAOFactory.setTheFactory(null);
-=======
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
-		 
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
->>>>>>> develop
 		super.destroy();
-		
 	}
 
 	@Override
