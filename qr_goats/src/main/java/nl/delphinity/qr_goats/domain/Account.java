@@ -35,18 +35,25 @@ public class Account implements Comparable<Account> {
 	public boolean loginCheck() {
 		// find account by email en returnt other
 
-		
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
 		if (other == null) {
 		
 			return false;
-		} else if (this.wachtwoord.equals(other.wachtwoord)) {
+		} else
+			try {
+				if (PasswordHashing.verifyPassword(this.wachtwoord, other.wachtwoord)) {
+					// If password is correct
 
-			return true;
-		} else {
+					return true;
+				} else {
 
-			return false;
-		}
+					return false;
+				}
+			} catch (CannotPerformOperationException | InvalidHashException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return false;
 	}
 
 	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {

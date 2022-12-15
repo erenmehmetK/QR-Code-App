@@ -38,6 +38,12 @@
 			<scope>test</scope>
 		</dependency>
 
+  <dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-log4j12</artifactId>
+	<version>1.5.2</version>
+    </dependency>
+    
 		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
@@ -51,6 +57,7 @@
 			<artifactId>hibernate-commons-annotations</artifactId>
 			<version>5.1.2.Final</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
