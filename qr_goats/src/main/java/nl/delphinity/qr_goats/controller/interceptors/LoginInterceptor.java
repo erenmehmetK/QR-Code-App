@@ -18,8 +18,9 @@ public class LoginInterceptor extends AbstractInterceptor {
 
 	@Override
 	public void destroy() {
-		DAOFactory.setTheFactory(null);
 		super.destroy();
+		DAOFactory.setTheFactory(null);
+
 	}
 
 	@Override
