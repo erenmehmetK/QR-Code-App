@@ -11,7 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link href="http://fonts.cdnfonts.com/css/centrale-sans-regular" rel="stylesheet">
-        <link rel="stylesheet" href="../css/absentie.css">
+        <link rel="stylesheet" href="content/css/absentie.css">
     
         <style>
             @import url('http://fonts.cdnfonts.com/css/centrale-sans-regular');
@@ -23,7 +23,7 @@
                 <p class="terug"><</p>
         </a>
 
-        <img id="sandImage" src="../embed/zandklok.png"> </img>
+        <img id="sandImage" src="content/embed/zandklok.png"> </img>
         <div class="overzichtHeader">
 
                         <h2> Absentie overzicht</h2>

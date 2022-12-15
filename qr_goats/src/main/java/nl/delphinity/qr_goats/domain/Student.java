@@ -28,6 +28,8 @@ public class Student extends Persoon {
 	public TreeSet<Melding> meldingen;
 	@Transient
 	private boolean isIngecheckt;
+	
+	private Opleiding opleiding;
 
 	public Student() {
 
@@ -72,7 +74,7 @@ public class Student extends Persoon {
 	}
 
 	// Student meldt zichzelf laat
-	public Melding laatMelden(String opmerking) {
+	public Melding laatMelden(String opmerking, String reden) {
 
 		if (meldingen == null) {
 
@@ -83,6 +85,7 @@ public class Student extends Persoon {
 		Melding m1 = new LaatMelding();
 		m1.setDatum(java.time.LocalDateTime.now());
 		((LaatMelding) m1).setOpmerking(opmerking);
+		((LaatMelding) m1).setReden(reden);
 
 		addMelding(m1);
 
@@ -132,5 +135,13 @@ public class Student extends Persoon {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+	
+	public Opleiding getOpleiding() {
+        return opleiding;
+    }
+
+    public void setOpleiding(Opleiding opleiding) {
+        this.opleiding = opleiding;
+    }
 
 }
