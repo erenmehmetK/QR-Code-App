@@ -42,7 +42,7 @@ public class HibernateDAOfactory extends DAOFactory {
 
 	@Override
 	public IStudentDAO getStudentDAO() {
-		GenericHibernateDAO<Student, String> dao = null;
+		GenericHibernateDAO<Student, Integer> dao = null;
 		try {
 			dao = StudentDAO.class.newInstance();
 			dao.setSession(getCurrentSession());
@@ -58,5 +58,11 @@ public class HibernateDAOfactory extends DAOFactory {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+    public IOpleidingDAO getOpleidingDAO() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }
