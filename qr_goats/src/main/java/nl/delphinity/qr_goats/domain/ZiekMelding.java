@@ -5,4 +5,11 @@ import javax.persistence.Entity;
 @Entity
 public class ZiekMelding extends Melding {
 
+	@Override
+	public String toString() {
+
+		return getId() + " " + getDatum() + " " + getStudent();
+	}
+
+	
 }

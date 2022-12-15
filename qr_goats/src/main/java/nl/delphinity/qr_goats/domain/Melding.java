@@ -32,7 +32,6 @@ public class Melding implements Comparable<Melding>{
 		
 		
 		public Melding() {
-			
 		}
 		
         //Constructor  
@@ -72,8 +71,7 @@ public class Melding implements Comparable<Melding>{
 		
 		@Override
 		public String toString() {
-			return "Melding [id=" + id + ", datum=" + datum
-					+ ", student=" + student + "]";
+			return id + " " + datum + " " + student;
 		}
 		
 	
