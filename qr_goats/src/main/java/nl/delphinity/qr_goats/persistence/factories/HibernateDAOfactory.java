@@ -42,7 +42,7 @@ public class HibernateDAOfactory extends DAOFactory {
 
 	@Override
 	public IStudentDAO getStudentDAO() {
-		GenericHibernateDAO<Student, Integer> dao = null;
+		GenericHibernateDAO<Student, String> dao = null;
 		try {
 			dao = StudentDAO.class.newInstance();
 			dao.setSession(getCurrentSession());

@@ -9,7 +9,7 @@ import nl.delphinity.qr_goats.domain.Student;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 
 
-public class TestStudentDAO extends GenericTestDAO<Student, Integer> implements IStudentDAO {
+public class TestStudentDAO extends GenericTestDAO<Student, String> implements IStudentDAO {
 
 	private static TestStudentDAO instance;
 	private TreeSet<Student> studenten;
@@ -30,9 +30,9 @@ public class TestStudentDAO extends GenericTestDAO<Student, Integer> implements 
 	}
 
 	@Override
-	public Student findById(Integer id) {
+	public Student findById(String StudentenNR) {
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(StudentenNR)) {
 
 				return s;
 			}
