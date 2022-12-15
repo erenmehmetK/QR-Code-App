@@ -19,7 +19,6 @@ public class StudentDAO extends GenericHibernateDAO<Student, String> implements 
 		Root<Student> root = criteriaQ.from(getPersistentClass());
 		criteriaQ.select(root).where(builder.equal(root.get("account"), a.getEmail()));
 		Query<Student> q = getSession().createQuery(criteriaQ);
-
 		Student s = q.uniqueResult();
 		return s;
 	}

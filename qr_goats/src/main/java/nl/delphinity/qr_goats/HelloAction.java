@@ -3,10 +3,14 @@ package nl.delphinity.qr_goats;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Session;
 
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
+import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
+import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 public class HelloAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
@@ -21,16 +25,14 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
 	@Override
 	public String execute() {
-		sessionMap.putIfAbsent("Persoon", per);
-		sessionMap.putIfAbsent("Account", acc);
 		return "SUCCESS";
 	}
 
 	public String login() {
 		if (acc.loginCheck()) {
-			sessionMap.putIfAbsent("Account", acc);
-			per = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
-			sessionMap.putIfAbsent("Persoon", per);
+//			sessionMap.putIfAbsent("Account", acc);
+//			per = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+//			sessionMap.putIfAbsent("Persoon", per);
 			return "SUCCESS";
 		} else {
 			return "ERROR";
@@ -38,11 +40,22 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	}
 
 	public String profiel() {
+		
 		acc = new Account();
 		acc.setEmail("mbrugge@student.scalda.nl");
+		try {
+			acc.setWachtwoord(PasswordHashing.createHash("jaja"));
+		} catch (CannotPerformOperationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sessionMap.putIfAbsent("Account", acc);
 
 		stud = new Student();
+//		stud.setStudentenNR("234393");
+//		stud.setAccount(acc);
+		System.out.println(DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc));
+		
 		stud = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
 		sessionMap.putIfAbsent("Student", stud);
 

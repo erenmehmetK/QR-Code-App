@@ -1,6 +1,6 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<html>
+<html> 
     <head>
     	<link rel="stylesheet" href="content/css/main.css">
     </head>
@@ -21,6 +21,10 @@
 		
          <s:form action="login" method="POST">
             <input type="submit" value="loginpage"/>
+		</s:form>
+		
+         <s:form action="privacy" method="POST">
+            <input type="submit" value="privacy"/>
 		</s:form>
 
     </body>
