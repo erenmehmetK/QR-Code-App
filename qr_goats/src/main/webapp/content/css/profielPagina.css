@@ -24,7 +24,7 @@
 .profielFoto{
 	border-radius: 120px;
     display: block;
-    width: 25%;
+    width: 40%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -42,16 +42,29 @@
     border-radius: .25rem;
 }
 
-#NieuwWachtwoord1, #NieuwWachtwoord2{
+label{
+	color: white;
+	font-family: var(--CentraleSansRegular);
+	font-size: 1.2rem;
+}
+
+.wachtwoordWijzigLabel{
+	display: none;
+}
+
+tr{
+	border: solid 5px var(--ok) !important;
+}
+
+#Wachtwoord, #NieuwWachtwoord1, #NieuwWachtwoord2{
 	display: none;
 }
 
 #pencilButton {
-    border-color: transparent;
-    padding:3.2px;
-    display: inline;
-    float: left;
+    height: 30px;
+    width: 100%;
 }
+
 button, #opslaanButton {
 	border-radius: .25rem !important;
 }
@@ -87,27 +100,28 @@ button:active {
     display: none;
     margin-right: auto;
     margin-left: auto;
-
     text-align: center;
     width: 50%;
     height: 40px;
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-family: var(--CentraleSansBold);
-    font-size: large;
     padding-bottom: 0px;
     
 }
 
+.editButton, #pencilButton{
+	border: none;
+    color: white;
+    background-color: #8db4c1;
+    font-weight: bold;
+    font-family: var(--CentraleSansBold);
+    font-size: large;
+}
+
 #annuleerButton{
     margin-top: 5px;
-    background-color: #8db4c1;
 }
 
 #opslaanButton{    
     margin-top: 10%;
-    background-color: #8db4c1;
 }
 
 body {

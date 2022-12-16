@@ -56,7 +56,6 @@ public class HelloAction extends ActionSupport implements SessionAware {
 			acc.changePassword(oudww, nieuwww1);
 			sessionMap.put("Account", acc);
 		}
-		System.out.println("Ja");
 		return "SUCCESS";
 	}
 
