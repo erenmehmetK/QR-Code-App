@@ -39,13 +39,13 @@ public class OpleidingTest {
 	@Test
 	public void OpleidingStudentMeldingTest() {
 		
-		opleiding.studentLaatMelden(1, "Mijn kat moest naar de ziekenhuis", "Overige");
-        opleiding.studentZiekMelden(2);
+		opleiding.studentLaatMelden("100000", "Mijn kat moest naar de ziekenhuis", "Overige");
+        opleiding.studentZiekMelden("100001");
 		
         
         //for each loop om te checken of de student meldt laat.
 		for(Student s: opleiding.getStudenten()) {
-			if(s.getId() == 1) {
+			if(s.getStudentenNR().equals("100000")) {
 				
 				assertTrue(s.getMeldingen().size() == 1);
 			}
@@ -53,7 +53,7 @@ public class OpleidingTest {
 		
 		//for each loop om te checken of de student meldt ziek.
 		for(Student s: opleiding.getStudenten()) {
-			if(s.getId() == 2) {
+			if(s.getStudentenNR().equals("100001")) {
 				
 				assertTrue(s.getMeldingen().size() == 1);
 			}

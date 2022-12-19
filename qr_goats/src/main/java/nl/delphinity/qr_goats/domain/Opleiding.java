@@ -29,19 +29,22 @@ public class Opleiding {
 
 	}
 
-	public Student findStudent(int id) {
+	public Student findStudent(String studentenNR) {
 
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
 				return s;
 			}
 		}
 		return null;
 	}
 
-	public void studentZiekMelden(int id) {
+	public void studentZiekMelden(String studentenNR) {
+		
+		System.out.println("testok");
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
+				System.out.println("ok");
 				s.ziekMelden();
 				
 			}
@@ -49,11 +52,11 @@ public class Opleiding {
 
 	}
 
-	public void studentLaatMelden(int id, String opmerking, String reden) {
+	public void studentLaatMelden(String studentenNR, String opmerking, String reden) {
 		
-//	    DAOFactory.getTheFactory().get
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
+				System.out.println("ok");
 				s.laatMelden(opmerking, reden);
 				
 			}
