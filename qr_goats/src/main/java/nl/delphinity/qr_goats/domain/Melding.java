@@ -18,7 +18,7 @@ public class Melding implements Comparable<Melding>{
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "id")
+	    @Column(name = "id", length = 10, unique = true)
 		private int id;
 	    
 	    @Column(name = "Date", nullable = false)

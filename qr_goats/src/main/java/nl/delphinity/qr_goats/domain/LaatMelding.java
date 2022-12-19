@@ -2,12 +2,17 @@ package nl.delphinity.qr_goats.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_laatmelding_meldingID"))
 public class LaatMelding extends Melding {
 	
-	@Column(name = "Opmerking", nullable = true)
+	@Column(name = "Opmerking", nullable = true, length = 255)
 	private String opmerking;
+	
+	@Column(name = "Reden", nullable = false, length = 255)
 	private String reden;
 
 	public String getOpmerking() {

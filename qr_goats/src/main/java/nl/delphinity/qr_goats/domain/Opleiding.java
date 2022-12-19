@@ -2,14 +2,28 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.TreeSet;
 
-import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
+@Entity
+@Table(name = "opleiding")
 public class Opleiding {
 
-	private TreeSet<Student> studenten;
+	
 
+	@Id
+	@Column(name = "opleidingID", nullable = false, length = 5, unique = true)
 	private int id;
+	
+	@OneToMany(mappedBy = "opleiding", cascade = CascadeType.ALL)
+	private TreeSet<Student> studenten = new TreeSet<Student>();
 	
 	public Opleiding() {
 
