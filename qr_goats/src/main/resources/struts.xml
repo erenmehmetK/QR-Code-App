@@ -45,7 +45,7 @@
 		</action>
 		
 		<action name ="login" class="nl.delphinity.qr_goats.HelloAction">
-			<result name="SUCCESS">/content/login.jsp</result>
+			<result name="SUCCESS">/login.jsp</result>
 		</action>
 		
 		<action name ="privacy" class="nl.delphinity.qr_goats.HelloAction">

@@ -1,35 +1,37 @@
 // Zorgt dat de onclick functies later inladen om errors te voorkomen
-	window.onload = function(){  
-		document.getElementById('wachtwoord').value = '';  
-		document.getElementById('NieuwWachtwoord1').value = '';
-		document.getElementById('NieuwWachtwoord2').value = '';    
-		
-		// Je wachtwoord veranderen	
-		document.getElementById("pencilButton").onclick = function() {
-			document.getElementById('wachtwoord').focus();
-			addBody();
-		};
-		// Wachtwoord veranderen annuleren
-		document.getElementById("annuleerButton").onclick = function() {
-			const delayRemove = setTimeout(removeBody, 100);
-			document.getElementById('wachtwoord').value = '';
-			document.getElementById('NieuwWachtwoord1').value = '';
-			document.getElementById('NieuwWachtwoord2').value = '';
-		};
-		
-		document.getElementById("opslaanButton").onclick = function() {
-			setTimeout(function(){
-				if (document.getElementById('wachtwoord').value != '' && document.getElementById('NieuwWachtwoord1').value != '' && document.getElementById('NieuwWachtwoord2').value != ''){
-					const delayRemove = setTimeout(removeBody, 100);
-					document.getElementById('wachtwoord').value = '';
-					document.getElementById('NieuwWachtwoord1').value = '';
-					document.getElementById('NieuwWachtwoord2').value = '';
-				}
-			}, 100)
-		};
-	}
+    window.onload = function(){  
+        document.getElementById('wachtwoord').value = '';  
+        document.getElementById('NieuwWachtwoord1').value = '';
+        document.getElementById('NieuwWachtwoord2').value = '';    
 
-	// Voegt de inputs toe om wachtwoord te kunnen wijzigen
+        // Je wachtwoord veranderen    
+        document.getElementById("pencilButton").onclick = function() {
+            document.getElementById('wachtwoord').focus();
+            addBody();
+        };
+        // Wachtwoord veranderen annuleren
+        document.getElementById("annuleerButton").onclick = function() {
+            const delayRemove = setTimeout(removeBody, 100);
+            document.getElementById('wachtwoord').value = '';
+            document.getElementById('NieuwWachtwoord1').value = '';
+            document.getElementById('NieuwWachtwoord2').value = '';
+        };
+
+        document.getElementById("opslaanButton").onclick = function() {
+            setTimeout(function(){
+                if (document.getElementById('wachtwoord').value != '' && document.getElementById('NieuwWachtwoord1').value != '' && document.getElementById('NieuwWachtwoord2').value != ''){
+                    const delayRemove = setTimeout(removeBody, 100);
+                    document.getElementById('wachtwoord').value = '';
+                    document.getElementById('NieuwWachtwoord1').value = '';
+                    document.getElementById('NieuwWachtwoord2').value = '';
+                }
+            }, 100)
+        };
+    }
+
+ 
+
+    // Voegt de inputs toe om wachtwoord te kunnen wijzigen
     function addBody() {
         let buttons = document.querySelectorAll(".editButton")
         for (let i = 0; i < buttons.length; i++) {
@@ -37,58 +39,62 @@
         }   
         let inputs = document.querySelectorAll(".inputText")
         for (let i = 0; i < inputs.length; i++) {
-        	inputs[i].style.display = "none";
+            inputs[i].style.display = "none";
         }
         document.getElementById("wachtwoord").style.display = "block";
         document.getElementById("NieuwWachtwoord1").style.display = "block";
         document.getElementById("NieuwWachtwoord2").style.display = "block";
         document.getElementById("pencilButton").style.display = "none";
-        
+
         // Labels
         let profielLabel = document.querySelectorAll(".profielLabel")
         for (let i = 0; i < profielLabel.length; i++) {
-        	profielLabel[i].style.display = "none";
+            profielLabel[i].style.display = "none";
         }
-		let wachtwoordWijzigLabel = document.querySelectorAll(".wachtwoordWijzigLabel")
+        let wachtwoordWijzigLabel = document.querySelectorAll(".wachtwoordWijzigLabel")
         for (let i = 0; i < wachtwoordWijzigLabel.length; i++) {
-        	wachtwoordWijzigLabel[i].style.display = "block";
+            wachtwoordWijzigLabel[i].style.display = "block";
         }
-        
+
     }
 
-	// Verwijderd de inputs toe om wachtwoord te kunnen wijzigen
+ 
+
+    // Verwijderd de inputs toe om wachtwoord te kunnen wijzigen
     function removeBody() {
         document.getElementById('wachtwoord').value = '';
+
+ 
 
         let buttons = document.querySelectorAll(".editButton")
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.display = "none";
         }
-        
+
         document.getElementById('wachtwoord').placeholder = "Wachtwoord";
-        
+
         let inputs = document.querySelectorAll(".inputText")
         for (let i = 0; i < inputs.length; i++) {
-        	inputs[i].style.display = "block";
+            inputs[i].style.display = "block";
         }
         document.getElementById("NieuwWachtwoord1").style.display = "none";
         document.getElementById("NieuwWachtwoord2").style.display = "none";
         document.getElementById("wachtwoord").style.display = "none";
         document.getElementById("pencilButton").style.display = "block";
-        
+
         // Labels
         let profielLabel = document.querySelectorAll(".profielLabel")
         for (let i = 0; i < profielLabel.length; i++) {
-        	profielLabel[i].style.display = "block";
+            profielLabel[i].style.display = "block";
         }
-		let wachtwoordWijzigLabel = document.querySelectorAll(".wachtwoordWijzigLabel")
+        let wachtwoordWijzigLabel = document.querySelectorAll(".wachtwoordWijzigLabel")
         for (let i = 0; i < wachtwoordWijzigLabel.length; i++) {
-        	wachtwoordWijzigLabel[i].style.display = "none";
+            wachtwoordWijzigLabel[i].style.display = "none";
         }
     }
-    
-	// Leegt de inputs
+
+    // Leegt de inputs
     function clearNieuwWachtwoord() {
-    	var element = document.getElementById('NieuwWachtwoord1').element.reset();
-    	var element = document.getElementById('NieuwWachtwoord2').element.reset();
+        var element = document.getElementById('NieuwWachtwoord1').element.reset();
+        var element = document.getElementById('NieuwWachtwoord2').element.reset();
     }
