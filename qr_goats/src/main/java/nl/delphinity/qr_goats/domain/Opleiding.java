@@ -41,11 +41,11 @@ public class Opleiding {
 
 	public void studentZiekMelden(String studentenNR) {
 		
-		System.out.println("testok");
 		for (Student s : studenten) {
 			if (s.getStudentenNR().equals(studentenNR)) {
-				System.out.println("ok");
 				s.ziekMelden();
+				System.out.println(s.getMeldingen());
+
 				
 			}
 		}
@@ -56,8 +56,8 @@ public class Opleiding {
 		
 		for (Student s : studenten) {
 			if (s.getStudentenNR().equals(studentenNR)) {
-				System.out.println("ok");
 				s.laatMelden(opmerking, reden);
+				System.out.println(s.getMeldingen());
 				
 			}
 		}
