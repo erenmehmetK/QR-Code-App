@@ -69,7 +69,7 @@
 						<td><label class="wachtwoordWijzigLabel">Nieuw
 								Wachtwoord</label> <s:textfield class="inputText" type="password"
 								id="NieuwWachtwoord1" name="nieuwww1"
-								placeholder="Nieuw wachtwoord" tabindex="-1" required="true" />
+								placeholder="Nieuw wachtwoord" tabindex="-1" required="true" minlength="4"/>
 						</td>
 						<td></td>
 					<tr>
@@ -78,7 +78,7 @@
 								Nieuw Wachtwoord</label> <s:textfield class="inputText" type="password"
 								id="NieuwWachtwoord2" name="nieuwww2verify"
 								placeholder="Herhaal nieuw wachtwoord" tabindex="-1"
-								required="true" /></td>
+								required="true" minlength="4"/></td>
 						<td></td>
 					</tr>
 					<tr>
