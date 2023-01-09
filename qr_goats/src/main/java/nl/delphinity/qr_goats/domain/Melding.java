@@ -18,16 +18,16 @@ public class Melding implements Comparable<Melding>{
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "id", length = 10, unique = true)
+	    @Column(name = "id", unique = true)
 		private int id;
 	    
-	    @Column(name = "Date", nullable = false)
+	    @Column(name = "date", nullable = false)
 		private LocalDateTime datum;
 	    
 	    
 	    
 	    @ManyToOne(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "Studenten_NR", nullable = false)
+	    @JoinColumn(name = "studentenNR", nullable = false)
 		private Student student;
 		
 		

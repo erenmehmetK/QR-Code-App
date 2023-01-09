@@ -29,7 +29,7 @@ public class Student extends Persoon {
 	private TreeSet<Melding> meldingen = new TreeSet<Melding>();
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Opleiding_ID", nullable = false)
+	@JoinColumn(name = "opleidingID", nullable = false)
 	private Opleiding opleiding;
 
 	@Transient

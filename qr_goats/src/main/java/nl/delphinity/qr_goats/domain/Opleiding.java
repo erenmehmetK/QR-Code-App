@@ -19,7 +19,7 @@ public class Opleiding {
 	
 
 	@Id
-	@Column(name = "opleidingID", nullable = false, length = 5, unique = true)
+	@Column(name = "opleidingID", nullable = false, unique = true)
 	private int id;
 	
 	@OneToMany(mappedBy = "opleiding", cascade = CascadeType.ALL)

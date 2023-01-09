@@ -9,10 +9,10 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_laatmelding_meldingID"))
 public class LaatMelding extends Melding {
 	
-	@Column(name = "Opmerking", nullable = true, length = 255)
+	@Column(name = "opmerking", nullable = true, length = 255)
 	private String opmerking;
 	
-	@Column(name = "Reden", nullable = false, length = 255)
+	@Column(name = "reden", nullable = false, length = 15)
 	private String reden;
 
 	public String getOpmerking() {
