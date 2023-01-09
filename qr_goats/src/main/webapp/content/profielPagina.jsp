@@ -60,7 +60,7 @@
 					</tr>
 					<tr>
 						<td>
-							<button type="button" id="pencilButton">Wijzig
+							<button type="button" id="wijzig-Button">Wijzig
 								Wachtwoord</button>
 						</td>
 						<td></td>

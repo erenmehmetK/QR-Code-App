@@ -57,7 +57,7 @@ tr {
 	display: none;
 }
 
-#pencilButton {
+#wijzig-Button {
 	height: 30px;
 	width: 100%;
 }
@@ -105,7 +105,7 @@ button:active {
 	padding-bottom: 0px;
 }
 
-.editButton, #pencilButton {
+.editButton, #wijzig-Button {
 	border: none;
 	color: white;
 	background-color: #8db4c1;

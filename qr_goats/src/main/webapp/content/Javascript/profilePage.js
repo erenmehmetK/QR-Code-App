@@ -5,7 +5,7 @@
         document.getElementById('NieuwWachtwoord2').value = '';    
 
         // Je wachtwoord veranderen    
-        document.getElementById("pencilButton").onclick = function() {
+        document.getElementById("wijzig-Button").onclick = function() {
             document.getElementById('wachtwoord').focus();
             addBody();
         };
@@ -33,7 +33,7 @@
         document.getElementById("wachtwoord").style.display = "block";
         document.getElementById("NieuwWachtwoord1").style.display = "block";
         document.getElementById("NieuwWachtwoord2").style.display = "block";
-        document.getElementById("pencilButton").style.display = "none";
+        document.getElementById("wijzig-Button").style.display = "none";
 
         // Labels
         let profielLabel = document.querySelectorAll(".profielLabel")
@@ -69,7 +69,7 @@
         document.getElementById("NieuwWachtwoord1").style.display = "none";
         document.getElementById("NieuwWachtwoord2").style.display = "none";
         document.getElementById("wachtwoord").style.display = "none";
-        document.getElementById("pencilButton").style.display = "block";
+        document.getElementById("wijzig-Button").style.display = "block";
 
         // Labels
         let profielLabel = document.querySelectorAll(".profielLabel")
