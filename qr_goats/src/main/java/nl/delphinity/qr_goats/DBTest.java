@@ -34,7 +34,7 @@ public class DBTest {
 		 * Setting the DAOFActory for use with HibernateDAOFactory and it's DAO's.
 		 */
 
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

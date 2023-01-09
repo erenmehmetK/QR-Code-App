@@ -1,0 +1,16 @@
+
+.section {
+	background-color: white;
+	max-width: 512px;
+	width: 100%;
+	margin: auto;
+	padding: 15px;
+	overflow: auto;
+}
+.qrcode {
+	margin: auto;
+}
+.time, .ingechecked {
+	float: right;
+	font-size: large;
+}
