@@ -2,16 +2,27 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
+import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
+@Entity
+@Table(name = "account", indexes = { @Index(columnList = "email") })
 public class Account implements Comparable<Account> {
 
-	private Integer id;
+	@Column(name = "wachtwoord", nullable = false, length = 255)
 	private String wachtwoord;
+	@Id
+	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 
 	public Account(String wachtwoord, String email) {
-		super();
 		this.wachtwoord = wachtwoord;
 		this.email = email;
 	}
@@ -20,44 +31,62 @@ public class Account implements Comparable<Account> {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Login
 	public boolean loginCheck() {
 		// find account by email en returnt other
 
 		Account other = DAOFactory.getTheFactory().getAccountDAO().findbyemail(this);
-
 		if (other == null) {
-			System.out.println("geen account gevonden jammer zeg");
+		
 			return false;
-		} else if (this.wachtwoord.equals(other.wachtwoord)) {
-			System.out.println("wachtwoord is goed");
-			return true;
-		} else {
-			System.out.println("wachtwoord is fout");
-			return false;
+		} else
+			try {
+				if (PasswordHashing.verifyPassword(this.wachtwoord, other.wachtwoord)) {
+					// If password is correct
+
+					return true;
+				} else {
+
+					return false;
+				}
+			} catch (CannotPerformOperationException | InvalidHashException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return false;
+	}
+
+	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
+		try {
+			if (PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord)
+					&& !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
+				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
+				DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(this);
+
+				return true;
+			}
+		} catch (CannotPerformOperationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvalidHashException e2) {
+			e2.printStackTrace();
 		}
+		return false;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getWachtwoord() {
 		return wachtwoord;
 	}
 
-	public void setWachtwoord(String	 wachtwoord) {
+	public void setWachtwoord(String wachtwoord) {
 		this.wachtwoord = wachtwoord;
 	}
 
-	
-	//hasht de id zodat het object vergelijkbaar is
+	// hasht de id zodat het object vergelijkbaar is
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(email);
 	}
 
 	// returnt een boolean gebaseerd op als het object gelijk is
@@ -70,13 +99,13 @@ public class Account implements Comparable<Account> {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		return id == other.id;
+		return email.equals(other.email);
 	}
 
 	// returnt waardes van account variabelen als een string
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", wachtwoord=" + wachtwoord + "]";
+		return email + " " + wachtwoord;
 	}
 
 	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor
@@ -84,15 +113,10 @@ public class Account implements Comparable<Account> {
 	@Override
 
 	public int compareTo(Account other) {
-
-		int temp = id.compareTo(other.id);
+		int temp = email.compareTo(other.email);
 		if (temp == 0) {
-
-			int temp2 = wachtwoord.compareTo(wachtwoord);
-			if (temp2 == 0) {
-
-				return temp2;
-			}
+			int temp2 = wachtwoord.compareTo(other.wachtwoord);
+			return temp2;
 		}
 		return temp;
 	}
@@ -104,5 +128,4 @@ public class Account implements Comparable<Account> {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }
