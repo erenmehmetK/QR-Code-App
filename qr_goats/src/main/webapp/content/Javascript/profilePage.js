@@ -16,17 +16,6 @@
             document.getElementById('NieuwWachtwoord1').value = '';
             document.getElementById('NieuwWachtwoord2').value = '';
         };
-
-        document.getElementById("opslaanButton").onclick = function() {
-            setTimeout(function(){
-                if (document.getElementById('wachtwoord').value != '' && document.getElementById('NieuwWachtwoord1').value != '' && document.getElementById('NieuwWachtwoord2').value != ''){
-                    const delayRemove = setTimeout(removeBody, 100);
-                    document.getElementById('wachtwoord').value = '';
-                    document.getElementById('NieuwWachtwoord1').value = '';
-                    document.getElementById('NieuwWachtwoord2').value = '';
-                }
-            }, 100)
-        };
     }
 
  

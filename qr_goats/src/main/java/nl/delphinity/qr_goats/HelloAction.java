@@ -53,10 +53,17 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	public String wijzigWachtwoord() {
 		if (nieuwww1.equals(nieuwww2verify)) {
 			acc = (Account) sessionMap.get("Account");
-			acc.changePassword(oudww, nieuwww1);
 			sessionMap.put("Account", acc);
+			if(acc.changePassword(oudww, nieuwww1)) {
+				sessionMap.put("Account", acc);
+			return "SUCCESS";
+			} else {
+				
+				return "ERROR";
+			}
 		}
-		return "SUCCESS";
+		
+		return "ERROR";
 	}
 
 	@Override

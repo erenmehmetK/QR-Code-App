@@ -33,7 +33,8 @@
 		</action>
 		
 		<action name ="WijzigWachtwoordCheck" class="nl.delphinity.qr_goats.HelloAction" method="wijzigWachtwoord">
-			<result name="SUCCESS">/content/profielPagina.jsp</result>
+			<result name="SUCCESS">/content/successfullChange.jsp</result>
+			<result name="ERROR">/content/incorrectChance.jsp</result>
 		</action>
 		
 		<action name ="absent" class="nl.delphinity.qr_goats.HelloAction" method="">
