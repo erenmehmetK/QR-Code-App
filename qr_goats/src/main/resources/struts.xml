@@ -24,6 +24,11 @@
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<interceptor-ref name="StudentInterceptor"></interceptor-ref>
 			</interceptor-stack>
+			
+						<interceptor-stack name="TestStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="StudentInterceptor"></interceptor-ref>
+			</interceptor-stack>
 
 		</interceptors>
 
@@ -74,14 +79,14 @@
 
 		<action name="ziekMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
-			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
+			<interceptor-ref name="TestStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
 
 
 		<action name="laatMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
-			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
+			<interceptor-ref name="TestStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
 

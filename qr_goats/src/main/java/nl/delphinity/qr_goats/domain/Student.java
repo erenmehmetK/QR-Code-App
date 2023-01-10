@@ -1,11 +1,15 @@
 package nl.delphinity.qr_goats.domain;
 
+import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
@@ -21,15 +25,20 @@ public class Student extends Persoon {
 	@OneToOne
 	@JoinColumn(name = "account_email")
 	private Account account;
+	
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+	private SortedSet<Melding> meldingen;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "opleidingID", nullable = false)
+	private Opleiding opleiding;
 
 	@Transient
 	private QRCode qrCode;
 	@Transient
-	public TreeSet<Melding> meldingen;
-	@Transient
 	private boolean isIngecheckt;
 	
-	private Opleiding opleiding;
+	
 
 	public Student() {
 
@@ -110,12 +119,12 @@ public class Student extends Persoon {
 
 	}
 
-	public TreeSet<Melding> getMeldingen() {
+	public SortedSet<Melding> getMeldingen() {
 
 		return meldingen;
 	}
 
-	public void setMeldingen(TreeSet<Melding> meldingen) {
+	public void setMeldingen(SortedSet<Melding> meldingen) {
 		this.meldingen = meldingen;
 	}
 
