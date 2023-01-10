@@ -9,7 +9,7 @@ public class OpleidingFacade {
 	private Opleiding opleiding;
 	
 	private OpleidingFacade() {
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 		opleiding = new Opleiding();
 	}
 	

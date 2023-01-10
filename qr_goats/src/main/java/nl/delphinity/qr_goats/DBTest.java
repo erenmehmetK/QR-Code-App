@@ -3,14 +3,10 @@ package nl.delphinity.qr_goats;
 import org.hibernate.Session;
 
 import nl.delphinity.qr_goats.domain.Account;
-import nl.delphinity.qr_goats.domain.LaatMelding;
-import nl.delphinity.qr_goats.domain.Melding;
-import nl.delphinity.qr_goats.domain.Opleiding;
 import nl.delphinity.qr_goats.domain.PasswordHashing;
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
 import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.domain.Student;
-import nl.delphinity.qr_goats.domain.ZiekMelding;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
@@ -38,7 +34,7 @@ public class DBTest {
 		 * Setting the DAOFActory for use with HibernateDAOFactory and it's DAO's.
 		 */
 
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
 
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -66,8 +62,6 @@ public class DBTest {
 		s.setAchternaam("heulle");
 		s.setStudentenNR("234393");
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-        
-
 
 	}
 
@@ -84,7 +78,6 @@ public class DBTest {
 		Student s = new Student();
 		s.setAccount(a);
 		s.setNaam("miguel");
-		s.setTussenvoegsel("van");
 		s.setAchternaam("heule");
 		s.setStudentenNR("234393");
 		
@@ -101,7 +94,7 @@ public class DBTest {
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(j);
-//		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
+		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 		
 		a.changePassword("jaja", "ABC");
 		Account aWWTest = DAOFactory.getTheFactory().getAccountDAO().findbyemail(a);
@@ -115,32 +108,7 @@ public class DBTest {
 			e.printStackTrace();
 		}
 		getfromDB(a);
-		
-		Student s2 = new Student();
-		s2.setNaam("Ok");
-		s2.setAchternaam("yeah");
-		s2.setTussenvoegsel("ok");
-		s2.setStudentenNR("236714");
-
-        Opleiding opleiding = new Opleiding();
-        opleiding.setNaam("Software Developer");
-        opleiding.addStudent(s);
-        opleiding.addStudent(s2);
-
- 
-        Melding lm = opleiding.studentLaatMelden("236714", "ok", "Overige");
-        Melding zm = opleiding.studentZiekMelden("234393");
-      
-
-        DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
-        DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
-        DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
-
-        DAOFactory.getTheFactory().getOpleidingDAO().saveOrUpdate(opleiding);
-        HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-        
-    }
-	
+	}
 	
 	public void getfromDB(Account a) {
 		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);

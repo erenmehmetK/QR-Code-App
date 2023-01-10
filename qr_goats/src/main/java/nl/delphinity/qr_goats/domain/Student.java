@@ -1,6 +1,5 @@
 package nl.delphinity.qr_goats.domain;
 
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
@@ -27,7 +26,7 @@ public class Student extends Persoon {
 	private Account account;
 	
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-	private SortedSet<Melding> meldingen;
+	private TreeSet<Melding> meldingen = new TreeSet<Melding>();
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "opleidingID", nullable = false)
@@ -119,12 +118,12 @@ public class Student extends Persoon {
 
 	}
 
-	public SortedSet<Melding> getMeldingen() {
+	public TreeSet<Melding> getMeldingen() {
 
 		return meldingen;
 	}
 
-	public void setMeldingen(SortedSet<Melding> meldingen) {
+	public void setMeldingen(TreeSet<Melding> meldingen) {
 		this.meldingen = meldingen;
 	}
 
