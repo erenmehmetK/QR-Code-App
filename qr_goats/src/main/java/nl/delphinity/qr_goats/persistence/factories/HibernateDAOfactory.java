@@ -61,8 +61,54 @@ public class HibernateDAOfactory extends DAOFactory {
 	
 	@Override
     public IOpleidingDAO getOpleidingDAO() {
-        // TODO Auto-generated method stub
-        return null;
+		GenericHibernateDAO<Opleiding, Integer> dao = null;
+		try {
+			dao = OpleidingDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (IOpleidingDAO) dao;
     }
+
+	@Override
+	public IMeldingDAO getMeldingDAO() {
+		GenericHibernateDAO<Melding, Integer> dao = null;
+		try {
+			dao = MeldingDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (IMeldingDAO) dao;
+	}
+
+	@Override
+	public ILaatMeldingDAO getLaatMeldingDAO() {
+		GenericHibernateDAO<LaatMelding, Integer> dao = null;
+		try {
+			dao = LaatMeldingDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (ILaatMeldingDAO) dao;
+	}
+
+	@Override
+	public IZiekMeldingDAO getZiekMeldingDAO() {
+		GenericHibernateDAO<ZiekMelding, Integer> dao = null;
+		try {
+			dao = ZiekMeldingDAO.class.newInstance();
+			dao.setSession(getCurrentSession());
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return (IZiekMeldingDAO) dao;
+	}
 
 }
