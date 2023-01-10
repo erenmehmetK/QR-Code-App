@@ -26,6 +26,7 @@
 		<mapping class="nl.delphinity.qr_goats.domain.Persoon" />
 		<mapping class="nl.delphinity.qr_goats.domain.Student" />
 		<mapping class="nl.delphinity.qr_goats.domain.QRCode" />
+		<mapping class="nl.delphinity.qr_goats.domain.Opleiding" />
 
 	</session-factory>
 

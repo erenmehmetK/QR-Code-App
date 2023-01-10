@@ -1,19 +1,64 @@
 package nl.delphinity.qr_goats.domain;
 
-import java.util.TreeSet;
+import javax.persistence.*;
 
-import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
+import java.util.Set;
+
+@Entity
+@Table(name = "opleiding")
 public class Opleiding {
 
-	private TreeSet<Student> studenten;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-	private int id;
-	
-	public Opleiding() {
+    @Column(name = "naam")
+    private String naam;
 
-	}
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "opleiding_id")
+    private Set<Student> studenten;
+
+    public Opleiding() {}
+
+    public Opleiding(String naam) {
+        this.naam = naam;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public Set<Student> getStudenten() {
+        return studenten;
+    }
+
+    public void setStudenten(Set<Student> studenten) {
+        this.studenten = studenten;
+    }
+
+    @Override
+    public String toString() {
+        return "Opleiding{" +
+                "id=" + id +
+                ", naam='" + naam + '\'' +
+                '}';
+    }
 
 	public Student findStudent(int id) {
 
@@ -49,30 +94,9 @@ public class Opleiding {
 	// TODO remove after testing
 	public void loadTestData() {
 		// Call naar DAO van Opleiding en die returned een hoof studenten voor je
-		// treeset
-		studenten = (TreeSet<Student>) DAOFactory.getTheFactory().getStudentDAO().findAll();
+		// Set
+		studenten = (Set<Student>) DAOFactory.getTheFactory().getStudentDAO().findAll();
 
-	}
-
-	public TreeSet<Student> getStudenten() {
-		return studenten;
-	}
-	
-	public String toString() {
-		return id + " " + studenten;
-	}
-
-	public void setStudenten(TreeSet<Student> studenten) {
-		this.studenten = studenten;
-	}
-	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 }
