@@ -1,137 +1,129 @@
 @import url('http://fonts.cdnfonts.com/css/centrale-sans-regular');
 
-:root { 
-	--ok: rgb(0, 88, 111); 
-	--background-color: linear-gradient(#00586f, #508c9f, #8db4c1); 
-	--CentraleSansLight: "Centrale Sans Light", sans-serif; 
-	--CentraleSansRegular: "Centrale Sans Regular", sans-serif--CentraleSansItalic
-		 "Centrale Sans Italic", sans-serif; 
-	--CentraleSansMedium: "Centrale Sans Medium", sans-serif; 
-	--CentraleSansBold: "Centrale Sans Bold", sans-serif; 
-	--secondaryColor: #006E96;
+
+:root{
+    --ok: rgb(0, 88, 111);
+    --background-color: linear-gradient(#00586f, #508c9f, #8db4c1);
+   --CentraleSansLight: "Centrale Sans Light", sans-serif;
+    --CentraleSansRegular: "Centrale Sans Regular", sans-serif
+    --CentraleSansItalic: "Centrale Sans Italic", sans-serif;
+    --CentraleSansMedium: "Centrale Sans Medium", sans-serif;
+    --CentraleSansBold: "Centrale Sans Bold", sans-serif;
+    --secondaryColor:#006E96;
 }
+
 
 /* -Profiel- */
-.titel {
-	font-family: var(- -CentraleSansLight);
-	text-align: center;
-	color: white;
+
+.titel{
+    font-family: var(--CentraleSansLight);
+    text-align: center;
+    color: white;
 }
 
-.profielFoto {
+.profielFoto{
 	border-radius: 120px;
-	display: block;
-	width: 40%;
-	margin-right: auto;
-	margin-left: auto;
+    display: block;
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.inputText {
-	border: none;
-	padding: 4px;
-	border-width: 2px;
-	width: fit-content;
-	color: black;
-	font-family: var(- -CentraleSansBold);
-	width: 100%;
-	height: 30px;
-	margin-bottom: 2px;
-	border-radius: .25rem;
+.inputText{
+    border: none;
+    padding: 4px;
+    border-width: 2px;
+    width: fit-content;
+    color: black;
+    font-family: var(--CentraleSansBold);
+    width: 100%;
+    height: 30px;
+    margin-bottom: 2px;
+    border-radius: .25rem;
 }
 
-label {
-	color: white;
-	font-family: var(- -CentraleSansRegular);
-	font-size: 1.2rem;
-}
-
-.wachtwoordWijzigLabel {
+#NieuwWachtwoord1, #NieuwWachtwoord2{
 	display: none;
 }
 
-tr {
-	border: solid 5px var(- -ok) !important;
+#pencilButton {
+    border-color: transparent;
+    padding:3.2px;
+    display: inline;
+    float: left;
 }
-
-#Wachtwoord, #NieuwWachtwoord1, #NieuwWachtwoord2 {
-	display: none;
-}
-
-#wijzig-Button {
-	height: 30px;
-	width: 100%;
-}
-
 button, #opslaanButton {
 	border-radius: .25rem !important;
 }
 
 button:active {
-	transform: scale(1.05);
+    transform: scale(1.05);
 }
-
-.pencil {
-	font-size: 100%;
-	width: 19%;
+.pencil{
+    font-size: 100%;
+    width: 19%;
 }
 
 .aangepasteDif {
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
 }
 
-.gegevens {
-	text-align: center !important;
-	padding: .2vh;
+.gegevens{
+    text-align: center !important;
+    padding: .2vh;
 }
 
-#wachtwoordGegeven {
+#wachtwoordGegeven{
 	text-align: center !important;
 }
 
 .gegevensWW {
-	width: 90%;
+	width:90%;
 }
-
 .editButton {
-	width: 10%;
-	display: none;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-	width: 50%;
-	height: 40px;
-	padding-bottom: 0px;
+	width:10%;
+    display: none;
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+    width: 50%;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-family: var(--CentraleSansBold);
+    font-size: large;
+    padding-bottom: 0px;
+    
 }
 
-.editButton, #wijzig-Button {
-	border: none;
-	color: white;
-	background-color: #8db4c1;
-	font-weight: bold;
-	font-family: var(- -CentraleSansBold);
-	font-size: large;
+#annuleerButton{
+    margin-top: 5px;
+    background-color: #8db4c1;
 }
 
-#annuleerButton {
-	margin-top: 5px;
-}
-
-#opslaanButton {
-	margin-top: 10%;
+#opslaanButton{    
+    margin-top: 10%;
+    background-color: #8db4c1;
 }
 
 body {
-	background-color: rgb(0, 88, 111) !important;
-	background-position: center center;
-	background-attachment: fixed;
-	background-size: cover;
-	background-repeat: no-repeat;
+    background-color: rgb(0, 88, 111) !important;  
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .table_groote {
 	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+
+

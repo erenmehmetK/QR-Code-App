@@ -38,18 +38,15 @@
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
-	
-		<action name ="ProfielPagina" class="nl.delphinity.qr_goats.HelloAction" method="profiel">
+
+		<action name="ProfielPagina"
+			class="nl.delphinity.qr_goats.HelloAction" method="">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 		</action>
-		
-		<action name ="WijzigWachtwoordCheck" class="nl.delphinity.qr_goats.HelloAction" method="wijzigWachtwoord">
-			<result name="SUCCESS">/content/successfullChange.jsp</result>
-			<result name="ERROR">/content/incorrectChance.jsp</result>
-		</action>
-		
-		<action name ="absent" class="nl.delphinity.qr_goats.HelloAction" method="">
+
+		<action name="absent"
+			class="nl.delphinity.qr_goats.HelloAction" method="">
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
 
@@ -57,9 +54,9 @@
 			method="">
 			<result name="SUCCESS">/content/FAQ.jsp</result>
 		</action>
-		
-		<action name ="login" class="nl.delphinity.qr_goats.HelloAction">
-			<result name="SUCCESS">/login.jsp</result>
+
+		<action name="login" class="nl.delphinity.qr_goats.HelloAction">
+			<result name="SUCCESS">/content/login.jsp</result>
 		</action>
 
 		<action name="privacy"
@@ -71,7 +68,7 @@
 			class="nl.delphinity.qr_goats.HelloAction" method="login">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
-			<result name="ERROR">/login.jsp</result>
+			<result name="ERROR">/content/login.jsp</result>
 		</action>
 
 		<action name="absentieoverzicht"

@@ -58,9 +58,11 @@ public class Account implements Comparable<Account> {
 
 	public boolean changePassword(String oudWachtwoord, String nieuwWachtwoord) {
 		try {
-			if (PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord) && !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
+			if (PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord)
+					&& !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
 				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
 				DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(this);
+
 				return true;
 			}
 		} catch (CannotPerformOperationException e1) {
