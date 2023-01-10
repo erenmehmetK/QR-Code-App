@@ -2,45 +2,62 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.TreeSet;
 
-import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
+@Entity
+@Table(name = "opleiding")
 public class Opleiding {
 
-	private TreeSet<Student> studenten;
+	
 
+	@Id
+	@Column(name = "opleidingID", nullable = false, unique = true)
 	private int id;
+	
+	@OneToMany(mappedBy = "opleiding", cascade = CascadeType.ALL)
+	private TreeSet<Student> studenten = new TreeSet<Student>();
 	
 	public Opleiding() {
 
 	}
 
-	public Student findStudent(int id) {
+	public Student findStudent(String studentenNR) {
 
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
 				return s;
 			}
 		}
 		return null;
 	}
 
-	public void studentZiekMelden(int id) {
+	public void studentZiekMelden(String studentenNR) {
+		
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
 				s.ziekMelden();
+				System.out.println(s.getMeldingen());
+
 				
 			}
 		}
 
 	}
 
-	public void studentLaatMelden(int id, String opmerking, String reden) {
+	public void studentLaatMelden(String studentenNR, String opmerking, String reden) {
 		
-//	    DAOFactory.getTheFactory().get
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
 				s.laatMelden(opmerking, reden);
+				System.out.println(s.getMeldingen());
 				
 			}
 		}
