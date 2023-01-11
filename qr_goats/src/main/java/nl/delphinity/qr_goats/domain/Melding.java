@@ -1,13 +1,33 @@
 package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
+
+import javax.persistence.*;
+
+import org.hibernate.annotations.Polymorphism;
+import org.hibernate.annotations.PolymorphismType;
+
 import java.time.LocalDateTime;  
 
-
+@Entity
+@Polymorphism(type = PolymorphismType.IMPLICIT)
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "melding")
 public class Melding implements Comparable<Melding>{
 	
+	
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    @Column(name = "id", unique = true)
 		private int id;
+	    
+	    @Column(name = "date", nullable = false)
 		private LocalDateTime datum;
+	    
+	    
+	    
+	    @ManyToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name = "persoonID", nullable = false)
 		private Student student;
 		
 		

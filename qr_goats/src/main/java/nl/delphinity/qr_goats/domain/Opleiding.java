@@ -1,102 +1,153 @@
 package nl.delphinity.qr_goats.domain;
 
-import javax.persistence.*;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
-
-import java.util.Set;
 
 @Entity
 @Table(name = "opleiding")
 public class Opleiding {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+	
 
-    @Column(name = "naam")
-    private String naam;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "opleidingID", nullable = false, unique = true)
+	private int id;
+	
+	@Column(name = "opleiding_naam", length = 20, nullable = false, unique = false)
+	private String naam;
+	
+	@OneToMany(mappedBy = "opleiding", cascade = CascadeType.ALL)
+	private SortedSet<Student> studenten;
+	
+	public Opleiding() {
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "opleiding_id")
-    private Set<Student> studenten;
+	}
 
-    public Opleiding() {}
+	public Student findStudent(String studentenNR) {
+		
+		if (studenten == null) {
 
-    public Opleiding(String naam) {
-        this.naam = naam;
-    }
+			studenten = new TreeSet<Student>();
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public Set<Student> getStudenten() {
-        return studenten;
-    }
-
-    public void setStudenten(Set<Student> studenten) {
-        this.studenten = studenten;
-    }
-
-    @Override
-    public String toString() {
-        return "Opleiding{" +
-                "id=" + id +
-                ", naam='" + naam + '\'' +
-                '}';
-    }
-
-	public Student findStudent(int id) {
+		}
 
 		for (Student s : studenten) {
-			if (s.getId() == id) {
+			if (s.getStudentenNR().equals(studentenNR)) {
 				return s;
 			}
 		}
 		return null;
 	}
 
-	public void studentZiekMelden(int id) {
+	public Melding studentZiekMelden(String studentenNR) {
+		
+		if (studenten == null) {
+
+			studenten = new TreeSet<Student>();
+
+		}
+		
+		Melding m1 = null;
+		
 		for (Student s : studenten) {
-			if (s.getId() == id) {
-				s.ziekMelden();
+			if (s.getStudentenNR().equals(studentenNR)) {
+				m1 = s.ziekMelden();
+				System.out.println(s.getMeldingen());
+
 				
 			}
 		}
-
+       return m1;
 	}
 
-	public void studentLaatMelden(int id, String opmerking, String reden) {
+	public Melding studentLaatMelden(String studentenNR, String opmerking, String reden) {
 		
-//	    DAOFactory.getTheFactory().get
+		
+		
+		if (studenten == null) {
+
+			studenten = new TreeSet<Student>();
+
+		}
+		
+		Melding m1 = null;
+		
 		for (Student s : studenten) {
-			if (s.getId() == id) {
-				s.laatMelden(opmerking, reden);
+			if (s.getStudentenNR().equals(studentenNR)) {
+				m1 = s.laatMelden(opmerking, reden);
+				System.out.println(s.getMeldingen());
 				
 			}
+			
 		}
+		return m1;
 	}
 
 	// TODO remove after testing
 	public void loadTestData() {
 		// Call naar DAO van Opleiding en die returned een hoof studenten voor je
-		// Set
-		studenten = (Set<Student>) DAOFactory.getTheFactory().getStudentDAO().findAll();
+		// treeset
+		studenten = (SortedSet<Student>) DAOFactory.getTheFactory().getStudentDAO().findAll();
 
+	}
+	
+	public void addStudent(Student s) {
+		
+		if (studenten == null) {
+
+			studenten = new TreeSet<Student>();
+
+		}
+		
+		studenten.add(s);
+		s.setOpleiding(this);
+	}
+	
+	public void removeStudent(Student s) {
+		studenten.remove(s);
+		s.setOpleiding(null);
+	}
+
+	public SortedSet<Student> getStudenten() {
+		return studenten;
+	}
+	
+	public String toString() {
+		return id + " " + studenten;
+	}
+
+	public void setStudenten(SortedSet<Student> studenten) {
+		this.studenten = studenten;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNaam() {
+		return naam;
+	}
+
+	public void setNaam(String naam) {
+		this.naam = naam;
 	}
 
 }
