@@ -72,6 +72,19 @@ public class DBTest {
 	}
 
 	public void createAccount() {
+		
+		Account c4 = new Account();
+		c4.setEmail("rbrandon@scalda.nl");
+		try {c4.setWachtwoord(PasswordHashing.createHash("123456"));}
+		catch (CannotPerformOperationException c3) {c3.printStackTrace();}
+
+		Student s4 = new Student();
+		s4.setAccount(c4);
+		s4.setNaam("rens");
+		s4.setAchternaam("brandon");
+		s4.setStudentenNR("518521");
+		
+		
 		Account a = new Account();
 		a.setEmail("mbrugge@student.scalda.nl");
 		try {
@@ -98,6 +111,8 @@ public class DBTest {
 			e.printStackTrace();
 		}
 		
+		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(c4);
+		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s4);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(j);
