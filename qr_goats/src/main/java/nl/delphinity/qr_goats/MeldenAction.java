@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
+import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 public class MeldenAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
@@ -19,19 +20,36 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() {
  
+		this.setSessionMap(getSessionMap());
         
 		return "SUCCESS";
 	}
 
 	
 	public String studentMeldZiek() {
-	 OpleidingFacade.getInstance().getOpleiding().studentZiekMelden("100001");
+		
+
+		Account acc = (Account) sessionMap.get("Account");
+		
+		Student st = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+		
+		String stnr = st.getStudentenNR();
+		
+	    OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(stnr);
 		return "SUCCESS";
 		
 	}
 
 	public String studentMeldLaat() {
-		 OpleidingFacade.getInstance().getOpleiding().studentLaatMelden("100001", opmerking, reden);
+		
+
+        Account acc = (Account) sessionMap.get("Account");
+		
+		Student st = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+		
+		String stnr = st.getStudentenNR();
+		
+		OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, opmerking, reden);
 		return "SUCCESS";
 		
 	}

@@ -125,12 +125,7 @@ public class DBTest {
         Opleiding opleiding = new Opleiding();
         opleiding.setNaam("Software Developer");
         opleiding.addStudent(s);
-        opleiding.addStudent(s2);
-
- 
-        Melding lm = opleiding.studentLaatMelden("236714", "ok", "Overige");
-        Melding zm = opleiding.studentZiekMelden("234393");
-      
+        opleiding.addStudent(s2);    
 
         DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
         DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);

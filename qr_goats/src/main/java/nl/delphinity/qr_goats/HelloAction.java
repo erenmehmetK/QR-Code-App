@@ -38,7 +38,12 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;
 	}
+	
+	public Map<String, Object> getSessionMap() {
+		return sessionMap;
+	}
 
+	
 	public Persoon getPer() {
 		return per;
 	}
