@@ -31,7 +31,7 @@ public class StudentInterceptor extends AbstractInterceptor {
 	@Override
     public void init() {
         super.init();
-        DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+        DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
         OpleidingFacade.getInstance().getOpleiding().loadTestData();        
 
     }
@@ -40,7 +40,7 @@ public class StudentInterceptor extends AbstractInterceptor {
 
     @Override
     public void destroy() {
-        DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+        DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
         super.destroy();
 
     }
