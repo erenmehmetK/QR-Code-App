@@ -30,7 +30,6 @@
 
 
 		<action name="Home" class="nl.delphinity.qr_goats.HelloAction">
-
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
@@ -72,14 +71,17 @@
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
 			<result name="ERROR">/content/login.jsp</result>
 		</action>
+		
+		<action name="absentieoverzicht"
+            class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
+		</action>
+		
 		<action name="ziekMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
 			<interceptor-ref name="TestStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
-
-
-
 
 		<action name="laatMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
