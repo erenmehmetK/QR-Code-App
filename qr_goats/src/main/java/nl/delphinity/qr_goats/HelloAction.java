@@ -29,14 +29,17 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	}
 	
 	public String login() {
-		if(acc.loginCheck()) {
-			String studentenNummer = acc.getEmail().substring(0, 6);
-			qrimage = qrcode.generateQR(studentenNummer);
-			return "SUCCESS";
-		} else {
-			return "ERROR";
-		}
-	}
+        if(acc.loginCheck()) {
+//            String studentenNummer = acc.getEmail().substring(0, 6);
+            Student stud = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+            String studentenNummer = stud.getStudentenNR();
+
+            qrimage = qrcode.generateQR(studentenNummer);
+            return "SUCCESS";
+        } else {
+            return "ERROR";
+        }
+    }
 	
 	public String getQrimage() {
 		return qrimage;

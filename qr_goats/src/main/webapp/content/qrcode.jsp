@@ -15,9 +15,11 @@
 		<h1>De QR Code</h1>
 		<p>Gebruik deze QR Code om in te checken.</p>
 		<a href="../faq.jsp">Problemen met inchecken?</a>
+		<br> <br>
 		<div class="qrcode">${qrCode.currentQR}</div>
+		<center>${qrimage}</center>
 		<div class="time" id="time"></div>
-		<h1>${qrimage}</h1>
+	
 		<script>
 			const time = document.getElementById("time");
 			function updateTime() {
