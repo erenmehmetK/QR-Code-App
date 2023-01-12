@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
-        "http://struts.apache.org/dtds/struts-2.5.dtd">
+ <!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.ui.theme" value="simple" />
@@ -14,18 +14,14 @@
 				class="nl.delphinity.qr_goats.controller.interceptors.LoginInterceptor">
 			</interceptor>
 
-			<interceptor name="StudentInterceptor"
-				class="nl.delphinity.qr_goats.controller.interceptors.StudentInterceptor">
-			</interceptor>
-
-
 			<interceptor-stack name="QRGoatsStack">
 				<interceptor-ref name="LoginInterceptor"></interceptor-ref>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
-				<interceptor-ref name="StudentInterceptor"></interceptor-ref>
 			</interceptor-stack>
-			
-						<interceptor-stack name="TestStack">
+			<interceptor name="StudentInterceptor"
+				class="nl.delphinity.qr_goats.controller.interceptors.StudentInterceptor">
+			</interceptor>
+			<interceptor-stack name="TestStack">
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<interceptor-ref name="StudentInterceptor"></interceptor-ref>
 			</interceptor-stack>
@@ -34,15 +30,20 @@
 
 
 		<action name="Home" class="nl.delphinity.qr_goats.HelloAction">
-
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
 
 		<action name="ProfielPagina"
-			class="nl.delphinity.qr_goats.HelloAction" method="">
+			class="nl.delphinity.qr_goats.HelloAction" method="profiel">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/profielPagina.jsp</result>
+		</action>
+
+		<action name="WijzigWachtwoordCheck"
+			class="nl.delphinity.qr_goats.HelloAction" method="wijzigWachtwoord">
+			<result name="success">/content/successfullChange.jsp</result>
+			<result name="error">/content/incorrectChance.jsp</result>
 		</action>
 
 		<action name="absent"
@@ -76,19 +77,17 @@
 			<result name="SUCCESS">/content/qrcode.jsp</result>
 			<result name="ERROR">/content/login.jsp</result>
 		</action>
-
+		
 		<action name="absentieoverzicht"
-			class="nl.delphinity.qr_goats.HelloAction" method="">
-			<result name="SUCCESS">/content/abssentieoverzicht.jsp</result>
+            class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
 		</action>
-
-
+		
 		<action name="ziekMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
 			<interceptor-ref name="TestStack"></interceptor-ref>
 			<result name="SUCCESS">/index.jsp</result>
 		</action>
-
 
 		<action name="laatMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">

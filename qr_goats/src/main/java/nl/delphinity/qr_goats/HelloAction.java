@@ -3,6 +3,7 @@ package nl.delphinity.qr_goats;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Session;
 
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
@@ -73,4 +74,6 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
 	
 	
+
+
 }
