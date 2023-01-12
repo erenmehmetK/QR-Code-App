@@ -64,11 +64,17 @@
 			class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/content/privacy.jsp</result>
 		</action>
+		
+		<action name="qrcode"
+			class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/qrcode.jsp</result>
+		</action>
+		
 
 		<action name="logincheck"
 			class="nl.delphinity.qr_goats.HelloAction" method="login">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
-			<result name="SUCCESS">/content/profielPagina.jsp</result>
+			<result name="SUCCESS">/content/qrcode.jsp</result>
 			<result name="ERROR">/content/login.jsp</result>
 		</action>
 		
