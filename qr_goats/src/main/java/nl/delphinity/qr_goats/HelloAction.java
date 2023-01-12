@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
+import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 
 public class HelloAction extends ActionSupport implements SessionAware {
