@@ -54,12 +54,10 @@ public class HelloAction extends ActionSupport implements SessionAware {
          if (nieuwww1.equals(nieuwww2verify)) {
              acc = (Account) sessionMap.get("Account");
             if(acc.changePassword(oudww, nieuwww1)) {
-            	System.out.println("test");
-                //sessionMap.put("Account", acc);
+                sessionMap.put("Account", acc);
                 return SUCCESS;
             } 
          } 
-         System.out.println("why");
          return ERROR;
      }
 
