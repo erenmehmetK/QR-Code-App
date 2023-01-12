@@ -1,4 +1,4 @@
-package nl.delphinity.qr_goats;
+	package nl.delphinity.qr_goats;
 
 import org.hibernate.Session;
 

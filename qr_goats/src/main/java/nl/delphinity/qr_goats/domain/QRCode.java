@@ -67,8 +67,8 @@ public class QRCode {
 		String resultString = result.toString();
 		return resultString.length() > 0 ? resultString.substring(0, resultString.length() - 1) : resultString;
 	}
-	public String generateQR(Student student) {		
-		if (genereertijd < genereertijd + 60) { // werkt voor 1 minuut
+	public String generateQR(String studentData) {	
+		if (true) { // werkt voor 1 minuut
 			URL url;
 			try {
 				url = new URL("https://api.qrserver.com/v1/create-qr-code/");
@@ -77,7 +77,7 @@ public class QRCode {
 				Map<String, String> params = new HashMap<>();
 				params.put("size", "300x300");
 				params.put("format", "svg");
-				params.put("data", "236406");
+				params.put("data", studentData);
 				conn.setDoOutput(true);
 				DataOutputStream out = new DataOutputStream(conn.getOutputStream());
 				out.writeBytes(getParamsString(params));

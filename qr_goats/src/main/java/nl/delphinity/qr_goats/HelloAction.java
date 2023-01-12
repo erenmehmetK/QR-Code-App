@@ -15,7 +15,9 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	private Persoon per;
 		
 	private Account acc;
-	
+	private QRCode qrcode = new QRCode();
+	private String qrimage;
+
 	@Override
 	public String execute() {
 
@@ -28,10 +30,20 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	
 	public String login() {
 		if(acc.loginCheck()) {
+			String cancer = acc.getEmail().substring(0, 7);
+			qrimage = qrcode.generateQR(cancer);
 			return "SUCCESS";
-		}else {
+		} else {
 			return "ERROR";
 		}
+	}
+	
+	public String getQrimage() {
+		return qrimage;
+	}
+
+	public void setQrimage(String qrimage) {
+		this.qrimage = qrimage;
 	}
 
 	@Override

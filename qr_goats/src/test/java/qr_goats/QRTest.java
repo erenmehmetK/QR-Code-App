@@ -24,8 +24,8 @@ public class QRTest {
 	public void qrCodeCreateTest() {
 		QRCode qrCode = new QRCode();
         Student student = new Student(1, "Misha", "123456@student.scalda.nl", null);
-        System.out.println(qrCode.generateQR(student));
-        assertNotNull(qrCode.generateQR(student));
+        System.out.println(qrCode.generateQR(student.getStudentenNR()));
+        assertNotNull(qrCode.generateQR(student.getStudentenNR()));
 	}
 
 }
