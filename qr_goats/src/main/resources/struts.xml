@@ -63,6 +63,12 @@
 			class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/content/privacy.jsp</result>
 		</action>
+		
+		<action name="qrcode"
+			class="nl.delphinity.qr_goats.HelloAction" method="">
+			<result name="SUCCESS">/content/qrcode.jsp</result>
+		</action>
+		
 
 		<action name="logincheck"
 			class="nl.delphinity.qr_goats.HelloAction" method="login">
@@ -73,7 +79,7 @@
 
 		<action name="absentieoverzicht"
 			class="nl.delphinity.qr_goats.HelloAction" method="">
-			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
+			<result name="SUCCESS">/content/abssentieoverzicht.jsp</result>
 		</action>
 
 

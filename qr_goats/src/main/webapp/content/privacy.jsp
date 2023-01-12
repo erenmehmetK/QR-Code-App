@@ -22,7 +22,7 @@
 
     <center>
     
-        <h3 class="titel"> Privacyreglement | Scalda</h3>
+        <h3 class="titel"> Privacyregelement | Scalda</h3>
         <br><br>
          
          <form action="http://www.scalda.nl/privacy-statement">
