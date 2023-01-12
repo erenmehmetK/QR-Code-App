@@ -14,12 +14,9 @@
 	<div class="section">
 		<h1>De QR Code</h1>
 		<p>Gebruik deze QR Code om in te checken.</p>
-		<a href="../faq.jsp">problemen met inchecken?</a>
+		<a href="../faq.jsp">Problemen met inchecken?</a>
 		<div class="qrcode">${qrCode.currentQR}</div>
-		<div class="ingechecked">status: <b style="color: green">ingecheckt</b></div><br><br>
 		<div class="time" id="time"></div>
-		<h1>${acc.wachtwoord}</h1>
-		<h1>${acc.email}</h1>
 		<h1>${qrimage}</h1>
 		<script>
 			const time = document.getElementById("time");

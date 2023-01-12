@@ -74,15 +74,15 @@ public class DBTest {
 	public void createAccount() {
 		
 		Account c4 = new Account();
-		c4.setEmail("rbrandon@scalda.nl");
-		try {c4.setWachtwoord(PasswordHashing.createHash("123456"));}
+		c4.setEmail("237582@scalda.nl");
+		try {c4.setWachtwoord(PasswordHashing.createHash("feyenoord"));}
 		catch (CannotPerformOperationException c3) {c3.printStackTrace();}
 
 		Student s4 = new Student();
 		s4.setAccount(c4);
-		s4.setNaam("rens");
-		s4.setAchternaam("brandon");
-		s4.setStudentenNR("518521");
+		s4.setNaam("boris");
+		s4.setAchternaam("sanderse");
+		s4.setStudentenNR("237582");
 		
 		
 		Account a = new Account();

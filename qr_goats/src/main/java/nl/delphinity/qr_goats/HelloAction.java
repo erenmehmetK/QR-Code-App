@@ -30,8 +30,8 @@ public class HelloAction extends ActionSupport implements SessionAware {
 	
 	public String login() {
 		if(acc.loginCheck()) {
-			String cancer = acc.getEmail().substring(0, 7);
-			qrimage = qrcode.generateQR(cancer);
+			String studentenNummer = acc.getEmail().substring(0, 6);
+			qrimage = qrcode.generateQR(studentenNummer);
 			return "SUCCESS";
 		} else {
 			return "ERROR";
