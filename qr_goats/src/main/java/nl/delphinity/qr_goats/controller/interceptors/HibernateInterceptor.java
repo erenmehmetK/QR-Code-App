@@ -62,7 +62,7 @@ public class HibernateInterceptor extends AbstractInterceptor {
 		return null;
     }
 
-
+  
 
 	public Session getSession() {
 		return session;
