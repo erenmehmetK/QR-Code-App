@@ -1,5 +1,7 @@
 package nl.delphinity.qr_goats.domain;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -14,6 +16,22 @@ public class LaatMelding extends Melding {
 	
 	@Column(name = "reden", nullable = false, length = 15)
 	private String reden;
+	
+	public LaatMelding() {
+		
+	}
+	
+	public LaatMelding(int id, LocalDateTime datum, Student student, String opmerking, String reden) {
+		super(id, datum, student);
+		this.opmerking = opmerking;
+		this.reden = reden;
+	}
+	
+	@Override
+	public String toString() {
+		return getId() + " " + getDatum() + " " + getStudent() + " " + opmerking + " " + reden;
+	}
+	
 
 	public String getOpmerking() {
 		return opmerking;
@@ -31,10 +49,6 @@ public class LaatMelding extends Melding {
 		this.reden = reden;
 	}
 
-	@Override
-	public String toString() {
-		return getId() + " " + getDatum() + " " + getStudent() + " " + opmerking + " " + reden;
-	}
 	
 	
 	

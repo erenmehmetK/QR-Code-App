@@ -35,7 +35,10 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 		
 		String stnr = st.getStudentenNR();
 		
+		System.out.println("Sahim is nazi");
+		
 	    OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(stnr);
+	    
 		return "SUCCESS";
 		
 	}
@@ -50,6 +53,7 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 		String stnr = st.getStudentenNR();
 		
 		OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, opmerking, reden);
+		
 		return "SUCCESS";
 		
 	}
@@ -73,6 +77,7 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> getSessionMap() {
 		return sessionMap;
 	}
+	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;

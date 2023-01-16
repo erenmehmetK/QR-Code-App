@@ -18,7 +18,7 @@ public class Melding implements Comparable<Melding>{
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "id", unique = true)
+	    @Column(name = "id", nullable = false, unique = true)
 		private int id;
 	    
 	    @Column(name = "date", nullable = false)
@@ -35,7 +35,7 @@ public class Melding implements Comparable<Melding>{
 		}
 		
         //Constructor  
-		public Melding(int id, String opmerking, Student student) {
+		public Melding(int id, LocalDateTime datum, Student student) {
 			this.id = id;
 			this.datum = java.time.LocalDateTime.now();
 			this.student = student;
@@ -92,8 +92,6 @@ public class Melding implements Comparable<Melding>{
 			this.datum = datum;
 		}
 
-		
-		
 		public Student getStudent() {
 			return student;
 		}

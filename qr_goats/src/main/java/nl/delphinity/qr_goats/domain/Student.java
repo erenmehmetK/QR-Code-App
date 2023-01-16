@@ -3,7 +3,6 @@ package nl.delphinity.qr_goats.domain;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -13,6 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+
+
 
 
 @Entity
@@ -26,10 +32,12 @@ public class Student extends Persoon {
 	@JoinColumn(name = "account_email")
 	private Account account;
 	
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "student")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private SortedSet<Melding> meldingen;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	@JoinColumn(name = "opleidingID", nullable = false)
 	private Opleiding opleiding;
 
@@ -55,22 +63,6 @@ public class Student extends Persoon {
 		return studentenNR.compareTo(other.studentenNR);
 
 	}
-	
-	public QRCode getQrCode() {
-		return qrCode;
-	}
-
-	public void setQrCode(QRCode qrCode) {
-		this.qrCode = qrCode;
-	}
-	
-	public boolean isIngecheckt() {
-		return isIngecheckt;
-	}
-
-	public void setIngecheckt(boolean isIngecheckt) {
-		this.isIngecheckt = isIngecheckt;
-	}
 
 	public void addMelding(Melding m) {
 		meldingen.add(m);
@@ -92,11 +84,13 @@ public class Student extends Persoon {
 		}
 
 		Melding m1 = new LaatMelding();
+		
 		m1.setDatum(java.time.LocalDateTime.now());
 		((LaatMelding) m1).setOpmerking(opmerking);
 		((LaatMelding) m1).setReden(reden);
-
 		addMelding(m1);
+		
+        save(m1);
 
 		return m1;
 	}
@@ -114,9 +108,34 @@ public class Student extends Persoon {
 
 		m1.setDatum(java.time.LocalDateTime.now());
 		addMelding(m1);
-
+	
+		save(m1);
+		
 		return m1;
 
+	}
+	
+	public void save(Melding m1) {
+		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(this);
+		DAOFactory.getTheFactory().getMeldingDAO().saveOrUpdate(m1);
+		
+	}
+	
+	
+	public QRCode getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(QRCode qrCode) {
+		this.qrCode = qrCode;
+	}
+	
+	public boolean isIngecheckt() {
+		return isIngecheckt;
+	}
+
+	public void setIngecheckt(boolean isIngecheckt) {
+		this.isIngecheckt = isIngecheckt;
 	}
 
 	public SortedSet<Melding> getMeldingen() {

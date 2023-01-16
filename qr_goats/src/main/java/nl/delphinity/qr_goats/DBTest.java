@@ -3,14 +3,12 @@
 import org.hibernate.Session;
 
 import nl.delphinity.qr_goats.domain.Account;
-import nl.delphinity.qr_goats.domain.LaatMelding;
-import nl.delphinity.qr_goats.domain.Melding;
 import nl.delphinity.qr_goats.domain.Opleiding;
+import nl.delphinity.qr_goats.domain.OpleidingFacade;
 import nl.delphinity.qr_goats.domain.PasswordHashing;
 import nl.delphinity.qr_goats.domain.PasswordHashing.CannotPerformOperationException;
 import nl.delphinity.qr_goats.domain.PasswordHashing.InvalidHashException;
 import nl.delphinity.qr_goats.domain.Student;
-import nl.delphinity.qr_goats.domain.ZiekMelding;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
@@ -137,11 +135,12 @@ public class DBTest {
 		s2.setTussenvoegsel("ok");
 		s2.setStudentenNR("236714");
 
-        Opleiding opleiding = new Opleiding();
+        Opleiding opleiding = OpleidingFacade.getInstance().getOpleiding();
         opleiding.setNaam("Software Developer");
         opleiding.addStudent(s);
         opleiding.addStudent(s2);    
-
+        
+        
         DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
         DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
         DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);

@@ -1,5 +1,7 @@
 package nl.delphinity.qr_goats.domain;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -12,6 +14,15 @@ public class ZiekMelding extends Melding {
 	public String toString() {
 
 		return getId() + " " + getDatum() + " " + getStudent();
+	}
+	
+	public ZiekMelding() {
+		
+	}
+	
+	public ZiekMelding(int id, LocalDateTime datum, Student student) {
+		super(id, datum, student);
+		
 	}
 
 	
