@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,11 +33,11 @@ public class Student extends Persoon {
 	@JoinColumn(name = "account_email")
 	private Account account;
 	
-	@OneToMany(mappedBy = "student")
+	@OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private SortedSet<Melding> meldingen;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	@JoinColumn(name = "opleidingID", nullable = false)
 	private Opleiding opleiding;
@@ -54,7 +55,6 @@ public class Student extends Persoon {
 
 	public Student(Integer id, String naam, String tussenvoegsel, String achternaam) {
 		super(id, naam, tussenvoegsel, achternaam);
-		// TODO Auto-generated constructor stub
 	}
 
 	// returnt een nummer gebaseerd op als het object gelijk is, gebruikt voor
@@ -116,8 +116,11 @@ public class Student extends Persoon {
 	}
 	
 	public void save(Melding m1) {
+	System.out.println("te");
+	
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(this);
 		DAOFactory.getTheFactory().getMeldingDAO().saveOrUpdate(m1);
+		System.out.println("st");
 		
 	}
 	

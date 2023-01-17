@@ -45,9 +45,9 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable> implements
 	@Override
 	public T saveOrUpdate(T entity) {
 		try {
-			getSession().beginTransaction();
+//			getSession().beginTransaction();
 			getSession().saveOrUpdate(entity);
-			getSession().getTransaction().commit();
+//			getSession().getTransaction().commit();
 			// TODO Do not catch at high level. Catch specific exception
 		} catch (PersistenceException e) {
 			entity = null;

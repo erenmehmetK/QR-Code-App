@@ -34,11 +34,8 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 		Student st = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
 		
 		String stnr = st.getStudentenNR();
-		
-		System.out.println("Sahim is nazi");
-		
+				
 	    OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(stnr);
-	    
 		return "SUCCESS";
 		
 	}

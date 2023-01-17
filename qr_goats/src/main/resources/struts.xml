@@ -13,7 +13,7 @@
 			<interceptor name="LoginInterceptor"
 				class="nl.delphinity.qr_goats.controller.interceptors.LoginInterceptor">
 			</interceptor>
-			
+
 			<interceptor name="HibernateInterceptor"
 				class="nl.delphinity.qr_goats.controller.interceptors.HibernateInterceptor">
 			</interceptor>
@@ -22,10 +22,11 @@
 				<interceptor-ref name="LoginInterceptor"></interceptor-ref>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
-			
+
 			<interceptor-stack name="TestStack">
-				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<interceptor-ref name="HibernateInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+
 			</interceptor-stack>
 
 		</interceptors>
@@ -66,12 +67,12 @@
 			class="nl.delphinity.qr_goats.HelloAction">
 			<result name="SUCCESS">/content/privacy.jsp</result>
 		</action>
-		
+
 		<action name="qrcode"
 			class="nl.delphinity.qr_goats.HelloAction" method="">
 			<result name="SUCCESS">/content/qrcode.jsp</result>
 		</action>
-		
+
 
 		<action name="logincheck"
 			class="nl.delphinity.qr_goats.HelloAction" method="login">
@@ -79,12 +80,12 @@
 			<result name="SUCCESS">/content/qrcode.jsp</result>
 			<result name="ERROR">/content/login.jsp</result>
 		</action>
-		
+
 		<action name="absentieoverzicht"
-            class="nl.delphinity.qr_goats.HelloAction" method="">
+			class="nl.delphinity.qr_goats.HelloAction" method="">
 			<result name="SUCCESS">/content/absentieoverzicht.jsp</result>
 		</action>
-		
+
 		<action name="ziekMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
 			<interceptor-ref name="TestStack"></interceptor-ref>

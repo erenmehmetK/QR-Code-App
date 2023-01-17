@@ -2,10 +2,7 @@ package nl.delphinity.qr_goats.controller.interceptors;
 
  
 
-import javax.persistence.PersistenceException;
-
 import org.hibernate.Session;
-import org.hibernate.exception.ConstraintViolationException;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
@@ -49,14 +46,16 @@ public class HibernateInterceptor extends AbstractInterceptor {
 
     @Override
     public String intercept(ActionInvocation invocation) throws Exception {
-    	
     	HibernateSessionManager.getSessionFactory().getCurrentSession().beginTransaction();
+    	System.out.println("erwt");
 		try {
+			System.out.println("en");
 			String result = invocation.invoke();
-			
+					
 			HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 			return result;
 		} catch (Exception e) {
+			e.printStackTrace();
 			HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().rollback();
 		}
 		return null;

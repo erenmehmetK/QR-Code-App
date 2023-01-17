@@ -26,7 +26,7 @@ public class Melding implements Comparable<Melding>{
 	    
 	    
 	    
-	    @ManyToOne(cascade = CascadeType.ALL)
+	    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	    @JoinColumn(name = "persoonID", nullable = false)
 		private Student student;
 		

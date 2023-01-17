@@ -9,8 +9,8 @@ public class OpleidingFacade {
 	private Opleiding opleiding;
 	
 	private OpleidingFacade() {
-		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
-		opleiding = new Opleiding();
+//		DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
+		opleiding = DAOFactory.getTheFactory().getOpleidingDAO().findById(1);
 	}
 	
 	public static OpleidingFacade getInstance() {

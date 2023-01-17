@@ -6,6 +6,7 @@ import java.util.TreeSet;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Opleiding {
 	@Column(name = "opleiding_naam", length = 20, nullable = false, unique = false)
 	private String naam;
 	
-	@OneToMany(mappedBy = "opleiding", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "opleiding", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private SortedSet<Student> studenten;
 	
 	public Opleiding() {
@@ -53,7 +54,7 @@ public class Opleiding {
 	}
 
 	public Melding studentZiekMelden(String studentenNR) {
-		
+		System.out.println(getStudenten());
 		if (studenten == null) {
 
 			studenten = new TreeSet<Student>();
