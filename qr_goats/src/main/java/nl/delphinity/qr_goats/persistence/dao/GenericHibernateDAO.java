@@ -41,65 +41,38 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable> implements
 	public Class<T> getPersistentClass() {
 		return persistentClass;
 	}
-	
+
 	@Override
 	public T saveOrUpdate(T entity) {
-		try {
-//			getSession().beginTransaction();
-			getSession().saveOrUpdate(entity);
-//			getSession().getTransaction().commit();
-			// TODO Do not catch at high level. Catch specific exception
-		} catch (PersistenceException e) {
-			entity = null;
-			
-			if (getSession().getTransaction() != null) {
-				getSession().getTransaction().rollback();
-
-			}
-			if(e.getCause() instanceof ConstraintViolationException) {
-				ConstraintViolationException cve = (ConstraintViolationException) e.getCause();
-				System.out.println(cve.getSQLException().getSQLState());
-				throw (ConstraintViolationException) e.getCause();
-			}
-		}
+		getSession().saveOrUpdate(entity);
 		return entity;
 	}
 
 	@Override
 	public void delete(T entity) {
-		getSession().beginTransaction();
 		getSession().delete(entity);
-		getSession().getTransaction().commit();
 	}
 
 	@Override
-	public T findById(ID id) {
-		getSession().beginTransaction();
-		T entity = 	getSession().find(getPersistentClass(), id);
-		getSession().getTransaction().commit();
+	public T findById(ID id) {;
+		T entity = getSession().find(getPersistentClass(), id);
 		return entity;
-			
+
 	}
 
 	@Override
 	public Set<T> findAll() {
-		getSession().beginTransaction();
-
 		CriteriaBuilder builder = getSession().getCriteriaBuilder();
-		
 		CriteriaQuery<T> criteria = builder.createQuery(getPersistentClass());
 		Root<T> root = criteria.from(getPersistentClass());
 		criteria.select(root);
 		
 		List<T> list = getSession().createQuery(criteria).getResultList();
-		
-		getSession().getTransaction().commit();
-		
 		Set<T> set = new TreeSet<>();
 		set.addAll(list);
-	
+
 		return set;
-	}	
+	}
 
 	public void flush() {
 		getSession().flush();

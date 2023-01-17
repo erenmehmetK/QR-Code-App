@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 
 @Entity
@@ -118,8 +117,14 @@ public class Opleiding {
 		
 		studenten.add(s);
 		s.setOpleiding(this);
+//		s.save();
+		save();
 	}
 	
+	private void save() {
+		DAOFactory.getTheFactory().getOpleidingDAO().saveOrUpdate(this);
+	}
+
 	public void removeStudent(Student s) {
 		studenten.remove(s);
 		s.setOpleiding(null);
@@ -130,7 +135,7 @@ public class Opleiding {
 	}
 	
 	public String toString() {
-		return id + " " + studenten;
+		return id + " " + getNaam();
 	}
 
 	public void setStudenten(SortedSet<Student> studenten) {

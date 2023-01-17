@@ -49,16 +49,17 @@ public class HibernateInterceptor extends AbstractInterceptor {
     	HibernateSessionManager.getSessionFactory().getCurrentSession().beginTransaction();
     	System.out.println("erwt");
 		try {
-			System.out.println("en");
+			System.out.println("Voor invoke");
 			String result = invocation.invoke();
+			System.out.println("Na invoke");
 					
 			HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 			HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().rollback();
+			return "error";
 		}
-		return null;
     }
 
   

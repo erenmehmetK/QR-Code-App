@@ -11,7 +11,7 @@ import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 public class HibernateDAOfactory extends DAOFactory {
 
 	protected Session getCurrentSession() {
-		return HibernateSessionManager.getSessionFactory().openSession();
+		return HibernateSessionManager.getSessionFactory().getCurrentSession();
 	}
 
 	@Override

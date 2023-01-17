@@ -1,6 +1,13 @@
-	package nl.delphinity.qr_goats;
+package nl.delphinity.qr_goats;
+
+import java.util.HashSet;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.hibernate.Session;
+import org.hibernate.internal.build.AllowSysOut;
+
+import com.sun.source.util.Trees;
 
 import nl.delphinity.qr_goats.domain.Account;
 import nl.delphinity.qr_goats.domain.Opleiding;
@@ -31,7 +38,6 @@ public class DBTest {
 		 * hibernate.hbm2ddl.auto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		 */
 
-
 		/**
 		 * Setting the DAOFActory for use with HibernateDAOFactory and it's DAO's.
 		 */
@@ -40,11 +46,34 @@ public class DBTest {
 
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
+
+		Opleiding o = OpleidingFacade.getInstance().getOpleiding();
+		System.out.println(o);
+		SortedSet <Student> studs = o.getStudenten();
+		System.out.println(studs);
+		
+		Student s = studs.first();
+		Account a = s.getAccount();
 		
 		
-		db.createAccount();
+		
+		
+		System.out.println(s);
+		
+//		Student s1 = new Student();
+//		s1.setAchternaam("Barari");
+//		s1.setNaam("Sahim");
+//		s1.setStudentenNR("123654");
+//		
+//		o.addStudent(s1);
+		
+		o.studentZiekMelden("123456");
+		
+		session.getTransaction().commit();
+		
+
 //		db.getStudentByAccount();
-		
+
 		HibernateSessionManager.shutdown();
 	}
 
@@ -64,25 +93,25 @@ public class DBTest {
 		s.setAchternaam("heulle");
 		s.setStudentenNR("234393");
 		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-        
-
 
 	}
 
 	public void createAccount() {
-		
+
 		Account c4 = new Account();
 		c4.setEmail("237582@scalda.nl");
-		try {c4.setWachtwoord(PasswordHashing.createHash("feyenoord"));}
-		catch (CannotPerformOperationException c3) {c3.printStackTrace();}
+		try {
+			c4.setWachtwoord(PasswordHashing.createHash("feyenoord"));
+		} catch (CannotPerformOperationException c3) {
+			c3.printStackTrace();
+		}
 
 		Student s4 = new Student();
 		s4.setAccount(c4);
 		s4.setNaam("boris");
 		s4.setAchternaam("sanderse");
 		s4.setStudentenNR("237582");
-		
-		
+
 		Account a = new Account();
 		a.setEmail("mbrugge@student.scalda.nl");
 		try {
@@ -98,7 +127,7 @@ public class DBTest {
 		s.setTussenvoegsel("van");
 		s.setAchternaam("heule");
 		s.setStudentenNR("234393");
-		
+
 		Account j = new Account();
 
 		j.setEmail("jarno@student.scalda.nl");
@@ -108,14 +137,14 @@ public class DBTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(c4);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s4);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
 		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
 		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(j);
 //		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-		
+
 		a.changePassword("jaja", "ABC");
 		Account aWWTest = DAOFactory.getTheFactory().getAccountDAO().findbyemail(a);
 		try {
@@ -128,29 +157,27 @@ public class DBTest {
 			e.printStackTrace();
 		}
 		getfromDB(a);
-		
+
 		Student s2 = new Student();
 		s2.setNaam("Ok");
 		s2.setAchternaam("yeah");
 		s2.setTussenvoegsel("ok");
 		s2.setStudentenNR("236714");
 
-        Opleiding opleiding = OpleidingFacade.getInstance().getOpleiding();
-        opleiding.setNaam("Software Developer");
-        opleiding.addStudent(s);
-        opleiding.addStudent(s2);    
-        
-        
-        DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
-        DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
-        DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
+		Opleiding opleiding = OpleidingFacade.getInstance().getOpleiding();
+		opleiding.setNaam("Software Developer");
+		opleiding.addStudent(s);
+		opleiding.addStudent(s2);
 
-        DAOFactory.getTheFactory().getOpleidingDAO().saveOrUpdate(opleiding);
-        HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-        
-    }
-	
-	
+		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(a);
+		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s);
+		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(s2);
+
+		DAOFactory.getTheFactory().getOpleidingDAO().saveOrUpdate(opleiding);
+		HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
+
+	}
+
 	public void getfromDB(Account a) {
 		Student fromdb = DAOFactory.getTheFactory().getStudentDAO().findByEmail(a);
 	}

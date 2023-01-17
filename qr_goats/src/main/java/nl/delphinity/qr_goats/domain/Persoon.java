@@ -2,7 +2,6 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.Objects;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,14 +15,16 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Polymorphism;
 import org.hibernate.annotations.PolymorphismType;
 
+import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+
 @Entity
 @Polymorphism(type = PolymorphismType.IMPLICIT)
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "persoon", indexes = {@Index (columnList = "id")})
+@Table(name = "persoon", indexes = { @Index(columnList = "id") })
 public class Persoon implements Comparable<Persoon> {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name = "naam", nullable = false, length = 60)
 	private String naam;
@@ -102,16 +103,24 @@ public class Persoon implements Comparable<Persoon> {
 	}
 
 	public int compareTo(Persoon other) {
-
+		boolean thisHasTussen = this.getTussenvoegsel() != null;
+		boolean otherHasTussen = other.getTussenvoegsel() != null;
 		int temp = naam.compareTo(other.naam);
 		if (temp == 0) {
 			int temp2 = achternaam.compareTo(other.achternaam);
 			if (temp2 == 0) {
-				int temp3 = tussenvoegsel.compareTo(other.tussenvoegsel);
-				return temp3;
+				if (otherHasTussen && thisHasTussen) {
+					int temp3 = tussenvoegsel.compareTo(other.tussenvoegsel);
+					return temp3;
+				}
+				return 1;
 			}
 			return temp2;
 		}
 		return temp;
+	}
+	
+	public void save() {
+		DAOFactory.getTheFactory().getPersoonDAO().saveOrUpdate(this);
 	}
 }
