@@ -121,7 +121,7 @@ public class Opleiding {
 		save();
 	}
 	
-	private void save() {
+	public void save() {
 		DAOFactory.getTheFactory().getOpleidingDAO().saveOrUpdate(this);
 	}
 

@@ -120,6 +120,10 @@ public class Account implements Comparable<Account> {
 		}
 		return temp;
 	}
+	
+	public void save() {
+		DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(this);
+	}
 
 	public String getEmail() {
 		return email;

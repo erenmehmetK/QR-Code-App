@@ -83,13 +83,13 @@
 		</action>
 
 		<action name="ziekMelding"
-			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
+			class="nl.delphinity.qr_goats.HelloAction" method="studentMeldZiek">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/absentsuccess.jsp</result>
 		</action>
 
 		<action name="laatMelding"
-			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
+			class="nl.delphinity.qr_goats.HelloAction" method="studentMeldLaat">
 			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/absentsuccess.jsp</result>
 		</action>

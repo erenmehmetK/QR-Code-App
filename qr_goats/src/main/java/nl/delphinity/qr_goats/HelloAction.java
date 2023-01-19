@@ -3,6 +3,8 @@ package nl.delphinity.qr_goats;
 
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Hibernate;
+
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
@@ -20,6 +22,9 @@ public class HelloAction extends ActionSupport implements SessionAware {
      private String oudww;
      private String nieuwww1;
      private String nieuwww2verify;
+ 	 private Melding meld;
+ 	 private String opmerking;
+ 	 private String reden;
 //   private QRCode qrcode = new QRCode();
 // 	 private String qrimage;
 
@@ -27,6 +32,7 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
      @Override
      public String execute() {
+    	   	 
          return "SUCCESS";
      }
 
@@ -91,6 +97,37 @@ public class HelloAction extends ActionSupport implements SessionAware {
          } 
          return ERROR;
      }
+     
+     public String studentMeldZiek() {
+    	 
+    	
+ 		
+ 		Student st = (Student) sessionMap.get("Student");
+ 		
+ 		Hibernate.initialize(st.getMeldingen());
+ 		
+ 		String stnr = st.getStudentenNR();
+ 		
+ 		System.out.println(stnr + " noob");
+ 				
+ 	    OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(stnr);
+ 	    
+ 	    
+ 		return "SUCCESS";
+ 		
+ 	}
+
+ 	public String studentMeldLaat() {
+ 		
+ 		Student st = (Student) sessionMap.get("Student");
+
+ 		String stnr = st.getStudentenNR();
+ 		
+ 		OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, opmerking, reden);
+ 		
+ 		return "SUCCESS";
+ 		
+ 	}
 
  
 
@@ -123,7 +160,43 @@ public class HelloAction extends ActionSupport implements SessionAware {
          this.sessionMap = session;
      }
 	
-     public Map<String, Object> getSessionMap() {
+     public Melding getMeld() {
+		return meld;
+	}
+
+
+
+	public void setMeld(Melding meld) {
+		this.meld = meld;
+	}
+
+
+
+	public String getOpmerking() {
+		return opmerking;
+	}
+
+
+
+	public void setOpmerking(String opmerking) {
+		this.opmerking = opmerking;
+	}
+
+
+
+	public String getReden() {
+		return reden;
+	}
+
+
+
+	public void setReden(String reden) {
+		this.reden = reden;
+	}
+
+
+
+	public Map<String, Object> getSessionMap() {
 		return sessionMap;
 	}
 
@@ -196,6 +269,8 @@ public class HelloAction extends ActionSupport implements SessionAware {
      public void setNieuwww2verify(String nieuwww2verify) {
          this.nieuwww2verify = nieuwww2verify;
      }
+
+
 
  
 
