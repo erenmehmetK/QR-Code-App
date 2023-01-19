@@ -28,10 +28,7 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 	
 	public String studentMeldZiek() {
 		
-
-		Account acc = (Account) sessionMap.get("Account");
-		
-		Student st = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
+		Student st = (Student) sessionMap.get("Student");
 		
 		String stnr = st.getStudentenNR();
 				
@@ -42,11 +39,8 @@ public class MeldenAction extends ActionSupport implements SessionAware {
 
 	public String studentMeldLaat() {
 		
+		Student st = (Student) sessionMap.get("Student");
 
-        Account acc = (Account) sessionMap.get("Account");
-		
-		Student st = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
-		
 		String stnr = st.getStudentenNR();
 		
 		OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, opmerking, reden);

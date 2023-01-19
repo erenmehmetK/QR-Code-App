@@ -47,7 +47,49 @@ public class DBTest {
 		Session session = HibernateSessionManager.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		Opleiding o = OpleidingFacade.getInstance().getOpleiding();
+		Opleiding o;
+		if(OpleidingFacade.getInstance().getOpleiding() == null) {
+			o = new Opleiding();
+			o.setNaam("Software Developer");
+		} else {
+			o = OpleidingFacade.getInstance().getOpleiding();
+		}
+		
+		Account c = new Account();
+		try {
+			c.setWachtwoord(PasswordHashing.createHash("123456"));
+			c.setEmail("sahim@dinges.nl");
+		} catch (CannotPerformOperationException c3) {
+			c3.printStackTrace();
+		}
+		session.save(c);
+		
+		Account c2 = new Account();
+		try {
+			c2.setWachtwoord(PasswordHashing.createHash("123456"));
+			c2.setEmail("eren@dinges.nl");
+		} catch (CannotPerformOperationException c3) {
+			c3.printStackTrace();
+		}
+		session.save(c2);
+		
+		Student s1 = new Student();
+		s1.setAccount(c);
+		s1.setAchternaam("Barari");
+		s1.setNaam("Sahim");
+		s1.setStudentenNR("111111");
+		
+		
+		Student s2 = new Student();
+		s2.setAccount(c2);
+		s2.setAchternaam("Mehmet");
+		s2.setNaam("Kaya");
+		s2.setStudentenNR("222222");
+		
+		o.addStudent(s1);
+		o.addStudent(s2);
+
+		
 		System.out.println(o);
 		SortedSet <Student> studs = o.getStudenten();
 		System.out.println(studs);
@@ -60,15 +102,7 @@ public class DBTest {
 		
 		System.out.println(s);
 		
-//		Student s1 = new Student();
-//		s1.setAchternaam("Barari");
-//		s1.setNaam("Sahim");
-//		s1.setStudentenNR("123654");
-//		
-//		o.addStudent(s1);
-		
-		o.studentZiekMelden("123456");
-		
+			
 		session.getTransaction().commit();
 		
 

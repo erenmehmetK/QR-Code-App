@@ -7,6 +7,8 @@ import javax.persistence.*;
 import org.hibernate.annotations.Polymorphism;
 import org.hibernate.annotations.PolymorphismType;
 
+import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+
 import java.time.LocalDateTime;  
 
 @Entity
@@ -74,7 +76,10 @@ public class Melding implements Comparable<Melding>{
 			return id + " " + datum + " " + student;
 		}
 		
-	
+		public void save() {
+			DAOFactory.getTheFactory().getMeldingDAO().saveOrUpdate(this);
+		
+	}
        
 		public int getId() {
 			return id;

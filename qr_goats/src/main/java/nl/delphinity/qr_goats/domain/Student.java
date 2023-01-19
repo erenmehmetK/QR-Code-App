@@ -90,9 +90,10 @@ public class Student extends Persoon {
 		((LaatMelding) m1).setReden(reden);
 		addMelding(m1);
 		
-        save(m1);
+        m1.save();
 
 		return m1;
+		
 	}
 
 	// Student meldt zichzelf ziek
@@ -108,21 +109,18 @@ public class Student extends Persoon {
 
 		m1.setDatum(java.time.LocalDateTime.now());
 		addMelding(m1);
-	
-		save(m1);
+		m1.save();
 		
 		return m1;
 
 	}
 	
-	public void save(Melding m1) {
-	System.out.println("te");
 	
-		DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(this);
-		DAOFactory.getTheFactory().getMeldingDAO().saveOrUpdate(m1);
-		System.out.println("st");
-		
-	}
+	public void save() {
+	DAOFactory.getTheFactory().getStudentDAO().saveOrUpdate(this);
+			
+		}
+
 	
 	
 	public QRCode getQrCode() {

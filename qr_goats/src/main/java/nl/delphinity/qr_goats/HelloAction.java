@@ -56,6 +56,16 @@ public class HelloAction extends ActionSupport implements SessionAware {
          }
      }
 
+     public String logOut() {
+
+         stud = null;
+         acc = null;
+         sessionMap.clear();
+         
+
+		return "SUCCESS"; 
+
+     }
  
 
      public String profiel() {

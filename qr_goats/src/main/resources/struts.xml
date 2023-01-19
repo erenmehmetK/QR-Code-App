@@ -10,21 +10,17 @@
 
 		<interceptors>
 
-			<interceptor name="LoginInterceptor"
-				class="nl.delphinity.qr_goats.controller.interceptors.LoginInterceptor">
-			</interceptor>
+
 
 			<interceptor name="HibernateInterceptor"
 				class="nl.delphinity.qr_goats.controller.interceptors.HibernateInterceptor">
 			</interceptor>
 
-			<interceptor-stack name="QRGoatsStack">
-				<interceptor-ref name="LoginInterceptor"></interceptor-ref>
-				<interceptor-ref name="defaultStack"></interceptor-ref>
-			</interceptor-stack>
 
-			<interceptor-stack name="TestStack">
+			<interceptor-stack name="QRGoatsStack">
 				<interceptor-ref name="HibernateInterceptor"></interceptor-ref>
+			
+				
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 
 			</interceptor-stack>
@@ -50,7 +46,7 @@
 		</action>
 
 		<action name="absent"
-			class="nl.delphinity.qr_goats.HelloAction" method="">
+			class="nl.delphinity.qr_goats.HelloAction" method="execute">
 			<result name="SUCCESS">/content/absentmelden.jsp</result>
 		</action>
 
@@ -88,14 +84,19 @@
 
 		<action name="ziekMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldZiek">
-			<interceptor-ref name="TestStack"></interceptor-ref>
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/absentsuccess.jsp</result>
 		</action>
 
 		<action name="laatMelding"
 			class="nl.delphinity.qr_goats.MeldenAction" method="studentMeldLaat">
-			<interceptor-ref name="TestStack"></interceptor-ref>
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="SUCCESS">/content/absentsuccess.jsp</result>
+		</action>
+		
+		<action name="logout"
+			class="nl.delphinity.qr_goats.HelloAction" method="logOut">
+			<result name="SUCCESS">/content/login.jsp</result>
 		</action>
 
 	</package>
