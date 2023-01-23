@@ -2,7 +2,6 @@ package nl.delphinity.qr_goats.domain;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,11 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 
 
@@ -84,12 +83,10 @@ public class Student extends Persoon {
 		}
 
 		Melding m1 = new LaatMelding();
-		
 		m1.setDatum(java.time.LocalDateTime.now());
 		((LaatMelding) m1).setOpmerking(opmerking);
 		((LaatMelding) m1).setReden(reden);
 		addMelding(m1);
-		
         m1.save();
 
 		return m1;
@@ -106,7 +103,6 @@ public class Student extends Persoon {
 		}
 
 		Melding m1 = new ZiekMelding();
-
 		m1.setDatum(java.time.LocalDateTime.now());
 		addMelding(m1);
 		m1.save();

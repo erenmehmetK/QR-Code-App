@@ -3,11 +3,10 @@ package nl.delphinity.qr_goats;
 
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
-import org.hibernate.Hibernate;
-
 import com.opensymphony.xwork2.ActionSupport;
 import nl.delphinity.qr_goats.domain.*;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
+import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
 
 
 public class HelloAction extends ActionSupport implements SessionAware {
@@ -63,10 +62,9 @@ public class HelloAction extends ActionSupport implements SessionAware {
      }
 
      public String logOut() {
-
-         stud = null;
-         acc = null;
+    	 
          sessionMap.clear();
+         HibernateSessionManager.getSessionFactory().getCurrentSession().close();
          
 
 		return "SUCCESS"; 
@@ -98,34 +96,30 @@ public class HelloAction extends ActionSupport implements SessionAware {
          return ERROR;
      }
      
+     
+     
+     
      public String studentMeldZiek() {
     	 
-    	
- 		
- 		Student st = (Student) sessionMap.get("Student");
- 		
- 		Hibernate.initialize(st.getMeldingen());
- 		
- 		String stnr = st.getStudentenNR();
- 		
- 		System.out.println(stnr + " noob");
- 				
- 	    OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(stnr);
- 	    
- 	    
+    	Student st = (Student) sessionMap.get("Student");
+  		
+  		String stnr = st.getStudentenNR();
+  				
+  	    OpleidingFacade.getInstance().getOpleiding().studentZiekMelden(stnr);
+  		
  		return "SUCCESS";
  		
  	}
 
  	public String studentMeldLaat() {
  		
- 		Student st = (Student) sessionMap.get("Student");
-
+        Student st = (Student) sessionMap.get("Student");
+ 		
  		String stnr = st.getStudentenNR();
+ 				
+ 	    OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, reden, opmerking);
  		
- 		OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, opmerking, reden);
- 		
- 		return "SUCCESS";
+		return "SUCCESS";
  		
  	}
 

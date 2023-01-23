@@ -38,7 +38,6 @@ public class HibernateInterceptor extends AbstractInterceptor {
         super.init();
         DAOFactory.setTheFactory(DAOFactories.HIBERNATE.getTheFactory());
 //        OpleidingFacade.getInstance().getOpleiding().loadTestData(); 
-        System.out.println("ok123456");
 
     }
 
@@ -72,7 +71,8 @@ public class HibernateInterceptor extends AbstractInterceptor {
 //	        acc.save();
 			
 					
-			HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
+	        HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
+			System.out.println("na commit");
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
