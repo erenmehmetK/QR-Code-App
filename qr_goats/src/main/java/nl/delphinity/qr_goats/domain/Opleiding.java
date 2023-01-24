@@ -65,10 +65,7 @@ public class Opleiding {
 		for (Student s : studenten) {
 			if (s.getStudentenNR().equals(studentenNR)) {
 				m1 = s.ziekMelden();
-				
-				System.out.println(s.getMeldingen());
-
-				
+						
 			}
 		}
 		 
@@ -90,7 +87,6 @@ public class Opleiding {
 		for (Student s : studenten) {
 			if (s.getStudentenNR().equals(studentenNR)) {
 				m1 = s.laatMelden(opmerking, reden);
-				System.out.println(s.getMeldingen());
 				
 			}
 			

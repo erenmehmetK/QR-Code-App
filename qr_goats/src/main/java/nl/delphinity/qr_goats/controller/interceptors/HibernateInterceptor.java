@@ -59,7 +59,6 @@ public class HibernateInterceptor extends AbstractInterceptor {
     public String intercept(ActionInvocation invocation) throws Exception {
     	HibernateSessionManager.getSessionFactory().getCurrentSession().beginTransaction();
 		try {
-			System.out.println("Voor invoke");
 			
 			  Method method = HelloAction.class.getDeclaredMethod("getSessionMap");
 		        Map<String, Object> sessionMap = invocation.getInvocationContext().getSession();
@@ -69,20 +68,8 @@ public class HibernateInterceptor extends AbstractInterceptor {
 		        }
 
 			String result = invocation.invoke();
-			System.out.println("Na invoke");
-			
-		      
-//	           
-//	        
-//	        Student st = (Student) hl.getSessionMap().get("Student");
-//	        st.save();
-//	        
-//	        Account acc = (Account) hl.getSessionMap().get("Account");
-//	        acc.save();
-			
-					
+							
 	        HibernateSessionManager.getSessionFactory().getCurrentSession().getTransaction().commit();
-			System.out.println("na commit");
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
