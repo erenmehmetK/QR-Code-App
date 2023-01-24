@@ -103,24 +103,23 @@ public class Persoon implements Comparable<Persoon> {
 	}
 
 	public int compareTo(Persoon other) {
-		//TODO fix dit, als tussenvoegsel null is bij een persoon dan is er een error
-		boolean thisHasTussen = this.getTussenvoegsel() != null;
-		boolean otherHasTussen = other.getTussenvoegsel() != null;
+		// TODO fix dit, als tussenvoegsel null is bij een persoon dan is er een error
 		int temp = naam.compareTo(other.naam);
 		if (temp == 0) {
 			int temp2 = achternaam.compareTo(other.achternaam);
 			if (temp2 == 0) {
-				if (otherHasTussen && thisHasTussen) {
+				if (tussenvoegsel == null || other.tussenvoegsel == null) {
+					return 0;
+				} else {
 					int temp3 = tussenvoegsel.compareTo(other.tussenvoegsel);
 					return temp3;
 				}
-				return 1;
 			}
 			return temp2;
 		}
 		return temp;
 	}
-	
+
 	public void save() {
 		DAOFactory.getTheFactory().getPersoonDAO().saveOrUpdate(this);
 	}

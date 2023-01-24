@@ -25,8 +25,8 @@ public class HelloAction extends ActionSupport implements SessionAware {
  	 private String opmerking;
  	 private String reden;
  	 private Opleiding opl;
-//   private QRCode qrcode = new QRCode();
-// 	 private String qrimage;
+     private QRCode qrcode = new QRCode();
+ 	 private String qrimage;
 
  
 
@@ -40,13 +40,11 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
      public String login() {
          if (acc.loginCheck()) {
-
- 
-        	 //TODO haal student weg, gebruik account om toegang aan student te krijgen
+        	 
+        
+         	 //TODO haal student weg, gebruik account om toegang aan student te krijgen
              stud = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
              sessionMap.putIfAbsent("Student", stud);
-
- 
 
              acc = DAOFactory.getTheFactory().getAccountDAO().findbyemail(acc);
              sessionMap.putIfAbsent("Account", acc);
@@ -54,8 +52,9 @@ public class HelloAction extends ActionSupport implements SessionAware {
              opl = OpleidingFacade.getInstance().getOpleiding();
              sessionMap.putIfAbsent("Opleiding", opl);
              
-//             String studentenNummer = stud.getStudentenNR();
-//             qrimage = qrcode.generateQR(studentenNummer);
+             String studentenNummer = stud.getStudentenNR();
+             qrimage = qrcode.generateQR(studentenNummer);
+             
 
  
 
@@ -129,27 +128,27 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
  
 
-//     public QRCode getQrcode() {
-//		return qrcode;
-//	}
-//
-//
-//
-//	public void setQrcode(QRCode qrcode) {
-//		this.qrcode = qrcode;
-//	}
-//
-//
-//
-//	public String getQrimage() {
-//		return qrimage;
-//	}
-//
-//
-//
-//	public void setQrimage(String qrimage) {
-//		this.qrimage = qrimage;
-//	}
+     public QRCode getQrcode() {
+		return qrcode;
+	}
+
+
+
+	public void setQrcode(QRCode qrcode) {
+		this.qrcode = qrcode;
+	}
+
+
+
+	public String getQrimage() {
+		return qrimage;
+	}
+
+
+
+	public void setQrimage(String qrimage) {
+		this.qrimage = qrimage;
+	}
 
 
 
