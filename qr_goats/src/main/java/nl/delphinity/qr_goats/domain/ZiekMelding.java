@@ -4,12 +4,17 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_ziekmelding_meldingID"))
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class ZiekMelding extends Melding {
-
+	
 	@Override
 	public String toString() {
 

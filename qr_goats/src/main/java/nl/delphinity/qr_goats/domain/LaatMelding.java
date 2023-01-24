@@ -5,10 +5,15 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_laatmelding_meldingID"))
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class LaatMelding extends Melding {
 	
 	@Column(name = "opmerking", nullable = true, length = 255)
@@ -16,6 +21,8 @@ public class LaatMelding extends Melding {
 	
 	@Column(name = "reden", nullable = false, length = 15)
 	private String reden;
+	
+
 	
 	public LaatMelding() {
 		
