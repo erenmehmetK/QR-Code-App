@@ -2,6 +2,9 @@ package nl.delphinity.qr_goats.controller.interceptors;
 
  
 
+import java.lang.reflect.Method;
+import java.util.Map;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -57,11 +60,18 @@ public class HibernateInterceptor extends AbstractInterceptor {
     	HibernateSessionManager.getSessionFactory().getCurrentSession().beginTransaction();
 		try {
 			System.out.println("Voor invoke");
+			
+			  Method method = HelloAction.class.getDeclaredMethod("getSessionMap");
+		        Map<String, Object> sessionMap = invocation.getInvocationContext().getSession();
+		        Opleiding op = (Opleiding) sessionMap.get("Opleiding");
+		        if(op != null) {
+		        op.save();
+		        }
+
 			String result = invocation.invoke();
 			System.out.println("Na invoke");
 			
-//			Opleiding o = OpleidingFacade.getInstance().getOpleiding();
-//	        o.save();
+		      
 //	           
 //	        
 //	        Student st = (Student) hl.getSessionMap().get("Student");

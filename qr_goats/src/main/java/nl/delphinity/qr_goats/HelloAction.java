@@ -24,6 +24,7 @@ public class HelloAction extends ActionSupport implements SessionAware {
  	 private Melding meld;
  	 private String opmerking;
  	 private String reden;
+ 	 private Opleiding opl;
 //   private QRCode qrcode = new QRCode();
 // 	 private String qrimage;
 
@@ -41,7 +42,7 @@ public class HelloAction extends ActionSupport implements SessionAware {
          if (acc.loginCheck()) {
 
  
-
+        	 //TODO haal student weg, gebruik account om toegang aan student te krijgen
              stud = DAOFactory.getTheFactory().getStudentDAO().findByEmail(acc);
              sessionMap.putIfAbsent("Student", stud);
 
@@ -49,6 +50,9 @@ public class HelloAction extends ActionSupport implements SessionAware {
 
              acc = DAOFactory.getTheFactory().getAccountDAO().findbyemail(acc);
              sessionMap.putIfAbsent("Account", acc);
+             
+             opl = OpleidingFacade.getInstance().getOpleiding();
+             sessionMap.putIfAbsent("Opleiding", opl);
              
 //             String studentenNummer = stud.getStudentenNR();
 //             qrimage = qrcode.generateQR(studentenNummer);

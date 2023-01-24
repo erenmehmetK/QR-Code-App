@@ -103,6 +103,7 @@ public class Persoon implements Comparable<Persoon> {
 	}
 
 	public int compareTo(Persoon other) {
+		//TODO fix dit, als tussenvoegsel null is bij een persoon dan is er een error
 		boolean thisHasTussen = this.getTussenvoegsel() != null;
 		boolean otherHasTussen = other.getTussenvoegsel() != null;
 		int temp = naam.compareTo(other.naam);
