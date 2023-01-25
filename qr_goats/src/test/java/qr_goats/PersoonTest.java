@@ -37,14 +37,6 @@ public class PersoonTest {
         assertEquals(p1.compareTo(p5), 0);
         assertEquals(p5.compareTo(p1), 0);
         
-        System.out.println(p1.compareTo(p2));
-        System.out.println(p2.compareTo(p1));
-        System.out.println(p1.compareTo(p3));
-        System.out.println(p3.compareTo(p1));
-        System.out.println(p1.compareTo(p4));
-        System.out.println(p4.compareTo(p1));
-        System.out.println(p1.compareTo(p5));
-        System.out.println(p5.compareTo(p1));
     }
 
 }

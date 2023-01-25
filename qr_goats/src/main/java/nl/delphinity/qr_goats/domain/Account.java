@@ -61,7 +61,7 @@ public class Account implements Comparable<Account> {
 			if (PasswordHashing.verifyPassword(oudWachtwoord, wachtwoord)
 					&& !PasswordHashing.verifyPassword(nieuwWachtwoord, wachtwoord)) {
 				wachtwoord = PasswordHashing.createHash(nieuwWachtwoord);
-				DAOFactory.getTheFactory().getAccountDAO().saveOrUpdate(this);
+				this.save();
 
 				return true;
 			}

@@ -41,6 +41,7 @@
 
 		<action name="WijzigWachtwoordCheck"
 			class="nl.delphinity.qr_goats.HelloAction" method="wijzigWachtwoord">
+			<interceptor-ref name="QRGoatsStack"></interceptor-ref>
 			<result name="success">/content/successfullChange.jsp</result>
 			<result name="error">/content/incorrectChance.jsp</result>
 		</action>
