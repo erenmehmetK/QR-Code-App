@@ -11,18 +11,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
-import nl.delphinity.qr_goats.persistence.utils.HibernateSessionManager;
-
-
-
 
 @Entity
 @PrimaryKeyJoinColumn(foreignKey = @ForeignKey(name = "FK_student_personID"))
+@Table(name = "student")
 public class Student extends Persoon {
 	// dit is primary key, hierbij kan geen @Id ivm dit is een subclass	
 	@Column(name = "studentenNR", nullable = false, length = 6, unique = true)
