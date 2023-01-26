@@ -90,17 +90,13 @@ public class DBTest {
 		o.addStudent(s2);
 
 		
-		System.out.println(o);
 		SortedSet <Student> studs = o.getStudenten();
-		System.out.println(studs);
+
 		
 		Student s = studs.first();
 		Account a = s.getAccount();
 		
 		
-		
-		
-		System.out.println(s);
 		
 			
 		session.getTransaction().commit();

@@ -120,7 +120,7 @@ public class HelloAction extends ActionSupport implements SessionAware {
  		
  		String stnr = st.getStudentenNR();
  				
- 	    OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, reden, opmerking);
+ 	    OpleidingFacade.getInstance().getOpleiding().studentLaatMelden(stnr, opmerking, reden);
  		
 		return "SUCCESS";
  		
