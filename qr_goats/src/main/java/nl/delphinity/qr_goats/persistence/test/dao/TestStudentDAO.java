@@ -1,6 +1,7 @@
 package nl.delphinity.qr_goats.persistence.test.dao;
 
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 import nl.delphinity.qr_goats.domain.Account;
@@ -10,11 +11,14 @@ import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 
 
 public class TestStudentDAO extends GenericTestDAO<Student, String> implements IStudentDAO {
+	
 
 	private static TestStudentDAO instance;
-	private TreeSet<Student> studenten;
+	private SortedSet<Student> studenten;
+	
 
 	private TestStudentDAO() {
+		
 
 		studenten = new TreeSet<Student>();
 
@@ -34,6 +38,7 @@ public class TestStudentDAO extends GenericTestDAO<Student, String> implements I
 		}
 	}
 
+	
 	@Override
 	public Student findById(String studentenNR) {
 		for (Student s : studenten) {
@@ -81,11 +86,11 @@ public class TestStudentDAO extends GenericTestDAO<Student, String> implements I
 	}
 
 	@Override
-	public TreeSet<Student> findAll() {
-		return getStudenten();
+	public SortedSet<Student> findAll() {
+		return this.getStudenten();
 	}
 
-	public TreeSet<Student> getStudenten() {
+	public SortedSet<Student> getStudenten() {
 		return studenten;
 	}
 

@@ -11,6 +11,8 @@ import org.junit.Before;
 import nl.delphinity.qr_goats.domain.Account;
 import nl.delphinity.qr_goats.domain.LaatMelding;
 import nl.delphinity.qr_goats.domain.Melding;
+import nl.delphinity.qr_goats.domain.Opleiding;
+import nl.delphinity.qr_goats.domain.OpleidingFacade;
 import nl.delphinity.qr_goats.domain.Student;
 import nl.delphinity.qr_goats.persistence.test.dao.TestStudentDAO;
 import nl.delphinity.qr_goats.persistence.factories.DAOFactories;
@@ -18,11 +20,21 @@ import nl.delphinity.qr_goats.persistence.factories.DAOFactory;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 
 public class StudentTest {
-
+	
+	private Opleiding opleiding;
+	
 	@Before
-	public void createDatabase() {
+	public void setup() {
 
 		DAOFactory.setTheFactory(DAOFactories.TESTDATA.getTheFactory());
+		
+		opleiding = OpleidingFacade.getInstance().getOpleiding();
+		
+		for(Student s : TestStudentDAO.getInstance().getStudenten()) {
+	    	 
+	    	 opleiding.addStudent(s);
+	    	 
+	     }  
 
 	}
 
@@ -41,8 +53,9 @@ public class StudentTest {
 	@Test
 	public void laatMeldenTest() {
 
-		IStudentDAO studentDAO = DAOFactory.getTheFactory().getStudentDAO();
-		Student student = studentDAO.findById("100001");
+	    
+		Student student = opleiding.findStudent("100001");
+		
 
 		Melding m1 = student.laatMelden("yeah...", "Overige");
 
@@ -62,8 +75,8 @@ public class StudentTest {
 	@Test
 	public void ziekMeldenTest() {
 
-		TestStudentDAO studentDAO = TestStudentDAO.getInstance();
-		Student student = studentDAO.findById("100001");
+	
+		Student student = opleiding.findStudent("100001");
 
 		Melding m1 = student.ziekMelden();
 
@@ -74,5 +87,7 @@ public class StudentTest {
 		assertEquals(m1.getStudent(), student);
 
 	}
+	
+	
 
 }

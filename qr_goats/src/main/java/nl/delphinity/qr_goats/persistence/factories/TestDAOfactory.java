@@ -9,6 +9,7 @@ import nl.delphinity.qr_goats.persistence.interfaces.IQRCodeDAO;
 import nl.delphinity.qr_goats.persistence.interfaces.IStudentDAO;
 import nl.delphinity.qr_goats.persistence.interfaces.IZiekMeldingDAO;
 import nl.delphinity.qr_goats.persistence.test.dao.TestDAOAccount;
+import nl.delphinity.qr_goats.persistence.test.dao.TestMeldingDAO;
 import nl.delphinity.qr_goats.persistence.test.dao.TestOpleidingDAO;
 import nl.delphinity.qr_goats.persistence.test.dao.TestStudentDAO;
 
@@ -46,7 +47,7 @@ public class TestDAOfactory extends DAOFactory {
 	@Override
 	public IMeldingDAO getMeldingDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return TestMeldingDAO.getInstance();
 	}
 
 	@Override
